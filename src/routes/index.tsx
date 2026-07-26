@@ -36,6 +36,7 @@ import {
   MessagesSquare,
   Gauge,
 } from "lucide-react";
+import logoAsset from "@/assets/logo-icon.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
