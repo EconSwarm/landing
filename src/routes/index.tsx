@@ -594,16 +594,109 @@ function CTA() {
 }
 
 function Footer() {
+  const product = [
+    { label: "核心能力", href: "#capabilities" },
+    { label: "核心模块", href: "#modules" },
+    { label: "技术原理", href: "#principle" },
+    { label: "工作台", href: "#workbench" },
+    { label: "定价方案", href: "#pricing" },
+  ];
+  const resources = [
+    { label: "文档中心", href: "#" },
+    { label: "API 参考", href: "#" },
+    { label: "示例报告", href: "#" },
+    { label: "更新日志", href: "#" },
+    { label: "社区讨论", href: "#" },
+  ];
+  const company = [
+    { label: "关于我们", href: "#" },
+    { label: "加入团队", href: "#" },
+    { label: "联系我们", href: "#" },
+    { label: "媒体报道", href: "#" },
+  ];
+  const legal = [
+    { label: "隐私政策", href: "#" },
+    { label: "服务条款", href: "#" },
+    { label: "风险提示", href: "#" },
+    { label: "Cookie 设置", href: "#" },
+  ];
+  const socials = [
+    { icon: Github, label: "GitHub", href: "#" },
+    { icon: Twitter, label: "Twitter", href: "#" },
+    { icon: Linkedin, label: "LinkedIn", href: "#" },
+    { icon: Mail, label: "Email", href: "#" },
+  ];
+
   return (
-    <footer className="border-t border-subtle bg-background py-10">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 text-xs text-muted-foreground sm:flex-row">
-        <div className="flex items-center gap-2">
-          <div className="grid h-6 w-6 place-items-center rounded bg-primary/15 text-primary">
-            <Sparkles className="h-3 w-3" />
+    <footer className="border-t border-subtle bg-section-deep">
+      <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
+          <div className="lg:col-span-2">
+            <a href="#" className="flex items-center gap-2">
+              <div className="grid h-9 w-9 place-items-center rounded-md bg-primary/15 text-primary">
+                <Sparkles className="h-4 w-4" />
+              </div>
+              <span className="text-lg font-semibold tracking-tight text-foreground">EconSwarm</span>
+            </a>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
+              通用群智能体金融分析框架。让一支可配置、可扩展、可审计的 AI 分析师团队，替你完成从数据抓取到交易信号的全流程投研工作。
+            </p>
+            <div className="mt-6 flex items-center gap-3">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  aria-label={s.label}
+                  className="grid h-9 w-9 place-items-center rounded-lg border border-subtle bg-surface text-muted-foreground transition hover:border-primary/40 hover:text-primary"
+                >
+                  <s.icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
           </div>
-          <span>EconSwarm · Swarm Financial Engine</span>
+
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-wider text-foreground">产品</div>
+            <ul className="mt-4 space-y-2.5">
+              {product.map((l) => (
+                <li key={l.label}>
+                  <a href={l.href} className="text-sm text-muted-foreground transition hover:text-primary">{l.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-wider text-foreground">资源</div>
+            <ul className="mt-4 space-y-2.5">
+              {resources.map((l) => (
+                <li key={l.label}>
+                  <a href={l.href} className="text-sm text-muted-foreground transition hover:text-primary">{l.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <div className="text-xs font-semibold uppercase tracking-wider text-foreground">公司</div>
+            <ul className="mt-4 space-y-2.5">
+              {company.map((l) => (
+                <li key={l.label}>
+                  <a href={l.href} className="text-sm text-muted-foreground transition hover:text-primary">{l.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className="font-mono">© 2026 EconSwarm. All rights reserved.</div>
+
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-subtle pt-8 text-xs text-muted-foreground sm:flex-row">
+          <div className="font-mono">© 2026 EconSwarm. All rights reserved.</div>
+          <div className="flex flex-wrap items-center justify-center gap-6">
+            {legal.map((l) => (
+              <a key={l.label} href={l.href} className="transition hover:text-foreground">{l.label}</a>
+            ))}
+          </div>
+        </div>
       </div>
     </footer>
   );
