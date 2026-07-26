@@ -36,6 +36,7 @@ import {
   MessagesSquare,
   Gauge,
 } from "lucide-react";
+import logoAsset from "@/assets/logo-icon.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -85,9 +86,9 @@ function Nav() {
       <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:px-6 py-3.5">
         <a href="#top" className="flex min-w-0 items-center gap-2.5" aria-label="EconSwarm 首页">
           <img
-            src="/logo.png"
+            src={logoAsset.url}
             alt="EconSwarm 群智能体金融引擎"
-            className="h-9 w-auto object-contain"
+            className="h-9 w-9 rounded-md object-cover"
             loading="eager"
             decoding="async"
           />
@@ -1561,8 +1562,9 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-2">
-              <img src="/logo.png" alt="EconSwarm" className="h-9 w-auto" />
+            <a href="#" className="flex items-center gap-2.5">
+              <img src={logoAsset.url} alt="EconSwarm" className="h-9 w-9 rounded-md object-cover" />
+              <span className="text-base font-semibold tracking-tight text-foreground">EconSwarm</span>
             </a>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               通用群智能体金融分析框架。让一支可配置、可扩展、可审计的 AI
