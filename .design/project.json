@@ -1,0 +1,24 @@
+{
+  "name": "EconSwarm Landing",
+  "source": "existing_project",
+  "type": "web_page",
+  "createdAt": "2026-07-26",
+  "pages": [
+    {
+      "id": "page-home",
+      "title": "首页",
+      "htmlSrc": "src/routes/index.tsx",
+      "type": "react_component",
+      "description": "EconSwarm 群智能体金融引擎落地页"
+    }
+  ],
+  "devMetadata": {
+    "htmlSrc": "src/routes/index.tsx",
+    "cssSrc": "src/styles.css",
+    "framework": "react_tanstack_router"
+  },
+  "libraryBindings": {
+    "primary": "TRAE",
+    "tokenScope": "colors_and_type.css"
+  }
+}

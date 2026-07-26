@@ -1,14 +1,14 @@
-@import 'tailwindcss' source(none);
+@import "tailwindcss" source(none);
 @source "../src";
-@import 'tw-animate-css';
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --font-sans:
-    'SF Pro Text', 'SF Pro Display', 'Inter', 'PingFang SC', 'Microsoft YaHei', system-ui,
+    "SF Pro Text", "SF Pro Display", "Inter", "PingFang SC", "Microsoft YaHei", system-ui,
     sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -38,8 +38,29 @@
   --color-grid-line: var(--grid-line);
 }
 
+/* ── TRAE Design System Token Alignment ──
+     Maps existing page tokens to TRAE's canonical naming.
+     TRAE is the authoritative design constraint: brand-green (#32F08C), dark-first.
+*/
 :root {
   --radius: 0.5rem;
+  --t-radius-2: 2px;
+  --t-radius-4: 4px;
+  --t-radius-6: 6px;
+  --t-radius-8: 8px;
+  --t-radius-10: 10px;
+  --t-radius-full: 9999px;
+
+  /* TRAE spacers */
+  --t-spacer-0: 0px;
+  --t-spacer-4: 4px;
+  --t-spacer-6: 6px;
+  --t-spacer-8: 8px;
+  --t-spacer-12: 12px;
+  --t-spacer-16: 16px;
+  --t-spacer-24: 24px;
+  --t-spacer-32: 32px;
+  --t-spacer-40: 40px;
 
   /* ── Base palette ── */
   --background: #111213;
@@ -73,6 +94,49 @@
   --input: rgba(224, 226, 242, 0.06);
   --ring: #32f08c;
 
+  /* ── TRAE token aliases ── */
+  --bg-base-default: #1a1b1d;
+  --bg-base-secondary: #222427;
+  --bg-base-tertiary: #2a2d31;
+  --bg-overlay-l1: rgba(224, 226, 242, 0.04);
+  --bg-overlay-l2: rgba(224, 226, 242, 0.06);
+  --bg-overlay-l3: rgba(224, 226, 242, 0.08);
+  --bg-overlay-l4: rgba(224, 226, 242, 0.12);
+  --bg-brand: #32f08c;
+  --bg-brand-hover: #0fdc78;
+  --bg-brand-disabled: rgba(50, 240, 140, 0.2);
+  --bg-brand-popup: rgba(50, 240, 140, 0.12);
+
+  --text-default: #d1d3db;
+  --text-default-hover: #f5f9fe;
+  --text-secondary: #9599a6;
+  --text-secondary-hover: #d1d3db;
+  --text-tertiary: #666b75;
+  --text-disabled: #666b75;
+  --text-onbrand: #0c0c0d;
+  --text-brand: #32f08c;
+  --text-brand-hover: #0fdc78;
+
+  --icon-default: #d1d3db;
+  --icon-secondary: #9599a6;
+  --icon-tertiary: #666b75;
+  --icon-onbrand: #0c0c0d;
+  --icon-brand: #32f08c;
+
+  --border-neutral-l1: rgba(224, 226, 242, 0.1);
+  --border-neutral-l2: rgba(224, 226, 242, 0.16);
+  --border-neutral-l3: rgba(224, 226, 242, 0.2);
+  --border-brand: #32f08c;
+
+  --status-primary-default: #387bff;
+  --status-success-default: #33c192;
+  --status-warning-default: #d27e24;
+  --status-alert-default: #d29d00;
+  --status-error-default: #f65a5a;
+
+  --special-white: #ffffff;
+  --special-black: #000000;
+
   /* ── Grid line theming ── */
   --grid-hue: 180, 186, 202;
   --grid-alpha-bright: 0.035;
@@ -94,7 +158,7 @@
   --status-primary: #4a85ff;
   --status-alert: #d29d00;
 
-  /* ── Core gradients ── */
+  /* ── Core gradients (enhanced) ── */
   --gradient-primary: linear-gradient(135deg, #32f08c, #5cf5a8);
 
   --gradient-hero:
@@ -119,7 +183,7 @@
   /* ── Section gradient variants ── */
   --gradient-modules:
     radial-gradient(ellipse 75% 55% at 0% 0%, rgba(50, 240, 140, 0.12), transparent 65%),
-    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(74, 133, 255, 0.10), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(74, 133, 255, 0.1), transparent 55%),
     radial-gradient(ellipse 50% 40% at 50% 30%, rgba(50, 240, 140, 0.05), transparent 50%),
     linear-gradient(180deg, rgba(14, 15, 17, 0.95) 0%, rgba(17, 18, 19, 1) 100%);
 
@@ -137,8 +201,10 @@
     linear-gradient(180deg, rgba(17, 18, 19, 1) 0%, rgba(20, 22, 24, 0.6) 100%);
 
   /* ── Shadows & Glows ── */
-  --glow-primary: 0 0 0 1px rgba(50, 240, 140, 0.15), 0 18px 40px rgba(50, 240, 140, 0.10);
+  --glow-primary: 0 0 0 1px rgba(50, 240, 140, 0.15), 0 18px 40px rgba(50, 240, 140, 0.1);
   --glow-accent: 0 0 0 1px rgba(74, 133, 255, 0.15), 0 18px 40px rgba(74, 133, 255, 0.08);
+  --glow-card: 0 0 0 1px rgba(50, 240, 140, 0.06), 0 4px 20px rgba(0, 0, 0, 0.2);
+  --glow-card-hover: 0 0 0 1px rgba(50, 240, 140, 0.15), 0 8px 32px rgba(50, 240, 140, 0.08);
   --shadow-elevated: 0 24px 80px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
 }
 
@@ -146,16 +212,9 @@
   color-scheme: dark;
 }
 
-/* ============================================================
-   Light / high-contrast theme overrides
-   ------------------------------------------------------------
-   仅需覆盖 --grid-hue 与 --grid-alpha-* 即可整站生效，
-   所有 @utility 与 body 网格背景都会自动切换。
-   ============================================================ */
 .light,
-[data-theme='light'] {
+[data-theme="light"] {
   color-scheme: light;
-  /* 浅色底：改用深色 RGB 线，透明度整体降一档避免过重 */
   --grid-hue: 40, 46, 62;
   --grid-alpha-bright: 0.05;
   --grid-alpha-soft: 0.06;
@@ -164,8 +223,7 @@
   --grid-alpha-deep: 0.09;
 }
 
-[data-theme='high-contrast'] {
-  /* 高对比度：不改色相，仅统一提升 alpha */
+[data-theme="high-contrast"] {
   --grid-alpha-bright: 0.09;
   --grid-alpha-soft: 0.1;
   --grid-alpha-base: 0.12;
@@ -199,8 +257,14 @@
       linear-gradient(var(--grid-line) 0.5px, transparent 0.5px),
       linear-gradient(90deg, var(--grid-line) 0.5px, transparent 0.5px),
       radial-gradient(ellipse 100% 30% at 50% 0%, rgba(50, 240, 140, 0.025), transparent 100%);
-    background-size: 48px 48px, 48px 48px, 100% 100%;
-    background-position: -0.5px -0.5px, -0.5px -0.5px, 0 0;
+    background-size:
+      48px 48px,
+      48px 48px,
+      100% 100%;
+    background-position:
+      -0.5px -0.5px,
+      -0.5px -0.5px,
+      0 0;
   }
 }
 
@@ -216,6 +280,15 @@
 }
 @utility glow-accent {
   box-shadow: var(--glow-accent);
+}
+@utility glow-card {
+  box-shadow: var(--glow-card);
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+@utility glow-card-hover {
+  box-shadow: var(--glow-card-hover);
 }
 @utility shadow-elevated {
   box-shadow: var(--shadow-elevated);
@@ -262,10 +335,12 @@
 @utility glass-panel {
   background: rgba(28, 30, 34, 0.72);
   backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
 }
 @utility glass-panel-light {
-  background: rgba(28, 30, 34, 0.50);
+  background: rgba(28, 30, 34, 0.5);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 @utility border-subtle {
   border-color: rgba(224, 226, 242, 0.08);
@@ -280,7 +355,7 @@
 }
 @utility scanline {
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(
@@ -342,6 +417,26 @@
     background-position: 200% 0;
   }
 }
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 @utility animate-pulse-dot {
   animation: pulse-dot 1.6s ease-in-out infinite;
@@ -355,13 +450,348 @@
 @utility animate-fade-blur {
   animation: fade-in-blur 0.8s ease-out both;
 }
+@utility animate-slide-in {
+  animation: slide-in-right 0.5s ease-out both;
+}
+@utility animate-scale-in {
+  animation: scale-in 0.4s ease-out both;
+}
 
+/* ══════════════════════════════════════════════
+   TRAE Component Classes (subset for landing page)
+   ══════════════════════════════════════════════ */
+
+/* ── Stat Card (TRAE pattern) ── */
+.ds-statcard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--t-spacer-8);
+  padding: var(--t-spacer-16);
+  background: var(--bg-base-secondary);
+  border: 1px solid var(--border-neutral-l1);
+  border-radius: var(--t-radius-10);
+  min-width: 140px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.ds-statcard:hover {
+  border-color: var(--border-brand);
+  box-shadow: var(--glow-card-hover);
+}
+.ds-statcard__label {
+  font-size: 10px;
+  line-height: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+.ds-statcard__value {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 600;
+  color: var(--text-default);
+}
+.ds-statcard__delta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--t-spacer-4);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.ds-statcard__delta.is-up {
+  color: var(--status-success-default);
+}
+.ds-statcard__delta.is-down {
+  color: var(--status-error-default);
+}
+.ds-statcard__delta .ds-statcard__caption {
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+
+/* ── Card (TRAE pattern) ── */
+.ds-card {
+  background: var(--bg-base-secondary);
+  border: 1px solid var(--border-neutral-l1);
+  border-radius: var(--t-radius-8);
+  padding: var(--t-spacer-24);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+.ds-card:hover {
+  border-color: var(--border-brand);
+  box-shadow: var(--glow-card-hover);
+  transform: translateY(-1px);
+}
+.ds-card__title {
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 600;
+  margin-bottom: var(--t-spacer-8);
+}
+.ds-card__desc {
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--text-secondary);
+}
+
+/* ── Button (TRAE pattern) ── */
+.ds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--t-spacer-6);
+  padding: 0 var(--t-spacer-12);
+  height: 28px;
+  border-radius: var(--t-radius-4);
+  border: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 500;
+  transition:
+    background 0.12s ease,
+    color 0.12s ease,
+    border-color 0.12s ease,
+    opacity 0.12s ease;
+}
+.ds-btn--sm {
+  height: 24px;
+  padding: 0 var(--t-spacer-8);
+  border-radius: var(--t-radius-4);
+  font-size: 10px;
+}
+.ds-btn--lg {
+  height: 32px;
+  padding: 0 var(--t-spacer-16);
+  border-radius: var(--t-radius-4);
+  font-size: 13px;
+}
+.ds-btn--xl {
+  height: 36px;
+  padding: 0 var(--t-spacer-20);
+  border-radius: var(--t-radius-6);
+  font-size: 13px;
+}
+
+/* PRIMARY — high-contrast neutral */
+.ds-btn--primary {
+  background: var(--text-default);
+  color: var(--bg-base-default);
+  border-color: var(--text-default);
+}
+.ds-btn--primary:hover {
+  background: var(--text-default-hover);
+}
+.ds-btn--primary:active {
+  background: var(--text-secondary);
+  border-color: var(--text-secondary);
+}
+
+/* SECONDARY — neutral surface */
+.ds-btn--secondary {
+  background: var(--bg-overlay-l2);
+  color: var(--text-default);
+  border-color: var(--border-neutral-l1);
+}
+.ds-btn--secondary:hover {
+  background: var(--bg-overlay-l3);
+  border-color: var(--border-neutral-l2);
+}
+.ds-btn--secondary:active {
+  background: var(--bg-overlay-l1);
+}
+
+/* BRAND — green CTA (at most one per page) */
+.ds-btn--brand {
+  background: var(--bg-brand);
+  color: var(--text-onbrand);
+  border-color: var(--bg-brand);
+}
+.ds-btn--brand:hover {
+  background: var(--bg-brand-hover);
+  border-color: var(--bg-brand-hover);
+}
+.ds-btn--brand:active {
+  filter: brightness(0.92);
+}
+
+/* GHOST */
+.ds-btn--ghost {
+  background: transparent;
+  color: var(--text-default);
+  border-color: transparent;
+}
+.ds-btn--ghost:hover {
+  background: var(--bg-overlay-l2);
+}
+
+/* ── Tag (TRAE pattern) ── */
+.ds-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 1px var(--t-spacer-8);
+  border-radius: var(--t-radius-4);
+  font-size: 10px;
+  line-height: 18px;
+  font-weight: 400;
+  background: var(--bg-overlay-l2);
+  color: var(--text-secondary);
+}
+.ds-tag--brand {
+  background: var(--bg-brand-popup);
+  color: var(--text-brand);
+}
+
+/* ── Hero metrics card (enhanced) ── */
+.hero-metric {
+  position: relative;
+  border-left: 2px solid rgba(50, 240, 140, 0.5);
+  padding-left: 12px;
+  transition: border-color 0.2s ease;
+}
+.hero-metric:hover {
+  border-left-color: var(--bg-brand);
+}
+.hero-metric dt {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.hero-metric dd {
+  margin-top: 4px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--bg-brand);
+}
+
+/* ── Glass nav enhancement ── */
+.nav-glass {
+  background: rgba(17, 18, 19, 0.75);
+  backdrop-filter: blur(24px) saturate(1.2);
+  -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  border-bottom: 1px solid rgba(224, 226, 242, 0.06);
+}
+.nav-glass:hover {
+  background: rgba(17, 18, 19, 0.85);
+}
+
+/* ── Section reveal animation ── */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: section-reveal 0.7s ease-out forwards;
+}
+@keyframes section-reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Pricing card with featured glow ── */
+.pricing-card {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+.pricing-card:hover {
+  transform: translateY(-2px);
+}
+.pricing-card.featured {
+  position: relative;
+  background: var(--surface-elevated);
+}
+.pricing-card.featured::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(50, 240, 140, 0.3),
+    rgba(50, 240, 140, 0.1),
+    rgba(74, 133, 255, 0.2)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.pricing-card .pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-brand);
+  color: var(--text-onbrand);
+  padding: 2px 12px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* ── Gradient border card for CTA section ── */
+.gradient-border-card {
+  position: relative;
+  overflow: hidden;
+}
+.gradient-border-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(50, 240, 140, 0.25),
+    rgba(50, 240, 140, 0.05),
+    rgba(74, 133, 255, 0.15)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Pipeline step card ── */
+.pipeline-step {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+.pipeline-step:hover {
+  border-color: rgba(50, 240, 140, 0.4);
+  box-shadow: var(--glow-card-hover);
+  transform: translateY(-2px);
+}
+
+/* ── Noise overlay ── */
 .noise-mask {
   position: relative;
 }
-
 .noise-mask::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;

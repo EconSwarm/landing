@@ -1,0 +1,52 @@
+{
+  "project": {
+    "resolvedLane": "existing_edit_add_comparison",
+    "selectedIntentWorkflowRead": true,
+    "mutationMode": "theme_customize",
+    "contextRequirementsLoaded": [
+      {
+        "path": "shared-runtime/runtime-boundaries/lane-runtime-contracts.md",
+        "readStatus": "loaded",
+        "bodyRead": false
+      },
+      {
+        "path": "shared-runtime/agent-dispatch-runtime/lane-dispatch-index.md",
+        "readStatus": "loaded",
+        "bodyRead": false
+      },
+      {
+        "path": "delivery-quality/page-rendering-quality-gate.md",
+        "readStatus": "loaded",
+        "bodyRead": false
+      },
+      {
+        "path": "delivery-quality/design-artifact-validation.md",
+        "readStatus": "loaded",
+        "bodyRead": false
+      },
+      {
+        "path": "delivery-quality/delivery-evidence-contract.md",
+        "readStatus": "loaded",
+        "bodyRead": false
+      }
+    ],
+    "contextReadScope": "project-mutation",
+    "validationRunDiscipline": "standard",
+    "lowValueCallWatchdog": {
+      "noProgressNextAction": "summary_and_ready"
+    },
+    "sourceProjectLaneHeritage": {
+      "lane": "free_exploration",
+      "projectType": "react_landing_page",
+      "primaryLibrary": "TRAE"
+    },
+    "visualQualityCheckpoints": [
+      "tokens_aligned_with_trae",
+      "nav_glass_refined",
+      "hero_metrics_trae_statcard",
+      "cards_trae_pattern",
+      "pricing_visual_hierarchy",
+      "micro_interactions_added"
+    ]
+  }
+}
