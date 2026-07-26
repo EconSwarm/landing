@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, ChevronRight, Terminal, Activity, Database, Shield, Sparkles, Users, LineChart, GitBranch, Zap, MessageSquare, TrendingUp, Newspaper, Landmark, Wallet, Lock, Radio } from "lucide-react";
+import { ArrowRight, ChevronRight, Terminal, Activity, Database, Shield, Sparkles, Users, LineChart, GitBranch, Zap, MessageSquare, TrendingUp, Newspaper, Landmark, Wallet, Lock, Radio, Github, Twitter, Mail, Linkedin } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Landing,
