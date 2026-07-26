@@ -1562,8 +1562,9 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-2">
-              <img src="/logo.png" alt="EconSwarm" className="h-9 w-auto" />
+            <a href="#" className="flex items-center gap-2.5">
+              <img src={logoAsset.url} alt="EconSwarm" className="h-9 w-9 rounded-md object-cover" />
+              <span className="text-base font-semibold tracking-tight text-foreground">EconSwarm</span>
             </a>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               通用群智能体金融分析框架。让一支可配置、可扩展、可审计的 AI
