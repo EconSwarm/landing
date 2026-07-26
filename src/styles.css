@@ -41,52 +41,45 @@
 :root {
   --radius: 0.5rem;
 
-  --background: #1a1b1d;
-  --foreground: #d1d3db;
+  /* ── Base palette ── */
+  --background: #111213;
+  --foreground: #e2e4eb;
 
-  --surface: #222427;
-  --surface-elevated: #2a2d31;
+  --surface: #1c1e22;
+  --surface-elevated: #24272d;
 
-  --card: #222427;
-  --card-foreground: #d1d3db;
-  --popover: #202123;
-  --popover-foreground: #d1d3db;
+  --card: #1c1e22;
+  --card-foreground: #e2e4eb;
+  --popover: #181a1e;
+  --popover-foreground: #e2e4eb;
 
   --primary: #32f08c;
   --primary-foreground: #0c0c0d;
   --primary-glow: #5cf5a8;
 
-  --secondary: rgba(224, 226, 242, 0.08);
-  --secondary-foreground: #d1d3db;
+  --secondary: rgba(224, 226, 242, 0.09);
+  --secondary-foreground: #e2e4eb;
 
   --muted: rgba(224, 226, 242, 0.06);
-  --muted-foreground: #9599a6;
+  --muted-foreground: #8b8f9e;
 
-  --accent: #387bff;
+  --accent: #4a85ff;
   --accent-foreground: #f5f9fe;
 
   --destructive: #f65a5a;
   --destructive-foreground: #ffffff;
 
-  --border: rgba(224, 226, 242, 0.1);
+  --border: rgba(224, 226, 242, 0.08);
   --input: rgba(224, 226, 242, 0.06);
   --ring: #32f08c;
-  /* ============================================================
-     Grid line theming
-     ------------------------------------------------------------
-     单一色相 + 每层透明度，主题化统一管理。
-     - --grid-hue：网格线基础 RGB（不含 alpha）
-     - --grid-alpha-*：分层强度（bright/soft/base/rise/deep）
-     - --grid-line-*：最终合成变量，供 @utility 引用
-     切换主题（.light / .theme-high-contrast 等）仅需覆盖
-     --grid-hue 与 --grid-alpha-*，无需修改 utility。
-     ============================================================ */
+
+  /* ── Grid line theming ── */
   --grid-hue: 180, 186, 202;
-  --grid-alpha-bright: 0.045; /* hero / modules —— 亮区，避免刺眼 */
-  --grid-alpha-soft: 0.05; /* section-alt —— 中亮过渡 */
-  --grid-alpha-base: 0.06; /* 默认基线 */
-  --grid-alpha-rise: 0.065; /* section-rise —— 中深过渡 */
-  --grid-alpha-deep: 0.075; /* section-deep —— 深区保持可见 */
+  --grid-alpha-bright: 0.035;
+  --grid-alpha-soft: 0.04;
+  --grid-alpha-base: 0.05;
+  --grid-alpha-rise: 0.055;
+  --grid-alpha-deep: 0.065;
 
   --grid-line: rgba(var(--grid-hue), var(--grid-alpha-base));
   --grid-line-bright: rgba(var(--grid-hue), var(--grid-alpha-bright));
@@ -98,23 +91,55 @@
   --surface-overlay-strong: rgba(224, 226, 242, 0.1);
   --status-success: #33c192;
   --status-warning: #d27e24;
-  --status-primary: #387bff;
+  --status-primary: #4a85ff;
   --status-alert: #d29d00;
 
-  --gradient-primary: linear-gradient(135deg, rgba(50, 240, 140, 0.98), rgba(92, 245, 168, 0.9));
+  /* ── Core gradients ── */
+  --gradient-primary: linear-gradient(135deg, #32f08c, #5cf5a8);
+
   --gradient-hero:
-    radial-gradient(ellipse 80% 55% at 15% 20%, rgba(50, 240, 140, 0.18), transparent 55%),
-    radial-gradient(ellipse 70% 45% at 85% 15%, rgba(56, 123, 255, 0.14), transparent 45%),
-    radial-gradient(ellipse 60% 30% at 50% 80%, rgba(50, 240, 140, 0.04), transparent 50%),
+    radial-gradient(ellipse 85% 60% at 10% 15%, rgba(50, 240, 140, 0.22), transparent 60%),
+    radial-gradient(ellipse 75% 50% at 90% 10%, rgba(74, 133, 255, 0.18), transparent 50%),
+    radial-gradient(ellipse 65% 35% at 50% 85%, rgba(50, 240, 140, 0.06), transparent 45%),
+    radial-gradient(ellipse 100% 40% at 50% 0%, rgba(50, 240, 140, 0.04), transparent 60%),
     linear-gradient(
       180deg,
-      rgba(26, 27, 29, 1) 0%,
-      rgba(26, 27, 29, 0.97) 50%,
-      rgba(26, 27, 29, 1) 100%
+      #0e0f11 0%,
+      rgba(17, 18, 19, 0.98) 35%,
+      rgba(20, 22, 24, 0.95) 65%,
+      #111213 100%
     );
-  --gradient-surface: linear-gradient(180deg, rgba(42, 45, 49, 0.9), rgba(34, 36, 39, 0.98));
-  --glow-primary: 0 0 0 1px rgba(50, 240, 140, 0.18), 0 18px 40px rgba(50, 240, 140, 0.12);
-  --shadow-elevated: 0 24px 80px rgba(0, 0, 0, 0.38), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+
+  --gradient-surface: linear-gradient(
+    160deg,
+    rgba(36, 39, 45, 0.95) 0%,
+    rgba(28, 30, 34, 0.98) 100%
+  );
+
+  /* ── Section gradient variants ── */
+  --gradient-modules:
+    radial-gradient(ellipse 75% 55% at 0% 0%, rgba(50, 240, 140, 0.12), transparent 65%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(74, 133, 255, 0.10), transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 30%, rgba(50, 240, 140, 0.05), transparent 50%),
+    linear-gradient(180deg, rgba(14, 15, 17, 0.95) 0%, rgba(17, 18, 19, 1) 100%);
+
+  --gradient-section-alt:
+    radial-gradient(ellipse 70% 40% at 50% 0%, rgba(50, 240, 140, 0.08), transparent 55%),
+    radial-gradient(ellipse 60% 35% at 50% 100%, rgba(74, 133, 255, 0.06), transparent 50%),
+    linear-gradient(180deg, rgba(20, 22, 24, 0.6) 0%, rgba(17, 18, 19, 1) 100%);
+
+  --gradient-section-deep:
+    radial-gradient(ellipse 55% 35% at 50% 0%, rgba(50, 240, 140, 0.05), transparent 50%),
+    linear-gradient(180deg, rgba(20, 22, 24, 0.4) 0%, rgba(17, 18, 19, 1) 100%);
+
+  --gradient-section-rise:
+    radial-gradient(ellipse 65% 45% at 50% 100%, rgba(74, 133, 255, 0.08), transparent 50%),
+    linear-gradient(180deg, rgba(17, 18, 19, 1) 0%, rgba(20, 22, 24, 0.6) 100%);
+
+  /* ── Shadows & Glows ── */
+  --glow-primary: 0 0 0 1px rgba(50, 240, 140, 0.15), 0 18px 40px rgba(50, 240, 140, 0.10);
+  --glow-accent: 0 0 0 1px rgba(74, 133, 255, 0.15), 0 18px 40px rgba(74, 133, 255, 0.08);
+  --shadow-elevated: 0 24px 80px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(255, 255, 255, 0.04) inset;
 }
 
 .dark {
@@ -172,9 +197,10 @@
     -webkit-font-smoothing: antialiased;
     background-image:
       linear-gradient(var(--grid-line) 0.5px, transparent 0.5px),
-      linear-gradient(90deg, var(--grid-line) 0.5px, transparent 0.5px);
-    background-size: 48px 48px;
-    background-position: -0.5px -0.5px;
+      linear-gradient(90deg, var(--grid-line) 0.5px, transparent 0.5px),
+      radial-gradient(ellipse 100% 30% at 50% 0%, rgba(50, 240, 140, 0.025), transparent 100%);
+    background-size: 48px 48px, 48px 48px, 100% 100%;
+    background-position: -0.5px -0.5px, -0.5px -0.5px, 0 0;
   }
 }
 
@@ -187,6 +213,9 @@
 
 @utility glow-primary {
   box-shadow: var(--glow-primary);
+}
+@utility glow-accent {
+  box-shadow: var(--glow-accent);
 }
 @utility shadow-elevated {
   box-shadow: var(--shadow-elevated);
@@ -206,40 +235,37 @@
   background:
     linear-gradient(var(--grid-line) 0.5px, transparent 0.5px) 0 0 / 48px 48px,
     linear-gradient(90deg, var(--grid-line) 0.5px, transparent 0.5px) 0 0 / 48px 48px,
-    radial-gradient(ellipse 70% 50% at 0% 0%, rgba(50, 240, 140, 0.1), transparent 70%),
-    radial-gradient(ellipse 50% 60% at 100% 100%, rgba(56, 123, 255, 0.08), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 50% 30%, rgba(50, 240, 140, 0.04), transparent 50%),
-    linear-gradient(180deg, rgba(26, 27, 29, 0.96) 0%, rgba(26, 27, 29, 1) 100%);
+    var(--gradient-modules);
 }
 @utility bg-section-alt {
   --grid-line: var(--grid-line-soft);
   background:
     linear-gradient(var(--grid-line) 0.5px, transparent 0.5px) 0 0 / 48px 48px,
     linear-gradient(90deg, var(--grid-line) 0.5px, transparent 0.5px) 0 0 / 48px 48px,
-    radial-gradient(ellipse 65% 35% at 50% 0%, rgba(50, 240, 140, 0.06), transparent 55%),
-    radial-gradient(ellipse 55% 30% at 50% 100%, rgba(56, 123, 255, 0.05), transparent 50%),
-    linear-gradient(180deg, rgba(34, 36, 39, 0.55) 0%, rgba(26, 27, 29, 1) 100%);
+    var(--gradient-section-alt);
 }
 @utility bg-section-deep {
   --grid-line: var(--grid-line-deep);
   background:
     linear-gradient(var(--grid-line) 0.5px, transparent 0.5px) 0 0 / 48px 48px,
     linear-gradient(90deg, var(--grid-line) 0.5px, transparent 0.5px) 0 0 / 48px 48px,
-    radial-gradient(ellipse 50% 30% at 50% 0%, rgba(50, 240, 140, 0.04), transparent 50%),
-    linear-gradient(180deg, rgba(34, 36, 39, 0.35) 0%, rgba(26, 27, 29, 1) 100%);
+    var(--gradient-section-deep);
 }
 @utility bg-section-rise {
   --grid-line: var(--grid-line-rise);
   background:
     linear-gradient(var(--grid-line) 0.5px, transparent 0.5px) 0 0 / 48px 48px,
     linear-gradient(90deg, var(--grid-line) 0.5px, transparent 0.5px) 0 0 / 48px 48px,
-    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(56, 123, 255, 0.06), transparent 50%),
-    linear-gradient(180deg, rgba(26, 27, 29, 1) 0%, rgba(34, 36, 39, 0.5) 100%);
+    var(--gradient-section-rise);
 }
 
 @utility glass-panel {
-  background: rgba(34, 36, 39, 0.72);
+  background: rgba(28, 30, 34, 0.72);
   backdrop-filter: blur(22px);
+}
+@utility glass-panel-light {
+  background: rgba(28, 30, 34, 0.50);
+  backdrop-filter: blur(12px);
 }
 @utility border-subtle {
   border-color: rgba(224, 226, 242, 0.08);
@@ -298,6 +324,24 @@
     transform: translateY(0);
   }
 }
+@keyframes fade-in-blur {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
 
 @utility animate-pulse-dot {
   animation: pulse-dot 1.6s ease-in-out infinite;
@@ -307,6 +351,9 @@
 }
 @utility animate-float-up {
   animation: float-up 0.6s ease-out both;
+}
+@utility animate-fade-blur {
+  animation: fade-in-blur 0.8s ease-out both;
 }
 
 .noise-mask {
