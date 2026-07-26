@@ -49,7 +49,7 @@ function Nav() {
     <header className="sticky top-0 z-50 border-b border-subtle glass-panel">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         <a href="#" className="flex items-center gap-2">
-          <img src={faviconAsset.url} alt="EconSwarm" className="h-8 w-8 rounded-md object-cover" />
+          <img src={logoAsset.url} alt="EconSwarm" className="h-8 w-8 rounded-md object-cover" />
           <span className="font-semibold tracking-tight text-foreground">EconSwarm</span>
         </a>
         <nav className="hidden lg:flex items-center gap-1 text-sm">
@@ -632,7 +632,7 @@ function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <a href="#" className="flex items-center gap-2">
-              <img src={faviconAsset.url} alt="EconSwarm" className="h-9 w-9 rounded-md object-cover" />
+              <img src={logoAsset.url} alt="EconSwarm" className="h-9 w-9 rounded-md object-cover" />
               <span className="text-lg font-semibold tracking-tight text-foreground">EconSwarm</span>
             </a>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
