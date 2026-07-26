@@ -36,7 +36,6 @@ import {
   MessagesSquare,
   Gauge,
 } from "lucide-react";
-import logoAsset from "@/assets/logo-icon.png.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -86,9 +85,9 @@ function Nav() {
       <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:px-6 py-3.5">
         <a href="#top" className="flex min-w-0 items-center gap-2.5" aria-label="EconSwarm 首页">
           <img
-            src={logoAsset.url}
-            alt="EconSwarm 群智能体金融引擎"
-            className="h-9 w-9 rounded-md object-cover"
+            src="/logo.png"
+            alt="EconSwarm"
+            className="h-9 w-auto object-contain"
             loading="eager"
             decoding="async"
           />
@@ -168,14 +167,19 @@ function Hero() {
               Sell）、仓位建议与可解释中文投研报告。
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#" className="ds-btn ds-btn--brand ds-btn--xl">
+              <a
+                href="https://app.econswarm.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ds-btn ds-btn--brand ds-btn--xl h-[38px] w-[100px]"
+              >
                 启动分析 <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 href="https://app.econswarm.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ds-btn ds-btn--secondary ds-btn--xl px-8"
+                className="ds-btn ds-btn--secondary ds-btn--xl px-8 h-[38px] w-[100px]"
               >
                 <Terminal className="h-4 w-4 text-primary" /> 查看示例
               </a>
@@ -1502,7 +1506,7 @@ function CTA() {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ds-btn ds-btn--brand ds-btn--xl px-8 h-[38px]"
+                className="ds-btn ds-btn--brand ds-btn--xl px-8 h-[38px] w-[100px]"
                 href="https://app.econswarm.com"
               >
                 查看博客 <ArrowRight className="h-4 w-4" />
@@ -1510,7 +1514,7 @@ function CTA() {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ds-btn ds-btn--secondary ds-btn--xl px-8 h-[38px]"
+                className="ds-btn ds-btn--secondary ds-btn--xl px-8 h-[38px] w-[100px]"
                 href="https://app.econswarm.com"
               >
                 阅读文档
@@ -1563,8 +1567,7 @@ function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <a href="#" className="flex items-center gap-2.5">
-              <img src={logoAsset.url} alt="EconSwarm" className="h-9 w-9 rounded-md object-cover" />
-              <span className="text-base font-semibold tracking-tight text-foreground">EconSwarm</span>
+              <img src="/logo.png" alt="EconSwarm" className="h-9 w-auto object-contain" />
             </a>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               通用群智能体金融分析框架。让一支可配置、可扩展、可审计的 AI
