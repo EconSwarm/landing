@@ -86,9 +86,9 @@ function Nav() {
       <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:px-6 py-3.5">
         <a href="#top" className="flex min-w-0 items-center gap-2.5" aria-label="EconSwarm 首页">
           <img
-            src="/logo.png"
+            src={logoAsset.url}
             alt="EconSwarm 群智能体金融引擎"
-            className="h-9 w-auto object-contain"
+            className="h-9 w-9 rounded-md object-cover"
             loading="eager"
             decoding="async"
           />
