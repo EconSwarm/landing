@@ -59,6 +59,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "Wy81lY1kZBfDAhN73NTc3CnHDTPY5SMzIhsio4LgZ5s" },
       { title: "EconSwarm · 群智能体金融引擎" },
       {
         name: "description",
