@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "sdk_version": "0.24.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "econswarm-mcp",
+      "version": "0.1.0",
+      "title": "EconSwarm MCP"
+    },
+    "tools": [
+      {
+        "name": "get_site_overview",
+        "title": "获取 EconSwarm 站点概览",
+        "description": "返回 EconSwarm 的产品简介、目标用户和各主要板块的链接。",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_capabilities",
+        "title": "获取核心能力与模块",
+        "description": "返回 EconSwarm 的四项核心能力和四大 Agent 模块,用于介绍产品。",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "section": {
+              "description": "只返回能力、模块,或全部;缺省为 all。",
+              "type": "string",
+              "enum": [
+                "capabilities",
+                "modules",
+                "all"
+              ]
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_pricing",
+        "title": "获取 EconSwarm 定价方案",
+        "description": "返回 EconSwarm 的四档订阅方案(Explorer / Analyst / Team / Enterprise)、价格与适用人群。",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_blog_posts",
+        "title": "列出博客文章",
+        "description": "返回 EconSwarm 站点公开博客文章的标题、摘要与规范链接。",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
