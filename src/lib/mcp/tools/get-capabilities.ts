@@ -21,7 +21,7 @@ export default defineTool({
   description: "返回 EconSwarm 的四项核心能力和四大 Agent 模块,用于介绍产品。",
   inputSchema: {
     section: z
-      .enum(["capabilities", "modules", "all"]) 
+      .enum(["capabilities", "modules", "all"])
       .optional()
       .describe("只返回能力、模块,或全部;缺省为 all。"),
   },

@@ -60,6 +60,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "google-site-verification", content: "Wy81lY1kZBfDAhN73NTc3CnHDTPY5SMzIhsio4LgZ5s" },
+      { name: "msvalidate.01", content: "086B3CDA1153BD47610E43B8BA5B6FC7" },
       { title: "EconSwarm · 群智能体金融引擎" },
       {
         name: "description",
