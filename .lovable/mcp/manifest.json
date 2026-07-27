@@ -44,7 +44,11 @@
             "section": {
               "description": "只返回能力、模块,或全部;缺省为 all。",
               "type": "string",
-              "enum": ["capabilities", "modules", "all"]
+              "enum": [
+                "capabilities",
+                "modules",
+                "all"
+              ]
             }
           }
         },
