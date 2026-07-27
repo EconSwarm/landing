@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogSwarmVsSingleLlmComparisonRouteImport } from './routes/blog.swarm-vs-single-llm-comparison'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -22,31 +23,41 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSwarmVsSingleLlmComparisonRoute =
+  BlogSwarmVsSingleLlmComparisonRouteImport.update({
+    id: '/blog/swarm-vs-single-llm-comparison',
+    path: '/blog/swarm-vs-single-llm-comparison',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/swarm-vs-single-llm-comparison': typeof BlogSwarmVsSingleLlmComparisonRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/swarm-vs-single-llm-comparison': typeof BlogSwarmVsSingleLlmComparisonRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/blog/swarm-vs-single-llm-comparison': typeof BlogSwarmVsSingleLlmComparisonRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml'
+  fullPaths: '/' | '/sitemap.xml' | '/blog/swarm-vs-single-llm-comparison'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml'
-  id: '__root__' | '/' | '/sitemap.xml'
+  to: '/' | '/sitemap.xml' | '/blog/swarm-vs-single-llm-comparison'
+  id: '__root__' | '/' | '/sitemap.xml' | '/blog/swarm-vs-single-llm-comparison'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  BlogSwarmVsSingleLlmComparisonRoute: typeof BlogSwarmVsSingleLlmComparisonRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +76,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/swarm-vs-single-llm-comparison': {
+      id: '/blog/swarm-vs-single-llm-comparison'
+      path: '/blog/swarm-vs-single-llm-comparison'
+      fullPath: '/blog/swarm-vs-single-llm-comparison'
+      preLoaderRoute: typeof BlogSwarmVsSingleLlmComparisonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  BlogSwarmVsSingleLlmComparisonRoute: BlogSwarmVsSingleLlmComparisonRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

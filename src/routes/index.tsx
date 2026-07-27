@@ -1539,6 +1539,7 @@ function Footer() {
     { label: "文档中心", href: "#" },
     { label: "API 参考", href: "#" },
     { label: "示例报告", href: "#" },
+    { label: "博客:群智能体 vs 单一 LLM", href: "/blog/swarm-vs-single-llm-comparison" },
     { label: "更新日志", href: "#" },
     { label: "社区讨论", href: "#" },
   ];
