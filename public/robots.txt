@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://econswarm.com/sitemap.xml
+Sitemap: https://www.econswarm.com/sitemap.xml
