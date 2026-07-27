@@ -1,22 +1,32 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 const CANONICAL = "https://www.econswarm.com/blog/swarm-vs-single-llm-comparison";
-const TITLE = "群智能体 vs 单一 LLM：金融场景下的深度对比 | EconSwarm";
+const TITLE = "群智能体 vs 单一 LLM：谁在金融分析中更胜一筹？| EconSwarm";
+const SOCIAL_TITLE = "群智能体 vs 单一 LLM：谁在金融分析中更胜一筹？";
 const DESCRIPTION =
-  "从架构、准确率、可解释性、成本与合规角度，系统对比单一大语言模型与多智能体群体（Swarm）在金融研究、投研与风控中的差异，帮助你选择合适方案。";
+  "一个 LLM 会幻觉,一群 Agent 会辩论。从准确率、可解释性、成本到合规,5 个维度拆解多智能体 Swarm 与单一大模型在投研与风控中的真实差距,附选型对照表。";
+const SOCIAL_DESCRIPTION =
+  "🧠 一个 LLM vs 一群专家 Agent —— 在投研、风控、合规场景下到底差多少?5 个维度 + 对照表,3 分钟读懂 Swarm 架构为什么能把关键事实召回率提升 20%+。";
+const OG_IMAGE = "https://www.econswarm.com/og/swarm-vs-single-llm.jpg";
 
 export const Route = createFileRoute("/blog/swarm-vs-single-llm-comparison")({
   head: () => ({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESCRIPTION },
+      { property: "og:title", content: SOCIAL_TITLE },
+      { property: "og:description", content: SOCIAL_DESCRIPTION },
       { property: "og:type", content: "article" },
       { property: "og:url", content: CANONICAL },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "群智能体 vs 单一 LLM —— EconSwarm" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: TITLE },
-      { name: "twitter:description", content: DESCRIPTION },
+      { name: "twitter:title", content: SOCIAL_TITLE },
+      { name: "twitter:description", content: SOCIAL_DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE },
+      { name: "twitter:image:alt", content: "群智能体 vs 单一 LLM —— EconSwarm" },
     ],
     links: [{ rel: "canonical", href: CANONICAL }],
     scripts: [
