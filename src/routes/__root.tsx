@@ -95,6 +95,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", href: logoAsset.url },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              name: "EconSwarm",
+              url: "https://www.econswarm.com",
+              logo: logoAsset.url,
+            },
+            {
+              "@type": "WebSite",
+              name: "EconSwarm",
+              url: "https://www.econswarm.com",
+            },
+          ],
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
