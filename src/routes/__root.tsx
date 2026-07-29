@@ -61,25 +61,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "google-site-verification", content: "Wy81lY1kZBfDAhN73NTc3CnHDTPY5SMzIhsio4LgZ5s" },
       { name: "msvalidate.01", content: "086B3CDA1153BD47610E43B8BA5B6FC7" },
-      { title: "EconSwarm · 群智能体金融引擎" },
+      { title: "EconSwarm - 群智能体金融引擎" },
       {
         name: "description",
         content:
-          "EconSwarm 是一套通用群智能体金融框架，面向多市场、多资产类别的金融研究与决策辅助场景。它依托可配置的数据源路由、可扩展的智能体角色体系以及模块化技能编排，能够适配各类金融分析工作流。",
+          "EconSwarm 是一套通用群智能体金融引擎，面向多市场、多资产类别的金融研究与决策辅助场景。它依托可配置的数据源路由、可扩展的智能体角色体系以及模块化技能编排，能够适配各类金融分析工作流。",
       },
-      { property: "og:title", content: "EconSwarm · 群智能体金融引擎" },
+      { property: "og:title", content: "EconSwarm - 群智能体金融引擎" },
       {
         property: "og:description",
         content:
-          "EconSwarm 是一套通用群智能体金融框架，面向多市场、多资产类别的金融研究与决策辅助场景。它依托可配置的数据源路由、可扩展的智能体角色体系以及模块化技能编排，能够适配各类金融分析工作流。",
+          "EconSwarm 是一套通用群智能体金融引擎，面向多市场、多资产类别的金融研究与决策辅助场景。它依托可配置的数据源路由、可扩展的智能体角色体系以及模块化技能编排，能够适配各类金融分析工作流。",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "EconSwarm · 群智能体金融引擎" },
+      { name: "twitter:title", content: "EconSwarm - 群智能体金融引擎" },
       {
         name: "twitter:description",
         content:
-          "EconSwarm 是一套通用群智能体金融框架，面向多市场、多资产类别的金融研究与决策辅助场景。它依托可配置的数据源路由、可扩展的智能体角色体系以及模块化技能编排，能够适配各类金融分析工作流。",
+          "EconSwarm 是一套通用群智能体金融引擎，面向多市场、多资产类别的金融研究与决策辅助场景。它依托可配置的数据源路由、可扩展的智能体角色体系以及模块化技能编排，能够适配各类金融分析工作流。",
       },
       {
         property: "og:image",
