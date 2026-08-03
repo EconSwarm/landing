@@ -249,18 +249,16 @@ function Hero() {
           <div className="lg:col-span-7 animate-float-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-mono text-primary">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-dot" />
-              群智能体金融引擎 · SWARM FINANCIAL ENGINE
+              群智能体 · SWARM AGENTS
             </div>
             <h1 className="mt-6 text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight leading-[1.05]">
               群智能体<span className="text-gradient">金融引擎</span>
               <span className="block mt-2 text-3xl lg:text-4xl xl:text-5xl text-muted-foreground font-medium">
-                多智能体 · 多技能协同工作流,赋能金融研究与决策
+                多智能体 · 多技能协同工作流,赋能金融 research 与决策
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-              EconSwarm 整合 34 个专业 Agent 与 90+ 金融场景技能库,依托 LangGraph
-              状态机搭建自动化金融分析链路,融入数据校验、观点辩论与结构化决策环节 ——
-              面向股票、债券、外汇与大宗商品的多市场、多资产投研场景,输出专业、可解释、可审计的金融研究报告。
+              EconSwarm 整合 34 个专业 Agent 与 90+ 金融场景技能库,依托 LangGraph 状态机搭建自动化金融分析链路,融入数据校验、观点辩论与结构化决策环节 —— 面向股票、债券、外汇与大宗商品的多市场、多资产投研场景, 输出专业、可解释、可审计的金融研究报告。
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               {["股票", "债券", "外汇", "大宗商品", "多市场 · 多资产"].map((t) => (
@@ -291,7 +289,7 @@ function Hero() {
               {[
                 { k: "专业 Agent", v: "34" },
                 { k: "金融技能库", v: "90+" },
-                { k: "直连数据源", v: "9" },
+                { k: "直连数据源", v: "9+" },
                 { k: "LLM 供应商", v: "11+" },
               ].map((s) => (
                 <div key={s.k} className="hero-metric">
@@ -334,7 +332,7 @@ function TaskPanel() {
             <MiniMetric
               icon={<BrainCircuit className="h-3.5 w-3.5 text-primary/70" />}
               label="ACTIVE AGENTS"
-              value="7"
+              value="34"
             />
             <MiniMetric
               icon={<Scale className="h-3.5 w-3.5 text-primary/70" />}
@@ -511,7 +509,7 @@ function Capabilities() {
       icon: Users,
       title: "多智能体协同决策",
       sub: "Collaborative Decisioning",
-      desc: "34 个专业 Agent 分工取证:7 核心 Analyst 覆盖行情、舆情、新闻、基本面、政策、资金流与解禁供给,11 个垂直插件覆盖投行估值、私募备忘录、基金会计、KYC 合规等专业域。经 Bull ↔ Bear 多空辩论与 Research Manager 收敛后,由 Trader 与 Portfolio Manager 输出结构化决策。",
+      desc: "34 个专业 Agent 分工取证:7 核心 Analyst 覆盖行情、舆情、新闻、基本面、政策、资金流与解禁供给,11 个垂直插件覆盖投行估值、私募备忘录、基金会计、KYC 合规等专业域。经Research Manager 收敛后由 Trader 与 Portfolio Manager 输出结构化决策。",
       points: ["7 核心 + 11 垂直插件", "Pydantic:ResearchPlan → TraderProposal → PortfolioDecision", "双 LLM:快思执行 + 深思综合"],
       demo: [
         "market · 技术面 → 均线多头,量能温和放大",
