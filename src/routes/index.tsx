@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import logoIcon from "@/assets/logo-icon.png.asset.json";
 import {
   ArrowRight,
   ChevronRight,
@@ -85,7 +86,7 @@ function Nav() {
       <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:px-6 py-3.5">
         <a href="#top" className="flex min-w-0 items-center gap-2.5" aria-label="EconSwarm 首页">
           <img
-            src="/logo.png"
+            src={logoIcon.url}
             alt="EconSwarm 群智能体金融引擎 Logo"
             className="h-9 w-auto object-contain"
             loading="eager"
@@ -729,13 +730,13 @@ function Modules() {
 function Principle() {
   const nodes = [
     { title: "数据层", sub: "Vendor Routing", icon: Database, n: "01" },
-    { title: "智能体层", sub: "18 Agent Swarm", icon: BrainCircuit, n: "02" },
+    { title: "智能体层", sub: "34 Agent Swarm", icon: BrainCircuit, n: "02" },
     { title: "辩论与门控", sub: "Debate & Gate", icon: Scale, n: "03" },
     { title: "决策与产物", sub: "Structured Output", icon: Target, n: "04" },
   ];
   const layers = [
     { items: ["9 个直连数据源", "a_stock / yfinance / alpha_vantage", "5 大工具类别路由"] },
-    { items: ["7 核心 Analyst 并行", "11 垂直插件 Agent", "双 LLM · 快思 + 深思"] },
+    { items: ["7 核心 Analyst 并行", "11 垂直插件 + 附加角色", "双 LLM · 快思 + 深思"] },
     {
       items: [
         "两层质量门控 (硬检查 + LLM 复审)",
@@ -1402,7 +1403,7 @@ function AgentGraph() {
 function Pipeline() {
   const steps = [
     { label: "输入标的与日期", icon: FileText },
-    { label: "18 Agent 并行分析", icon: BrainCircuit },
+    { label: "34 Agent 协同分析", icon: BrainCircuit },
     { label: "两层质量门控", icon: Radar },
     { label: "多空 & 风险辩论", icon: Scale },
     { label: "交易与组合决策", icon: Activity },
@@ -1853,7 +1854,7 @@ function Footer() {
           <div className="lg:col-span-2">
             <a href="#" className="flex items-center gap-2.5">
               <img
-                src="/logo.png"
+                src={logoIcon.url}
                 alt="EconSwarm 群智能体金融引擎 Logo"
                 className="h-9 w-auto object-contain"
               />

@@ -803,3 +803,24 @@
     24px 24px;
   opacity: 0.16;
 }
+
+@keyframes swarm-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes swarm-node-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+.swarm-ring {
+  animation: swarm-spin 40s linear infinite;
+}
+.swarm-ring--rev {
+  animation-direction: reverse;
+}
+.swarm-node {
+  animation: swarm-node-pulse 3.2s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .swarm-ring, .swarm-node { animation: none; }
+}
