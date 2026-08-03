@@ -509,7 +509,7 @@ function Capabilities() {
       icon: Users,
       title: "多智能体协同决策",
       sub: "Collaborative Decisioning",
-      desc: "34 个专业 Agent 分工取证:7 核心 Analyst 覆盖行情、舆情、新闻、基本面、政策、资金流与解禁供给,11 个垂直插件覆盖投行估值、私募备忘录、基金会计、KYC 合规等专业域。经 Bull ↔ Bear 多空辩论与 Research Manager 收敛后,由 Trader 与 Portfolio Manager 输出结构化决策。",
+      desc: "34 个专业 Agent 分工取证:7 核心 Analyst 覆盖行情、舆情、新闻、基本面、政策、资金流与解禁供给,11 个垂直插件覆盖投行估值、私募备忘录、基金会计、KYC 合规等专业域。经Research Manager 收敛后由 Trader 与 Portfolio Manager 输出结构化决策。",
       points: ["7 核心 + 11 垂直插件", "Pydantic:ResearchPlan → TraderProposal → PortfolioDecision", "双 LLM:快思执行 + 深思综合"],
       demo: [
         "market · 技术面 → 均线多头,量能温和放大",
