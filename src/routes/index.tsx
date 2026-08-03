@@ -54,10 +54,10 @@ const tickers = [
 
 const navItems = [
   { label: "核心能力", href: "#capabilities", icon: Sparkles },
-  { label: "核心模块", href: "#modules", icon: BrainCircuit },
+  { label: "Agent 矩阵", href: "#modules", icon: BrainCircuit },
+  { label: "技术优势", href: "#technology", icon: Cpu },
   { label: "技术原理", href: "#principle", icon: Workflow },
-  { label: "工作台", href: "#workbench", icon: Terminal },
-  { label: "主流程", href: "#pipeline", icon: Activity },
+  { label: "应用场景", href: "#scenarios", icon: Target },
   { label: "定价方案", href: "#pricing", icon: Scale },
 ];
 
