@@ -332,7 +332,7 @@ function TaskPanel() {
             <MiniMetric
               icon={<BrainCircuit className="h-3.5 w-3.5 text-primary/70" />}
               label="ACTIVE AGENTS"
-              value="7"
+              value="34"
             />
             <MiniMetric
               icon={<Scale className="h-3.5 w-3.5 text-primary/70" />}
