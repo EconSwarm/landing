@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import logoIcon from "@/assets/logo-icon.png.asset.json";
 import {
   ArrowRight,
   ChevronRight,
@@ -54,10 +55,10 @@ const tickers = [
 
 const navItems = [
   { label: "核心能力", href: "#capabilities", icon: Sparkles },
-  { label: "核心模块", href: "#modules", icon: BrainCircuit },
+  { label: "Agent 矩阵", href: "#modules", icon: BrainCircuit },
+  { label: "技术优势", href: "#technology", icon: Cpu },
   { label: "技术原理", href: "#principle", icon: Workflow },
-  { label: "工作台", href: "#workbench", icon: Terminal },
-  { label: "主流程", href: "#pipeline", icon: Activity },
+  { label: "应用场景", href: "#scenarios", icon: Target },
   { label: "定价方案", href: "#pricing", icon: Scale },
 ];
 
@@ -85,7 +86,7 @@ function Nav() {
       <div className="mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-4 px-4 sm:px-6 py-3.5">
         <a href="#top" className="flex min-w-0 items-center gap-2.5" aria-label="EconSwarm 首页">
           <img
-            src="/logo.png"
+            src={logoIcon.url}
             alt="EconSwarm 群智能体金融引擎 Logo"
             className="h-9 w-auto object-contain"
             loading="eager"
@@ -140,6 +141,101 @@ function Nav() {
   );
 }
 
+function SwarmViz() {
+  const rings = [
+    { r: 74, count: 7, dur: "38s", size: 5.5, reverse: false },
+    { r: 116, count: 11, dur: "56s", size: 4.5, reverse: true },
+    { r: 158, count: 16, dur: "80s", size: 3.5, reverse: false },
+  ];
+  return (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 hidden items-center justify-center lg:flex"
+    >
+      <svg viewBox="0 0 400 400" className="h-[900px] w-[900px] translate-x-[38%] opacity-70">
+        <defs>
+          <radialGradient id="swarmCore" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="var(--primary)" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+        <circle cx="200" cy="200" r="160" fill="url(#swarmCore)" />
+        {rings.map((ring) => (
+          <circle
+            key={`c-${ring.r}`}
+            cx="200"
+            cy="200"
+            r={ring.r}
+            fill="none"
+            stroke="var(--primary)"
+            strokeOpacity="0.3"
+            strokeDasharray="4 6"
+          />
+        ))}
+        {rings.map((ring) => (
+          <g
+            key={`g-${ring.r}`}
+            className={ring.reverse ? "swarm-ring swarm-ring--rev" : "swarm-ring"}
+            style={{ animationDuration: ring.dur, transformOrigin: "200px 200px" }}
+          >
+            {Array.from({ length: ring.count }).map((_, i) => {
+              const a = (Math.PI * 2 * i) / ring.count;
+              const x = 200 + Math.cos(a) * ring.r;
+              const y = 200 + Math.sin(a) * ring.r;
+              return (
+                <g key={i}>
+                  <line
+                    x1="200"
+                    y1="200"
+                    x2={x}
+                    y2={y}
+                    stroke="var(--primary)"
+                    strokeOpacity="0.16"
+                    strokeWidth="0.75"
+                  />
+                  <circle
+                    cx={x}
+                    cy={y}
+                    r={ring.size}
+                    fill="var(--primary)"
+                    fillOpacity="0.75"
+                    className="swarm-node"
+                    style={{ animationDelay: `${(i % 6) * 0.4}s` }}
+                  />
+                </g>
+              );
+            })}
+          </g>
+        ))}
+        <circle
+          cx="200"
+          cy="200"
+          r="34"
+          fill="var(--surface-elevated)"
+          stroke="var(--primary)"
+          strokeOpacity="0.7"
+        />
+        <text
+          x="200"
+          y="197"
+          textAnchor="middle"
+          className="fill-primary font-mono text-[11px] font-bold"
+        >
+          SWARM
+        </text>
+        <text
+          x="200"
+          y="211"
+          textAnchor="middle"
+          className="fill-muted-foreground font-mono text-[9px]"
+        >
+          34 AGENTS
+        </text>
+      </svg>
+    </div>
+  );
+}
+
 function Hero() {
   return (
     <section className="bg-hero relative overflow-hidden">
@@ -147,6 +243,7 @@ function Hero() {
         <div className="absolute -top-48 -right-48 h-96 w-96 rounded-full bg-primary/5 blur-[120px]" />
         <div className="absolute -bottom-48 -left-48 h-96 w-96 rounded-full bg-blue-500/5 blur-[120px]" />
       </div>
+      <SwarmViz />
       <div className="mx-auto max-w-7xl px-6 pt-20 pb-24 lg:pt-28 lg:pb-32 relative">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 animate-float-up">
@@ -157,21 +254,27 @@ function Hero() {
             <h1 className="mt-6 text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight leading-[1.05]">
               群智能体<span className="text-gradient">金融引擎</span>
               <span className="block mt-2 text-3xl lg:text-4xl xl:text-5xl text-muted-foreground font-medium">
-                让一支 AI 团队替你完成投研全流程
+                多智能体 · 多技能协同工作流,赋能金融研究与决策
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-              EconSwarm 基于 TradingAgents（GitHub 65K+ Stars）打造 —— 18 位专职 Agent
-              协同分析行情、基本面、新闻、政策、资金流与解禁供给；两层质量门控、多空辩论与三方风险辩论后，输出
-              5 级信号（Buy / Overweight / Hold / Underweight /
-              Sell）、仓位建议与可解释中文投研报告。
+              EconSwarm 整合 34 个专业 Agent 与 90+ 金融场景技能库,依托 LangGraph
+              状态机搭建自动化金融分析链路,融入数据校验、观点辩论与结构化决策环节 ——
+              面向股票、债券、外汇与大宗商品的多市场、多资产投研场景,输出专业、可解释、可审计的金融研究报告。
             </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {["股票", "债券", "外汇", "大宗商品", "多市场 · 多资产"].map((t) => (
+                <span key={t} className="ds-tag">
+                  {t}
+                </span>
+              ))}
+            </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="https://app.econswarm.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ds-btn ds-btn--brand ds-btn--xl h-[38px] w-[100px]"
+                className="ds-btn ds-btn--brand ds-btn--xl px-8"
               >
                 启动分析 <ArrowRight className="h-4 w-4" />
               </a>
@@ -179,17 +282,17 @@ function Hero() {
                 href="https://app.econswarm.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ds-btn ds-btn--secondary ds-btn--xl px-8 h-[38px] w-[100px]"
+                className="ds-btn ds-btn--secondary ds-btn--xl px-8"
               >
-                <Terminal className="h-4 w-4 text-primary" /> 查看示例
+                <Terminal className="h-4 w-4 text-primary" /> 查看示例报告
               </a>
             </div>
             <dl className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl">
               {[
-                { k: "专职 Agent", v: "18" },
+                { k: "专业 Agent", v: "34" },
+                { k: "金融技能库", v: "90+" },
                 { k: "直连数据源", v: "9" },
-                { k: "辩论层级", v: "2" },
-                { k: "信号等级", v: "5 级" },
+                { k: "LLM 供应商", v: "11+" },
               ].map((s) => (
                 <div key={s.k} className="hero-metric">
                   <dt>{s.k}</dt>
@@ -407,22 +510,50 @@ function Capabilities() {
     {
       icon: Users,
       title: "多智能体协同决策",
-      desc: '18 位专职 Agent 分工并行 → 辩论收敛 → 风险审议,替代单一大模型的"独裁式"输出。',
+      sub: "Collaborative Decisioning",
+      desc: "34 个专业 Agent 分工取证:7 核心 Analyst 覆盖行情、舆情、新闻、基本面、政策、资金流与解禁供给,11 个垂直插件覆盖投行估值、私募备忘录、基金会计、KYC 合规等专业域。经 Bull ↔ Bear 多空辩论与 Research Manager 收敛后,由 Trader 与 Portfolio Manager 输出结构化决策。",
+      points: ["7 核心 + 11 垂直插件", "Pydantic:ResearchPlan → TraderProposal → PortfolioDecision", "双 LLM:快思执行 + 深思综合"],
+      demo: [
+        "market · 技术面 → 均线多头,量能温和放大",
+        "fundamentals · 三表 → ROE 18.4%,现金流覆盖 1.7x",
+        "debate · Bull 3 : Bear 2 → 研究计划已收敛",
+      ],
     },
     {
-      icon: Database,
-      title: "全维度市场数据抓取",
-      desc: "行情 / 基本面 / 新闻 / 政策 / 资金流 / 龙虎榜 / 解禁 —— 9 个直连数据源实时采集。",
+      icon: Radar,
+      title: "实时市场感知",
+      sub: "Real-time Market Sensing",
+      desc: "Agent 不直连网络,统一通过 route_to_vendor() 路由到 9 个免费直连数据源(通达信 TCP、东方财富、新浪、同花顺、财联社、百度股市通等),并可切换 yfinance / Alpha Vantage 接入国际市场。行情、财报、快讯、资金流、龙虎榜、限售解禁多路并行取数,单源失败自动 fallback。",
+      points: ["9 直连数据源 + 2 国际 Vendor", "5 大工具类别可独立配置 Vendor", "多市场:A 股 / 美股 / 港股 / FX / 商品"],
+      demo: [
+        "vendor · a_stock → OHLCV / F10 / 财务快照",
+        "flow · 北向净流入 +12.4 亿,龙虎榜席位 3 家机构",
+        "news · 财联社快讯 18 条,行业政策命中 2 条",
+      ],
     },
     {
       icon: Shield,
-      title: "风险实时预警",
-      desc: "两层质量门控 + 三方风险辩论 + 交易记忆反思,异常信号第一时间暴露并复盘。",
+      title: "风险智能管控",
+      sub: "Intelligent Risk Control",
+      desc: "两层质量门控先做把关:硬检查校验报告长度、失败标记、必采清单与汇总表格并给出 A–F 分级,失败项再交 LLM 逐条复审。随后 Aggressive ↔ Conservative ↔ Neutral 三方风险辩论审议交易方案,合规与解禁供给风险在决策前被显性暴露。",
+      points: ["Layer 1 硬检查 + Layer 2 LLM 复审", "三方风险辩论审议交易方案", "解禁 / 减持 / 合规风险持续扫描"],
+      demo: [
+        "gate · 7 份报告 → A 5 / B 2,无失败标记",
+        "risk · Conservative:6 个月内解禁 4.2% 流通盘",
+        "verdict · 仓位由 12% 下调至 7%",
+      ],
     },
     {
       icon: LineChart,
-      title: "投资策略智能生成",
-      desc: "结构化输出 5 级信号、仓位建议与中文投研报告,人人可读、系统可对接。",
+      title: "量化策略自动迭代",
+      sub: "Strategy Auto-Iteration",
+      desc: "每次运行的决策以追加式 Markdown 写入交易记忆,配合沪深 300 基准做延迟反思:结果回灌下一轮提示词,持续修正策略偏差。每个标的独立 SQLite 断点,长任务可断可续,支持批量回溯与复盘。",
+      points: ["交易记忆 + 延迟反思(沪深 300 基准)", "每 ticker SQLite 断点恢复", "5 级信号 + 仓位建议 + Markdown/JSON/PDF"],
+      demo: [
+        "memory · 近 20 次决策命中率 62%,超额 +4.1%",
+        "reflect · 高估情绪权重 → 下调舆情置信度",
+        "signal · Overweight · 建议仓位 7% · 报告已导出",
+      ],
     },
   ];
   return (
@@ -430,24 +561,50 @@ function Capabilities() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           kicker="core capabilities"
-          title="群智能体在金融分析场景的四大核心优势"
-          desc='相比单一大模型,"一群 AI 分析师"能覆盖更多数据维度、暴露更多风险视角,并把结果收敛为可解释的结构化结论。'
+          title="群智能体金融引擎的四大核心能力"
+          desc="从多源感知到协同决策、风险管控与策略迭代 —— 一次运行就是一支投研团队完整的工作闭环,每一步都可解释、可审计、可复盘。"
         />
-        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-5 lg:grid-cols-2">
           {cards.map((c, i) => (
-            <div key={c.title} className="ds-card" style={{ animationDelay: `${i * 80}ms` }}>
-              <div className="grid h-11 w-11 place-items-center rounded-lg bg-primary/10 text-primary transition group-hover:bg-primary/20">
-                <c.icon className="h-5 w-5" />
+            <div key={c.title} className="ds-card rounded-2xl p-8" style={{ animationDelay: `${i * 80}ms` }}>
+              <div className="flex items-start justify-between gap-4">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary transition group-hover:bg-primary/20">
+                  <c.icon className="h-5 w-5" />
+                </div>
+                <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+                  {c.sub}
+                </span>
               </div>
-              <h3 className="mt-5 text-base font-semibold text-foreground">{c.title}</h3>
+              <h3 className="mt-5 text-lg font-semibold text-foreground">{c.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
+              <ul className="mt-4 space-y-1.5">
+                {c.points.map((p) => (
+                  <li key={p} className="flex items-start gap-2 text-xs text-muted-foreground">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary/70" />
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-5 rounded-lg border border-border/70 bg-background/50 p-4">
+                <div className="mb-2 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-primary/80">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-dot" />
+                  场景演示 · live trace
+                </div>
+                <div className="space-y-1.5 font-mono text-[11px] leading-relaxed text-muted-foreground">
+                  {c.demo.map((d) => (
+                    <div key={d} className="truncate">
+                      <span className="text-primary/70">›</span> {d}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           ))}
         </div>
         <div className="mt-10 grid gap-4 rounded-xl border border-border/70 bg-background/40 p-6 sm:grid-cols-3">
           {[
-            { icon: Star, k: "Powered by", v: "TradingAgents · 65K+ Stars" },
-            { icon: Cpu, k: "LLM 供应商", v: "11 家兼容 · 双 LLM 架构" },
+            { icon: Star, k: "编排内核", v: "LangGraph StateGraph · 断点续跑" },
+            { icon: Cpu, k: "LLM 供应商", v: "11+ 家兼容 · 双 LLM 架构" },
             { icon: Sparkles, k: "金融技能库", v: "90+ SKILL.md · DCF / LBO / 三表" },
           ].map((x) => (
             <div key={x.k} className="flex items-center gap-3">
@@ -472,31 +629,31 @@ function Modules() {
   const modules = [
     {
       n: "01",
-      title: "18 位专职 Agent · 群体协同决策",
+      title: "34 个专业 Agent · 群体协同决策",
       sub: "Swarm Specialist Agents",
-      body: "7 核心 Analyst 覆盖行情、舆情、新闻、基本面、政策、游资、解禁；11 位垂直插件 Agent 覆盖行业研究、宏观、量化等场景。全部并行分析,多角度收敛,避免单模型盲点。",
-      tags: ["7 核心 + 11 垂直", "90+ 金融技能库", "并行协同"],
+      body: "7 核心 Analyst 覆盖行情、舆情、新闻、基本面、政策、资金流、解禁供给；11 个垂直插件 Agent 覆盖投行估值/LBO、私募 IC 备忘录、基金会计与 NAV 对账、KYC 合规、财富管理与跨资产数据伙伴。角色以工厂注册,可按任务自由裁剪阵容。",
+      tags: ["7 核心 + 11 垂直", "角色工厂可扩展", "并行取证"],
     },
     {
       n: "02",
-      title: "全维度市场数据直连抓取",
-      sub: "Full-Coverage Data Ingestion",
-      body: "9 个直连数据源覆盖行情、财务三表、龙虎榜、资金流、解禁、政策快讯与情绪热度 —— 全部免费直连 HTTP / TCP,零 API Key 月费,Vendor 路由支持无缝扩展美股、港股等国际市场。",
-      tags: ["9 直连数据源", "零 API Key 月费", "多市场可扩展"],
+      title: "90+ 金融技能库 · 模块化编排",
+      sub: "Skill Orchestration",
+      body: "技能以 SKILL.md 形式沉淀(当前 124 个),启动时进入注册表,支持根级与 `domain:name` 领域级引用,由 build_skills_section() 注入 Agent 系统提示词 —— DCF、LBO、三表建模、尽调清单等方法论可按场景装配。",
+      tags: ["124 个 SKILL.md", "domain:name 领域引用", "提示词级注入"],
     },
     {
       n: "03",
-      title: "多空 & 风险辩论 · 实时预警",
+      title: "多空 & 三方风险辩论 · 质量门控",
       sub: "Debate & Risk Layer",
-      body: "Bull ↔ Bear 多空辩论收敛研究观点,Aggressive ↔ Conservative ↔ Neutral 三方风险辩论审议交易方案；两层质量门控 + 交易记忆与延迟反思,异常风险即时暴露。",
+      body: "Bull ↔ Bear 多空辩论收敛研究观点,Aggressive ↔ Conservative ↔ Neutral 三方风险辩论审议交易方案；两层质量门控(硬检查 A–F 分级 + LLM 复审)确保输入可信,交易记忆与延迟反思持续纠偏。",
       tags: ["两层质量门控", "3 方风险辩论", "延迟反思复盘"],
     },
     {
       n: "04",
-      title: "结构化投资策略智能生成",
+      title: "结构化决策与多格式交付",
       sub: "Structured Strategy Output",
-      body: "Research Manager → Trader → Portfolio Manager 全链路 Pydantic 结构化决策,输出 5 级信号(Buy / Overweight / Hold / Underweight / Sell)、仓位建议、中文投研报告,全程可解释可审计。",
-      tags: ["5 级信号", "Pydantic 结构化", "可解释报告"],
+      body: "Research Manager → Trader → Portfolio Manager 全链路 Pydantic 结构化决策(ResearchPlan / TraderProposal / PortfolioDecision),输出 5 级信号、仓位建议与 Markdown / JSON / PDF 研究报告,全程可解释可审计。",
+      tags: ["5 级信号", "Pydantic 结构化", "Markdown / JSON / PDF"],
     },
   ];
   const analysts = [
@@ -546,7 +703,7 @@ function Modules() {
 
         <div className="mt-16">
           <div className="text-center font-mono text-[11px] tracking-widest text-primary">
-            7 核心 ANALYSTS · + 11 垂直 AGENT PLUGINS = 18 SWARM
+            7 核心 ANALYSTS · + 11 垂直 AGENT PLUGINS · = 34 ROLE SWARM
           </div>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
             {analysts.map((a, i) => (
@@ -573,13 +730,13 @@ function Modules() {
 function Principle() {
   const nodes = [
     { title: "数据层", sub: "Vendor Routing", icon: Database, n: "01" },
-    { title: "智能体层", sub: "18 Agent Swarm", icon: BrainCircuit, n: "02" },
+    { title: "智能体层", sub: "34 Agent Swarm", icon: BrainCircuit, n: "02" },
     { title: "辩论与门控", sub: "Debate & Gate", icon: Scale, n: "03" },
     { title: "决策与产物", sub: "Structured Output", icon: Target, n: "04" },
   ];
   const layers = [
     { items: ["9 个直连数据源", "a_stock / yfinance / alpha_vantage", "5 大工具类别路由"] },
-    { items: ["7 核心 Analyst 并行", "11 垂直插件 Agent", "双 LLM · 快思 + 深思"] },
+    { items: ["7 核心 Analyst 并行", "11 垂直插件 + 附加角色", "双 LLM · 快思 + 深思"] },
     {
       items: [
         "两层质量门控 (硬检查 + LLM 复审)",
@@ -1246,7 +1403,7 @@ function AgentGraph() {
 function Pipeline() {
   const steps = [
     { label: "输入标的与日期", icon: FileText },
-    { label: "18 Agent 并行分析", icon: BrainCircuit },
+    { label: "34 Agent 协同分析", icon: BrainCircuit },
     { label: "两层质量门控", icon: Radar },
     { label: "多空 & 风险辩论", icon: Scale },
     { label: "交易与组合决策", icon: Activity },
@@ -1284,29 +1441,157 @@ function Pipeline() {
   );
 }
 
-function Audience() {
-  const list = [
-    "个人投资者与量化爱好者",
-    "券商研究与策略团队",
-    "公募与私募基金投研",
-    "银行研究院 / 金融市场部",
+function Technology() {
+  const items = [
+    {
+      icon: BrainCircuit,
+      title: "群智能体架构",
+      sub: "Swarm Architecture",
+      body: "LangGraph StateGraph 作为唯一编排内核:AgentState 单一图状态承载 7 个核心报告字段、10 个插件报告字段、质量摘要、两套辩论状态与最终决策。Analyst 按传入顺序串行执行,chain_mode 可切换简化链路,SQLite Checkpointer 提供每标的断点续跑。",
+      tags: ["StateGraph 编排", "AgentState 单一状态", "断点续跑"],
+    },
+    {
+      icon: Database,
+      title: "多源数据融合引擎",
+      sub: "Multi-source Fusion",
+      body: "Agent 只调用抽象 @tool,由 route_to_vendor() 依据 VENDOR_METHODS 注册表分发到具体实现:5 大工具类别可独立配置 Vendor,工具级配置覆盖类别级,逗号串定义优先顺序与 fallback(如 a_stock,yfinance)。核心引擎零第三方付费数据库依赖。",
+      tags: ["9 直连源 + 2 国际 Vendor", "类别 / 工具级路由", "自动 fallback"],
+    },
+    {
+      icon: Gauge,
+      title: "双 LLM 分层推理",
+      sub: "Dual-LLM Reasoning",
+      body: "quick_think_llm 承担高频工具调用与分析师撰写,deep_think_llm 负责 Research Manager 与 Portfolio Manager 的全局综合判断。11+ 供应商开箱即用(DeepSeek / OpenAI / Anthropic / Google / Qwen / GLM / MiniMax / xAI / OpenRouter / Ollama / Moonshot,另支持 Azure)。",
+      tags: ["快思 + 深思分层", "11+ 供应商", "自定义兼容端点"],
+    },
+    {
+      icon: Scale,
+      title: "质量门控与结构化决策",
+      sub: "Quality Gate & Typed Output",
+      body: "Layer 1 硬检查校验报告长度、失败标记、必采清单与汇总表格并给出 A–F 分级;Layer 2 在失败项 ≤3 时由 LLM 逐条复审以节省 token。决策链全程 with_structured_output + Pydantic 类型约束,产出可机读、可对接。",
+      tags: ["A–F 报告分级", "LLM 复审", "Pydantic 类型安全"],
+    },
+    {
+      icon: Activity,
+      title: "记忆与延迟反思",
+      sub: "Memory & Reflection",
+      body: "追加式 Markdown 决策日志记录每次运行结论,配合沪深 300 基准做延迟反思并回灌下一轮提示词;memory_log_max_entries 控制已解决条目上限,结果目录、缓存与记忆路径均可用环境变量覆盖。",
+      tags: ["交易记忆日志", "基准反思", "环境变量可配置"],
+    },
+    {
+      icon: Terminal,
+      title: "三套接入方式",
+      sub: "Python · CLI · Web",
+      body: "Python API 直接实例化 TradingGraph 嵌入既有系统;Typer + Rich 交互式 CLI 适合研究员单机跑批;React + FastAPI Web UI 提供任务中心、协作视图与报告导出,后台以 daemon thread 或 Postgres Worker 持久化执行。",
+      tags: ["Python API", "交互式 CLI", "Web UI + Worker"],
+    },
   ];
   return (
-    <section className="bg-section-deep py-24">
+    <section id="technology" className="bg-section-rise py-24">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
-          kicker="who is it for"
-          title="个人研究员,也能拥有自己的投研团队"
-          desc="EconSwarm 不只面向机构。任何希望把碎片化信息、模型能力与结构化流程组合起来的研究者,都能通过群智能体获得一份可追溯、可复盘的投研意见。"
+          kicker="technology"
+          title="支撑群智能体金融引擎的六项核心技术"
+          desc="不是把一个大模型包一层界面 —— 而是把投研 SOP 编排成状态机:数据路由、角色分工、质量门控、类型化决策与记忆反思各自独立可替换。"
         />
-        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {list.map((x) => (
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {items.map((t) => (
+            <div key={t.title} className="ds-card rounded-2xl p-7">
+              <div className="flex items-start justify-between gap-3">
+                <div className="grid h-10 w-10 place-items-center rounded-lg bg-primary/10 text-primary">
+                  <t.icon className="h-4.5 w-4.5" />
+                </div>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                  {t.sub}
+                </span>
+              </div>
+              <h3 className="mt-5 text-base font-semibold text-foreground">{t.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.body}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {t.tags.map((x) => (
+                  <span key={x} className="ds-tag">
+                    {x}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Scenarios() {
+  const list = [
+    {
+      icon: Landmark,
+      title: "券商研究所",
+      value: "首次覆盖与深度报告提速",
+      body: "行情、基本面、政策、资金流多路 Agent 并行取证,自动生成带汇总表格的初稿;质量门控与合规审查前置,分析师把时间投入观点而非拼数据。",
+      metric: "初稿产出 · 小时级",
+    },
+    {
+      icon: TrendingUp,
+      title: "公募 / 私募投研",
+      value: "多资产池持续跟踪",
+      body: "按标的池批量运行,输出 5 级信号与仓位建议;交易记忆与沪深 300 基准反思沉淀历史胜率,支撑季度复盘与组合再平衡。",
+      metric: "5 级信号 + 仓位建议",
+    },
+    {
+      icon: ChartLine,
+      title: "量化交易团队",
+      value: "因子与事件信号自动迭代",
+      body: "Python API 直接嵌入研究流水线,结构化 PortfolioDecision 可机读入库;延迟反思驱动策略参数持续修正,断点续跑支撑长周期回溯。",
+      metric: "JSON 可直连回测",
+    },
+    {
+      icon: Shield,
+      title: "风险与合规部门",
+      value: "风险敞口前置暴露",
+      body: "三方风险辩论 + 解禁减持监控 + KYC / 运营合规 Agent,把供给冲击、监管与流动性风险在决策前显性化,全过程留痕可审计。",
+      metric: "全链路留痕可审计",
+    },
+    {
+      icon: Wallet,
+      title: "财富管理与投顾",
+      value: "客户级报告批量生成",
+      body: "财富管理 Agent 结合资产配置技能输出客户报告,支持中文与多格式交付(Markdown / PDF),风险提示与免责声明模板化嵌入。",
+      metric: "Markdown / PDF 交付",
+    },
+    {
+      icon: Zap,
+      title: "个人研究者",
+      value: "一个人的投研团队",
+      body: "免费直连数据源 + 交互式 CLI,零第三方付费数据库即可跑通全流程;从一只标的、一个日期开始,得到可追溯、可复盘的研究结论。",
+      metric: "零付费数据依赖",
+    },
+  ];
+  return (
+    <section id="scenarios" className="bg-section-deep py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionHeading
+          kicker="use cases"
+          title="在不同金融业务场景中的落地价值"
+          desc="灵活的数据源路由、可拓展的 Agent 角色体系与模块化技能编排,让同一套引擎适配券商研究、基金投研、量化交易、风控合规与财富管理。"
+        />
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {list.map((s) => (
             <div
-              key={x}
-              className="flex items-center gap-3 rounded-xl border border-subtle bg-surface p-5 transition-all duration-200 hover:border-primary/30 hover:bg-surface-elevated"
+              key={s.title}
+              className="group rounded-2xl border border-subtle bg-surface p-7 transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:bg-surface-elevated"
             >
-              <Activity className="h-4 w-4 text-primary" />
-              <span className="text-sm text-foreground">{x}</span>
+              <div className="flex items-center gap-3">
+                <div className="grid h-10 w-10 place-items-center rounded-lg bg-primary/10 text-primary">
+                  <s.icon className="h-4 w-4" />
+                </div>
+                <div className="text-sm font-semibold text-foreground">{s.title}</div>
+              </div>
+              <div className="mt-4 text-base font-medium text-foreground">{s.value}</div>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+              <div className="mt-5 border-t border-border/60 pt-4 font-mono text-[11px] text-primary/80">
+                {s.metric}
+              </div>
             </div>
           ))}
         </div>
@@ -1569,7 +1854,7 @@ function Footer() {
           <div className="lg:col-span-2">
             <a href="#" className="flex items-center gap-2.5">
               <img
-                src="/logo.png"
+                src={logoIcon.url}
                 alt="EconSwarm 群智能体金融引擎 Logo"
                 className="h-9 w-auto object-contain"
               />
@@ -1670,10 +1955,12 @@ function Landing() {
       <Hero />
       <Capabilities />
       <Modules />
+      <Technology />
       <Principle />
       <Workbench />
       <Pipeline />
-      <Audience />
+      <Scenarios />
+
       <Roadmap />
       <Pricing />
       <CTA />
