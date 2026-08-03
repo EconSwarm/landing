@@ -509,22 +509,50 @@ function Capabilities() {
     {
       icon: Users,
       title: "多智能体协同决策",
-      desc: '18 位专职 Agent 分工并行 → 辩论收敛 → 风险审议,替代单一大模型的"独裁式"输出。',
+      sub: "Collaborative Decisioning",
+      desc: "34 个专业 Agent 分工取证:7 核心 Analyst 覆盖行情、舆情、新闻、基本面、政策、资金流与解禁供给,11 个垂直插件覆盖投行估值、私募备忘录、基金会计、KYC 合规等专业域。经 Bull ↔ Bear 多空辩论与 Research Manager 收敛后,由 Trader 与 Portfolio Manager 输出结构化决策。",
+      points: ["7 核心 + 11 垂直插件", "Pydantic:ResearchPlan → TraderProposal → PortfolioDecision", "双 LLM:快思执行 + 深思综合"],
+      demo: [
+        "market · 技术面 → 均线多头,量能温和放大",
+        "fundamentals · 三表 → ROE 18.4%,现金流覆盖 1.7x",
+        "debate · Bull 3 : Bear 2 → 研究计划已收敛",
+      ],
     },
     {
-      icon: Database,
-      title: "全维度市场数据抓取",
-      desc: "行情 / 基本面 / 新闻 / 政策 / 资金流 / 龙虎榜 / 解禁 —— 9 个直连数据源实时采集。",
+      icon: Radar,
+      title: "实时市场感知",
+      sub: "Real-time Market Sensing",
+      desc: "Agent 不直连网络,统一通过 route_to_vendor() 路由到 9 个免费直连数据源(通达信 TCP、东方财富、新浪、同花顺、财联社、百度股市通等),并可切换 yfinance / Alpha Vantage 接入国际市场。行情、财报、快讯、资金流、龙虎榜、限售解禁多路并行取数,单源失败自动 fallback。",
+      points: ["9 直连数据源 + 2 国际 Vendor", "5 大工具类别可独立配置 Vendor", "多市场:A 股 / 美股 / 港股 / FX / 商品"],
+      demo: [
+        "vendor · a_stock → OHLCV / F10 / 财务快照",
+        "flow · 北向净流入 +12.4 亿,龙虎榜席位 3 家机构",
+        "news · 财联社快讯 18 条,行业政策命中 2 条",
+      ],
     },
     {
       icon: Shield,
-      title: "风险实时预警",
-      desc: "两层质量门控 + 三方风险辩论 + 交易记忆反思,异常信号第一时间暴露并复盘。",
+      title: "风险智能管控",
+      sub: "Intelligent Risk Control",
+      desc: "两层质量门控先做把关:硬检查校验报告长度、失败标记、必采清单与汇总表格并给出 A–F 分级,失败项再交 LLM 逐条复审。随后 Aggressive ↔ Conservative ↔ Neutral 三方风险辩论审议交易方案,合规与解禁供给风险在决策前被显性暴露。",
+      points: ["Layer 1 硬检查 + Layer 2 LLM 复审", "三方风险辩论审议交易方案", "解禁 / 减持 / 合规风险持续扫描"],
+      demo: [
+        "gate · 7 份报告 → A 5 / B 2,无失败标记",
+        "risk · Conservative:6 个月内解禁 4.2% 流通盘",
+        "verdict · 仓位由 12% 下调至 7%",
+      ],
     },
     {
       icon: LineChart,
-      title: "投资策略智能生成",
-      desc: "结构化输出 5 级信号、仓位建议与中文投研报告,人人可读、系统可对接。",
+      title: "量化策略自动迭代",
+      sub: "Strategy Auto-Iteration",
+      desc: "每次运行的决策以追加式 Markdown 写入交易记忆,配合沪深 300 基准做延迟反思:结果回灌下一轮提示词,持续修正策略偏差。每个标的独立 SQLite 断点,长任务可断可续,支持批量回溯与复盘。",
+      points: ["交易记忆 + 延迟反思(沪深 300 基准)", "每 ticker SQLite 断点恢复", "5 级信号 + 仓位建议 + Markdown/JSON/PDF"],
+      demo: [
+        "memory · 近 20 次决策命中率 62%,超额 +4.1%",
+        "reflect · 高估情绪权重 → 下调舆情置信度",
+        "signal · Overweight · 建议仓位 7% · 报告已导出",
+      ],
     },
   ];
   return (
@@ -532,24 +560,50 @@ function Capabilities() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           kicker="core capabilities"
-          title="群智能体在金融分析场景的四大核心优势"
-          desc='相比单一大模型,"一群 AI 分析师"能覆盖更多数据维度、暴露更多风险视角,并把结果收敛为可解释的结构化结论。'
+          title="群智能体金融引擎的四大核心能力"
+          desc="从多源感知到协同决策、风险管控与策略迭代 —— 一次运行就是一支投研团队完整的工作闭环,每一步都可解释、可审计、可复盘。"
         />
-        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid gap-5 lg:grid-cols-2">
           {cards.map((c, i) => (
-            <div key={c.title} className="ds-card" style={{ animationDelay: `${i * 80}ms` }}>
-              <div className="grid h-11 w-11 place-items-center rounded-lg bg-primary/10 text-primary transition group-hover:bg-primary/20">
-                <c.icon className="h-5 w-5" />
+            <div key={c.title} className="ds-card rounded-2xl p-8" style={{ animationDelay: `${i * 80}ms` }}>
+              <div className="flex items-start justify-between gap-4">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary transition group-hover:bg-primary/20">
+                  <c.icon className="h-5 w-5" />
+                </div>
+                <span className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground">
+                  {c.sub}
+                </span>
               </div>
-              <h3 className="mt-5 text-base font-semibold text-foreground">{c.title}</h3>
+              <h3 className="mt-5 text-lg font-semibold text-foreground">{c.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.desc}</p>
+              <ul className="mt-4 space-y-1.5">
+                {c.points.map((p) => (
+                  <li key={p} className="flex items-start gap-2 text-xs text-muted-foreground">
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary/70" />
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-5 rounded-lg border border-border/70 bg-background/50 p-4">
+                <div className="mb-2 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-primary/80">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-dot" />
+                  场景演示 · live trace
+                </div>
+                <div className="space-y-1.5 font-mono text-[11px] leading-relaxed text-muted-foreground">
+                  {c.demo.map((d) => (
+                    <div key={d} className="truncate">
+                      <span className="text-primary/70">›</span> {d}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           ))}
         </div>
         <div className="mt-10 grid gap-4 rounded-xl border border-border/70 bg-background/40 p-6 sm:grid-cols-3">
           {[
-            { icon: Star, k: "Powered by", v: "TradingAgents · 65K+ Stars" },
-            { icon: Cpu, k: "LLM 供应商", v: "11 家兼容 · 双 LLM 架构" },
+            { icon: Star, k: "编排内核", v: "LangGraph StateGraph · 断点续跑" },
+            { icon: Cpu, k: "LLM 供应商", v: "11+ 家兼容 · 双 LLM 架构" },
             { icon: Sparkles, k: "金融技能库", v: "90+ SKILL.md · DCF / LBO / 三表" },
           ].map((x) => (
             <div key={x.k} className="flex items-center gap-3">
