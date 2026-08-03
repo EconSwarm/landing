@@ -247,7 +247,7 @@ function Hero() {
             <h1 className="mt-6 text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight leading-[1.05]">
               群智能体<span className="text-gradient">金融引擎</span>
               <span className="block mt-2 text-3xl lg:text-4xl xl:text-5xl text-muted-foreground font-medium">
-                多智能体 · 多技能协同工作流,赋能金融 research 与决策
+                多智能体 · 多技能协同工作流, 赋能金融研究与决策
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
@@ -275,7 +275,7 @@ function Hero() {
                 rel="noopener noreferrer"
                 className="ds-btn ds-btn--secondary ds-btn--xl px-8 h-[38px]! w-[100px]"
               >
-                <Terminal className="h-4 w-4 text-primary" /> 查看示例报告
+                <Terminal className="h-4 w-4 text-primary" /> 查看示例
               </a>
             </div>
             <dl className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl">
