@@ -628,31 +628,31 @@ function Modules() {
   const modules = [
     {
       n: "01",
-      title: "18 位专职 Agent · 群体协同决策",
+      title: "34 个专业 Agent · 群体协同决策",
       sub: "Swarm Specialist Agents",
-      body: "7 核心 Analyst 覆盖行情、舆情、新闻、基本面、政策、游资、解禁；11 位垂直插件 Agent 覆盖行业研究、宏观、量化等场景。全部并行分析,多角度收敛,避免单模型盲点。",
-      tags: ["7 核心 + 11 垂直", "90+ 金融技能库", "并行协同"],
+      body: "7 核心 Analyst 覆盖行情、舆情、新闻、基本面、政策、资金流、解禁供给；11 个垂直插件 Agent 覆盖投行估值/LBO、私募 IC 备忘录、基金会计与 NAV 对账、KYC 合规、财富管理与跨资产数据伙伴。角色以工厂注册,可按任务自由裁剪阵容。",
+      tags: ["7 核心 + 11 垂直", "角色工厂可扩展", "并行取证"],
     },
     {
       n: "02",
-      title: "全维度市场数据直连抓取",
-      sub: "Full-Coverage Data Ingestion",
-      body: "9 个直连数据源覆盖行情、财务三表、龙虎榜、资金流、解禁、政策快讯与情绪热度 —— 全部免费直连 HTTP / TCP,零 API Key 月费,Vendor 路由支持无缝扩展美股、港股等国际市场。",
-      tags: ["9 直连数据源", "零 API Key 月费", "多市场可扩展"],
+      title: "90+ 金融技能库 · 模块化编排",
+      sub: "Skill Orchestration",
+      body: "技能以 SKILL.md 形式沉淀(当前 124 个),启动时进入注册表,支持根级与 `domain:name` 领域级引用,由 build_skills_section() 注入 Agent 系统提示词 —— DCF、LBO、三表建模、尽调清单等方法论可按场景装配。",
+      tags: ["124 个 SKILL.md", "domain:name 领域引用", "提示词级注入"],
     },
     {
       n: "03",
-      title: "多空 & 风险辩论 · 实时预警",
+      title: "多空 & 三方风险辩论 · 质量门控",
       sub: "Debate & Risk Layer",
-      body: "Bull ↔ Bear 多空辩论收敛研究观点,Aggressive ↔ Conservative ↔ Neutral 三方风险辩论审议交易方案；两层质量门控 + 交易记忆与延迟反思,异常风险即时暴露。",
+      body: "Bull ↔ Bear 多空辩论收敛研究观点,Aggressive ↔ Conservative ↔ Neutral 三方风险辩论审议交易方案；两层质量门控(硬检查 A–F 分级 + LLM 复审)确保输入可信,交易记忆与延迟反思持续纠偏。",
       tags: ["两层质量门控", "3 方风险辩论", "延迟反思复盘"],
     },
     {
       n: "04",
-      title: "结构化投资策略智能生成",
+      title: "结构化决策与多格式交付",
       sub: "Structured Strategy Output",
-      body: "Research Manager → Trader → Portfolio Manager 全链路 Pydantic 结构化决策,输出 5 级信号(Buy / Overweight / Hold / Underweight / Sell)、仓位建议、中文投研报告,全程可解释可审计。",
-      tags: ["5 级信号", "Pydantic 结构化", "可解释报告"],
+      body: "Research Manager → Trader → Portfolio Manager 全链路 Pydantic 结构化决策(ResearchPlan / TraderProposal / PortfolioDecision),输出 5 级信号、仓位建议与 Markdown / JSON / PDF 研究报告,全程可解释可审计。",
+      tags: ["5 级信号", "Pydantic 结构化", "Markdown / JSON / PDF"],
     },
   ];
   const analysts = [
