@@ -1954,10 +1954,12 @@ function Landing() {
       <Hero />
       <Capabilities />
       <Modules />
+      <Technology />
       <Principle />
       <Workbench />
       <Pipeline />
-      <Audience />
+      <Scenarios />
+
       <Roadmap />
       <Pricing />
       <CTA />
