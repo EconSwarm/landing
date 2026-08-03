@@ -152,7 +152,7 @@ function SwarmViz() {
       aria-hidden="true"
       className="pointer-events-none absolute inset-0 hidden items-center justify-center lg:flex"
     >
-      <svg viewBox="0 0 400 400" className="h-[900px] w-[900px] translate-x-[26%] opacity-90">
+      <svg viewBox="0 0 400 400" className="h-[900px] w-[900px] translate-x-[38%] opacity-70">
         <defs>
           <radialGradient id="swarmCore" cx="50%" cy="50%" r="50%">
             <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.35" />
