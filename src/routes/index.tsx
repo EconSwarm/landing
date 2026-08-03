@@ -702,7 +702,7 @@ function Modules() {
 
         <div className="mt-16">
           <div className="text-center font-mono text-[11px] tracking-widest text-primary">
-            7 核心 ANALYSTS · + 11 垂直 AGENT PLUGINS = 18 SWARM
+            7 核心 ANALYSTS · + 11 垂直 AGENT PLUGINS · = 34 ROLE SWARM
           </div>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
             {analysts.map((a, i) => (
