@@ -1440,29 +1440,157 @@ function Pipeline() {
   );
 }
 
-function Audience() {
-  const list = [
-    "个人投资者与量化爱好者",
-    "券商研究与策略团队",
-    "公募与私募基金投研",
-    "银行研究院 / 金融市场部",
+function Technology() {
+  const items = [
+    {
+      icon: BrainCircuit,
+      title: "群智能体架构",
+      sub: "Swarm Architecture",
+      body: "LangGraph StateGraph 作为唯一编排内核:AgentState 单一图状态承载 7 个核心报告字段、10 个插件报告字段、质量摘要、两套辩论状态与最终决策。Analyst 按传入顺序串行执行,chain_mode 可切换简化链路,SQLite Checkpointer 提供每标的断点续跑。",
+      tags: ["StateGraph 编排", "AgentState 单一状态", "断点续跑"],
+    },
+    {
+      icon: Database,
+      title: "多源数据融合引擎",
+      sub: "Multi-source Fusion",
+      body: "Agent 只调用抽象 @tool,由 route_to_vendor() 依据 VENDOR_METHODS 注册表分发到具体实现:5 大工具类别可独立配置 Vendor,工具级配置覆盖类别级,逗号串定义优先顺序与 fallback(如 a_stock,yfinance)。核心引擎零第三方付费数据库依赖。",
+      tags: ["9 直连源 + 2 国际 Vendor", "类别 / 工具级路由", "自动 fallback"],
+    },
+    {
+      icon: Gauge,
+      title: "双 LLM 分层推理",
+      sub: "Dual-LLM Reasoning",
+      body: "quick_think_llm 承担高频工具调用与分析师撰写,deep_think_llm 负责 Research Manager 与 Portfolio Manager 的全局综合判断。11+ 供应商开箱即用(DeepSeek / OpenAI / Anthropic / Google / Qwen / GLM / MiniMax / xAI / OpenRouter / Ollama / Moonshot,另支持 Azure)。",
+      tags: ["快思 + 深思分层", "11+ 供应商", "自定义兼容端点"],
+    },
+    {
+      icon: Scale,
+      title: "质量门控与结构化决策",
+      sub: "Quality Gate & Typed Output",
+      body: "Layer 1 硬检查校验报告长度、失败标记、必采清单与汇总表格并给出 A–F 分级;Layer 2 在失败项 ≤3 时由 LLM 逐条复审以节省 token。决策链全程 with_structured_output + Pydantic 类型约束,产出可机读、可对接。",
+      tags: ["A–F 报告分级", "LLM 复审", "Pydantic 类型安全"],
+    },
+    {
+      icon: Activity,
+      title: "记忆与延迟反思",
+      sub: "Memory & Reflection",
+      body: "追加式 Markdown 决策日志记录每次运行结论,配合沪深 300 基准做延迟反思并回灌下一轮提示词;memory_log_max_entries 控制已解决条目上限,结果目录、缓存与记忆路径均可用环境变量覆盖。",
+      tags: ["交易记忆日志", "基准反思", "环境变量可配置"],
+    },
+    {
+      icon: Terminal,
+      title: "三套接入方式",
+      sub: "Python · CLI · Web",
+      body: "Python API 直接实例化 TradingGraph 嵌入既有系统;Typer + Rich 交互式 CLI 适合研究员单机跑批;React + FastAPI Web UI 提供任务中心、协作视图与报告导出,后台以 daemon thread 或 Postgres Worker 持久化执行。",
+      tags: ["Python API", "交互式 CLI", "Web UI + Worker"],
+    },
   ];
   return (
-    <section className="bg-section-deep py-24">
+    <section id="technology" className="bg-section-rise py-24">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
-          kicker="who is it for"
-          title="个人研究员,也能拥有自己的投研团队"
-          desc="EconSwarm 不只面向机构。任何希望把碎片化信息、模型能力与结构化流程组合起来的研究者,都能通过群智能体获得一份可追溯、可复盘的投研意见。"
+          kicker="technology"
+          title="支撑群智能体金融引擎的六项核心技术"
+          desc="不是把一个大模型包一层界面 —— 而是把投研 SOP 编排成状态机:数据路由、角色分工、质量门控、类型化决策与记忆反思各自独立可替换。"
         />
-        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {list.map((x) => (
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {items.map((t) => (
+            <div key={t.title} className="ds-card rounded-2xl p-7">
+              <div className="flex items-start justify-between gap-3">
+                <div className="grid h-10 w-10 place-items-center rounded-lg bg-primary/10 text-primary">
+                  <t.icon className="h-4.5 w-4.5" />
+                </div>
+                <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                  {t.sub}
+                </span>
+              </div>
+              <h3 className="mt-5 text-base font-semibold text-foreground">{t.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.body}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {t.tags.map((x) => (
+                  <span key={x} className="ds-tag">
+                    {x}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Scenarios() {
+  const list = [
+    {
+      icon: Landmark,
+      title: "券商研究所",
+      value: "首次覆盖与深度报告提速",
+      body: "行情、基本面、政策、资金流多路 Agent 并行取证,自动生成带汇总表格的初稿;质量门控与合规审查前置,分析师把时间投入观点而非拼数据。",
+      metric: "初稿产出 · 小时级",
+    },
+    {
+      icon: TrendingUp,
+      title: "公募 / 私募投研",
+      value: "多资产池持续跟踪",
+      body: "按标的池批量运行,输出 5 级信号与仓位建议;交易记忆与沪深 300 基准反思沉淀历史胜率,支撑季度复盘与组合再平衡。",
+      metric: "5 级信号 + 仓位建议",
+    },
+    {
+      icon: ChartLine,
+      title: "量化交易团队",
+      value: "因子与事件信号自动迭代",
+      body: "Python API 直接嵌入研究流水线,结构化 PortfolioDecision 可机读入库;延迟反思驱动策略参数持续修正,断点续跑支撑长周期回溯。",
+      metric: "JSON 可直连回测",
+    },
+    {
+      icon: Shield,
+      title: "风险与合规部门",
+      value: "风险敞口前置暴露",
+      body: "三方风险辩论 + 解禁减持监控 + KYC / 运营合规 Agent,把供给冲击、监管与流动性风险在决策前显性化,全过程留痕可审计。",
+      metric: "全链路留痕可审计",
+    },
+    {
+      icon: Wallet,
+      title: "财富管理与投顾",
+      value: "客户级报告批量生成",
+      body: "财富管理 Agent 结合资产配置技能输出客户报告,支持中文与多格式交付(Markdown / PDF),风险提示与免责声明模板化嵌入。",
+      metric: "Markdown / PDF 交付",
+    },
+    {
+      icon: Zap,
+      title: "个人研究者",
+      value: "一个人的投研团队",
+      body: "免费直连数据源 + 交互式 CLI,零第三方付费数据库即可跑通全流程;从一只标的、一个日期开始,得到可追溯、可复盘的研究结论。",
+      metric: "零付费数据依赖",
+    },
+  ];
+  return (
+    <section id="scenarios" className="bg-section-deep py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionHeading
+          kicker="use cases"
+          title="在不同金融业务场景中的落地价值"
+          desc="灵活的数据源路由、可拓展的 Agent 角色体系与模块化技能编排,让同一套引擎适配券商研究、基金投研、量化交易、风控合规与财富管理。"
+        />
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {list.map((s) => (
             <div
-              key={x}
-              className="flex items-center gap-3 rounded-xl border border-subtle bg-surface p-5 transition-all duration-200 hover:border-primary/30 hover:bg-surface-elevated"
+              key={s.title}
+              className="group rounded-2xl border border-subtle bg-surface p-7 transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:bg-surface-elevated"
             >
-              <Activity className="h-4 w-4 text-primary" />
-              <span className="text-sm text-foreground">{x}</span>
+              <div className="flex items-center gap-3">
+                <div className="grid h-10 w-10 place-items-center rounded-lg bg-primary/10 text-primary">
+                  <s.icon className="h-4 w-4" />
+                </div>
+                <div className="text-sm font-semibold text-foreground">{s.title}</div>
+              </div>
+              <div className="mt-4 text-base font-medium text-foreground">{s.value}</div>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
+              <div className="mt-5 border-t border-border/60 pt-4 font-mono text-[11px] text-primary/80">
+                {s.metric}
+              </div>
             </div>
           ))}
         </div>
