@@ -1582,6 +1582,7 @@ function Pricing() {
         "在线查看中文投研报告",
       ],
       cta: "免费开始",
+      href: "https://app.econswarm.com",
     },
     {
       name: "入门版",
@@ -1597,6 +1598,7 @@ function Pricing() {
         "标准队列响应速度",
       ],
       cta: "选择入门版",
+      href: "https://app.econswarm.com",
     },
     {
       name: "专业版",
@@ -1613,6 +1615,7 @@ function Pricing() {
         "优先队列与更快响应",
       ],
       cta: "升级到专业版",
+      href: "https://app.econswarm.com",
       featured: true,
     },
     {
@@ -1629,6 +1632,7 @@ function Pricing() {
         "专属技术支持与 SLA",
       ],
       cta: "联系我们",
+      href: "mailto:contact@econswarm.com?subject=EconSwarm 机构版咨询",
     },
   ];
   return (
@@ -1666,13 +1670,17 @@ function Pricing() {
                 ))}
               </ul>
               <a
-                href="#"
+                href={p.href}
+                {...(p.href.startsWith("http")
+                  ? { target: "_blank", rel: "noreferrer" }
+                  : {})}
                 className={`ds-btn ds-btn--lg mt-6 w-full ${
                   p.featured ? "ds-btn--brand" : "ds-btn--secondary"
                 }`}
               >
                 {p.cta} <ArrowRight className="h-3.5 w-3.5" />
               </a>
+
             </div>
           ))}
         </div>
