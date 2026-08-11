@@ -1666,13 +1666,17 @@ function Pricing() {
                 ))}
               </ul>
               <a
-                href="#"
+                href={p.href}
+                {...(p.href.startsWith("http")
+                  ? { target: "_blank", rel: "noreferrer" }
+                  : {})}
                 className={`ds-btn ds-btn--lg mt-6 w-full ${
                   p.featured ? "ds-btn--brand" : "ds-btn--secondary"
                 }`}
               >
                 {p.cta} <ArrowRight className="h-3.5 w-3.5" />
               </a>
+
             </div>
           ))}
         </div>
