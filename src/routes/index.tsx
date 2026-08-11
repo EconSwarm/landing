@@ -424,14 +424,15 @@ function Capabilities() {
       icon: Radar,
       title: "实时市场感知",
       sub: "Real-time Market Sensing",
-      desc: "Agent 不直连网络,统一通过 route_to_vendor() 路由到 9 个免费直连数据源(通达信 TCP、东方财富、新浪、同花顺、财联社、百度股市通等),并可切换 yfinance / Alpha Vantage 接入国际市场。行情、财报、快讯、资金流、龙虎榜、限售解禁多路并行取数,单源失败自动 fallback。",
-      points: ["9 直连数据源 + 2 国际 Vendor", "5 大工具类别可独立配置 Vendor", "多市场:A 股 / 美股 / 港股 / FX / 商品"],
+      desc: "Agent 不直连网络,统一通过 route_to_vendor() 路由到 9 个免费直连数据源(通达信 TCP、腾讯财经、东方财富 datacenter/push2、新浪、同花顺、财联社、百度股市通等),并可切换 yfinance / Alpha Vantage 接入国际市场。行情、财报、快讯、资金流、龙虎榜、限售解禁多路并行取数,单源失败自动 fallback;对话结果经 SSE 逐 token 流式返回,持久化任务通过 WebSocket 实时推送 12 阶段进度。",
+      points: ["9 直连数据源 + 2 国际 Vendor", "SSE 流式回复 + WebSocket 进度推送", "多市场:A 股 / 美股 / 港股 / FX / 商品"],
       demo: [
         "vendor · a_stock → OHLCV / F10 / 财务快照",
         "flow · 北向净流入 +12.4 亿,龙虎榜席位 3 家机构",
-        "news · 财联社快讯 18 条,行业政策命中 2 条",
+        "stream · SSE token 推送中 · stage 3/12 news",
       ],
     },
+
     {
       icon: Shield,
       title: "风险智能管控",
@@ -506,7 +507,7 @@ function Capabilities() {
           {[
             { icon: Star, k: "编排内核", v: "LangGraph StateGraph · 断点续跑" },
             { icon: Cpu, k: "LLM 供应商", v: "11+ 家兼容 · 双 LLM 架构" },
-            { icon: Sparkles, k: "金融技能库", v: "90+ SKILL.md · DCF / LBO / 三表" },
+            { icon: Sparkles, k: "金融技能库", v: "184 SKILL.md · DCF / LBO / 三表" },
           ].map((x) => (
             <div key={x.k} className="flex items-center gap-3">
               <div className="rounded-md border border-primary/30 bg-primary/10 p-2 text-primary">
@@ -537,10 +538,11 @@ function Modules() {
     },
     {
       n: "02",
-      title: "90+ 金融技能库 · 模块化编排",
+      title: "184 个金融技能 · 模块化编排",
       sub: "Skill Orchestration",
-      body: "技能以 SKILL.md 形式沉淀(当前 124 个),启动时进入注册表,支持根级与 `domain:name` 领域级引用,由 build_skills_section() 注入 Agent 系统提示词 —— DCF、LBO、三表建模、尽调清单等方法论可按场景装配。",
-      tags: ["124 个 SKILL.md", "domain:name 领域引用", "提示词级注入"],
+      body: "技能以 SKILL.md 形式沉淀(当前 184 个),启动时进入注册表,支持根级与 `domain:name` 领域级引用,由 build_skills_section() 注入 Agent 系统提示词 —— DCF、LBO、三表建模、尽调清单等方法论可按场景装配。",
+      tags: ["184 个 SKILL.md", "domain:name 领域引用", "提示词级注入"],
+
     },
     {
       n: "03",
