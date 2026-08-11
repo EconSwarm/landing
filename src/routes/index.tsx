@@ -134,100 +134,8 @@ function Nav() {
   );
 }
 
-function SwarmViz() {
-  const rings = [
-    { r: 74, count: 7, dur: "38s", size: 5.5, reverse: false },
-    { r: 116, count: 11, dur: "56s", size: 4.5, reverse: true },
-    { r: 158, count: 16, dur: "80s", size: 3.5, reverse: false },
-  ];
-  return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-0 hidden items-center justify-center lg:flex"
-    >
-      <svg viewBox="0 0 400 400" className="h-[900px] w-[900px] translate-x-[38%] opacity-70">
-        <defs>
-          <radialGradient id="swarmCore" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="var(--primary)" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-        <circle cx="200" cy="200" r="160" fill="url(#swarmCore)" />
-        {rings.map((ring) => (
-          <circle
-            key={`c-${ring.r}`}
-            cx="200"
-            cy="200"
-            r={ring.r}
-            fill="none"
-            stroke="var(--primary)"
-            strokeOpacity="0.3"
-            strokeDasharray="4 6"
-          />
-        ))}
-        {rings.map((ring) => (
-          <g
-            key={`g-${ring.r}`}
-            className={ring.reverse ? "swarm-ring swarm-ring--rev" : "swarm-ring"}
-            style={{ animationDuration: ring.dur, transformOrigin: "200px 200px" }}
-          >
-            {Array.from({ length: ring.count }).map((_, i) => {
-              const a = (Math.PI * 2 * i) / ring.count;
-              const x = 200 + Math.cos(a) * ring.r;
-              const y = 200 + Math.sin(a) * ring.r;
-              return (
-                <g key={i}>
-                  <line
-                    x1="200"
-                    y1="200"
-                    x2={x}
-                    y2={y}
-                    stroke="var(--primary)"
-                    strokeOpacity="0.16"
-                    strokeWidth="0.75"
-                  />
-                  <circle
-                    cx={x}
-                    cy={y}
-                    r={ring.size}
-                    fill="var(--primary)"
-                    fillOpacity="0.75"
-                    className="swarm-node"
-                    style={{ animationDelay: `${(i % 6) * 0.4}s` }}
-                  />
-                </g>
-              );
-            })}
-          </g>
-        ))}
-        <circle
-          cx="200"
-          cy="200"
-          r="34"
-          fill="var(--surface-elevated)"
-          stroke="var(--primary)"
-          strokeOpacity="0.7"
-        />
-        <text
-          x="200"
-          y="197"
-          textAnchor="middle"
-          className="fill-primary font-mono text-[11px] font-bold"
-        >
-          SWARM
-        </text>
-        <text
-          x="200"
-          y="211"
-          textAnchor="middle"
-          className="fill-muted-foreground font-mono text-[9px]"
-        >
-          34 AGENTS
-        </text>
-      </svg>
-    </div>
-  );
-}
+
+
 
 function Hero() {
   return (
@@ -236,7 +144,7 @@ function Hero() {
         <div className="absolute -top-48 -right-48 h-96 w-96 rounded-full bg-primary/5 blur-[120px]" />
         <div className="absolute -bottom-48 -left-48 h-96 w-96 rounded-full bg-blue-500/5 blur-[120px]" />
       </div>
-      <SwarmViz />
+      
       <div className="mx-auto max-w-7xl px-6 pt-20 pb-24 lg:pt-28 lg:pb-32 relative">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 animate-float-up">
@@ -251,8 +159,9 @@ function Hero() {
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-              EconSwarm 整合 34 个专业 Agent 与 90+ 金融场景技能库,依托 LangGraph 状态机搭建自动化金融分析链路,融入数据校验、观点辩论与结构化决策环节 —— 面向股票、债券、外汇与大宗商品的多市场、多资产投研场景, 输出专业、可解释、可审计的金融研究报告。
+              EconSwarm 以 LangGraph 状态机调度 34 个专业 Agent 与 184 个金融技能,把投研 SOP 编排成 12 阶段自动化分析流水线:多源数据校验、多空辩论、三方风控评审与结构化最终决策 —— 面向股票、债券、外汇与大宗商品的多市场、多资产投研场景,输出专业、可解释、可审计的研究报告。
             </p>
+
             <div className="mt-6 flex flex-wrap gap-2">
               {["股票", "债券", "外汇", "大宗商品", "多市场 · 多资产"].map((t) => (
                 <span key={t} className="ds-tag">
@@ -281,10 +190,11 @@ function Hero() {
             <dl className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl">
               {[
                 { k: "专业 Agent", v: "34" },
-                { k: "金融技能库", v: "90+" },
+                { k: "金融技能库", v: "184" },
+                { k: "分析流水线", v: "12 阶段" },
                 { k: "直连数据源", v: "9+" },
-                { k: "LLM 供应商", v: "11+" },
               ].map((s) => (
+
                 <div key={s.k} className="hero-metric">
                   <dt>{s.k}</dt>
                   <dd>{s.v}</dd>
@@ -514,14 +424,15 @@ function Capabilities() {
       icon: Radar,
       title: "实时市场感知",
       sub: "Real-time Market Sensing",
-      desc: "Agent 不直连网络,统一通过 route_to_vendor() 路由到 9 个免费直连数据源(通达信 TCP、东方财富、新浪、同花顺、财联社、百度股市通等),并可切换 yfinance / Alpha Vantage 接入国际市场。行情、财报、快讯、资金流、龙虎榜、限售解禁多路并行取数,单源失败自动 fallback。",
-      points: ["9 直连数据源 + 2 国际 Vendor", "5 大工具类别可独立配置 Vendor", "多市场:A 股 / 美股 / 港股 / FX / 商品"],
+      desc: "Agent 不直连网络,统一通过 route_to_vendor() 路由到 9 个免费直连数据源(通达信 TCP、腾讯财经、东方财富 datacenter/push2、新浪、同花顺、财联社、百度股市通等),并可切换 yfinance / Alpha Vantage 接入国际市场。行情、财报、快讯、资金流、龙虎榜、限售解禁多路并行取数,单源失败自动 fallback;对话结果经 SSE 逐 token 流式返回,持久化任务通过 WebSocket 实时推送 12 阶段进度。",
+      points: ["9 直连数据源 + 2 国际 Vendor", "SSE 流式回复 + WebSocket 进度推送", "多市场:A 股 / 美股 / 港股 / FX / 商品"],
       demo: [
         "vendor · a_stock → OHLCV / F10 / 财务快照",
         "flow · 北向净流入 +12.4 亿,龙虎榜席位 3 家机构",
-        "news · 财联社快讯 18 条,行业政策命中 2 条",
+        "stream · SSE token 推送中 · stage 3/12 news",
       ],
     },
+
     {
       icon: Shield,
       title: "风险智能管控",
@@ -596,7 +507,7 @@ function Capabilities() {
           {[
             { icon: Star, k: "编排内核", v: "LangGraph StateGraph · 断点续跑" },
             { icon: Cpu, k: "LLM 供应商", v: "11+ 家兼容 · 双 LLM 架构" },
-            { icon: Sparkles, k: "金融技能库", v: "90+ SKILL.md · DCF / LBO / 三表" },
+            { icon: Sparkles, k: "金融技能库", v: "184 SKILL.md · DCF / LBO / 三表" },
           ].map((x) => (
             <div key={x.k} className="flex items-center gap-3">
               <div className="rounded-md border border-primary/30 bg-primary/10 p-2 text-primary">
@@ -627,10 +538,11 @@ function Modules() {
     },
     {
       n: "02",
-      title: "90+ 金融技能库 · 模块化编排",
+      title: "184 个金融技能 · 模块化编排",
       sub: "Skill Orchestration",
-      body: "技能以 SKILL.md 形式沉淀(当前 124 个),启动时进入注册表,支持根级与 `domain:name` 领域级引用,由 build_skills_section() 注入 Agent 系统提示词 —— DCF、LBO、三表建模、尽调清单等方法论可按场景装配。",
-      tags: ["124 个 SKILL.md", "domain:name 领域引用", "提示词级注入"],
+      body: "技能以 SKILL.md 形式沉淀(当前 184 个),启动时进入注册表,支持根级与 `domain:name` 领域级引用,由 build_skills_section() 注入 Agent 系统提示词 —— DCF、LBO、三表建模、尽调清单等方法论可按场景装配。",
+      tags: ["184 个 SKILL.md", "domain:name 领域引用", "提示词级注入"],
+
     },
     {
       n: "03",
@@ -1438,8 +1350,9 @@ function Technology() {
       icon: BrainCircuit,
       title: "群智能体架构",
       sub: "Swarm Architecture",
-      body: "LangGraph StateGraph 作为唯一编排内核:AgentState 单一图状态承载 7 个核心报告字段、10 个插件报告字段、质量摘要、两套辩论状态与最终决策。Analyst 按传入顺序串行执行,chain_mode 可切换简化链路,SQLite Checkpointer 提供每标的断点续跑。",
-      tags: ["StateGraph 编排", "AgentState 单一状态", "断点续跑"],
+      body: "LangGraph StateGraph 作为唯一编排内核:AgentState 单一图状态承载 7 个核心报告字段、插件报告字段、质量摘要、两套辩论状态与最终决策,统一沉淀为 12 阶段流水线(7 分析师 → 质量门控 → 多空辩论 → 交易决策 → 风控评估 → 最终决策)。chain_mode 可动态裁剪阶段,SQLite Checkpointer 提供每标的断点续跑。",
+      tags: ["StateGraph 编排", "12 阶段流水线", "断点续跑"],
+
     },
     {
       icon: Database,
@@ -1470,19 +1383,27 @@ function Technology() {
       tags: ["交易记忆日志", "基准反思", "环境变量可配置"],
     },
     {
+      icon: Star,
+      title: "可复用工作流编排",
+      sub: "Workflow Orchestration",
+      body: "工作流是可复用的流水线定义:从 19 个可选 Agent(7 核心 + 12 插件)与技能库中自由组合,指定 instrument / market / industry / topic 目标类型与输入契约,每次更新生成新版本可追溯。内置 4 个系统工作流,用户工作流支持保存、复用与团队共享。",
+      tags: ["19 个可选 Agent", "目标类型 + 输入契约", "版本化可追溯"],
+    },
+    {
       icon: Terminal,
       title: "三套接入方式",
       sub: "Python · CLI · Web",
-      body: "Python API 直接实例化 TradingGraph 嵌入既有系统;Typer + Rich 交互式 CLI 适合研究员单机跑批;React + FastAPI Web UI 提供任务中心、协作视图与报告导出,后台以 daemon thread 或 Postgres Worker 持久化执行。",
-      tags: ["Python API", "交互式 CLI", "Web UI + Worker"],
+      body: "Python API 直接实例化 TradingGraph 嵌入既有系统;Typer + Rich 交互式 CLI 适合研究员单机跑批;React + FastAPI Web 工作台提供任务中心、时间线、报告导出与暂停 / 恢复 / 取消,后台以 daemon thread 或 Postgres Worker(FOR UPDATE SKIP LOCKED)持久化执行。",
+      tags: ["Python API", "交互式 CLI", "Web 工作台 + Worker"],
     },
+
   ];
   return (
     <section id="technology" className="bg-section-rise py-24">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           kicker="technology"
-          title="支撑群智能体金融引擎的六项核心技术"
+          title="支撑群智能体金融引擎的七项核心技术"
           desc="不是把一个大模型包一层界面 —— 而是把投研 SOP 编排成状态机:数据路由、角色分工、质量门控、类型化决策与记忆反思各自独立可替换。"
         />
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
