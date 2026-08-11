@@ -134,100 +134,8 @@ function Nav() {
   );
 }
 
-function SwarmViz() {
-  const rings = [
-    { r: 74, count: 7, dur: "38s", size: 5.5, reverse: false },
-    { r: 116, count: 11, dur: "56s", size: 4.5, reverse: true },
-    { r: 158, count: 16, dur: "80s", size: 3.5, reverse: false },
-  ];
-  return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none absolute inset-0 hidden items-center justify-center lg:flex"
-    >
-      <svg viewBox="0 0 400 400" className="h-[900px] w-[900px] translate-x-[38%] opacity-70">
-        <defs>
-          <radialGradient id="swarmCore" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="var(--primary)" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-        <circle cx="200" cy="200" r="160" fill="url(#swarmCore)" />
-        {rings.map((ring) => (
-          <circle
-            key={`c-${ring.r}`}
-            cx="200"
-            cy="200"
-            r={ring.r}
-            fill="none"
-            stroke="var(--primary)"
-            strokeOpacity="0.3"
-            strokeDasharray="4 6"
-          />
-        ))}
-        {rings.map((ring) => (
-          <g
-            key={`g-${ring.r}`}
-            className={ring.reverse ? "swarm-ring swarm-ring--rev" : "swarm-ring"}
-            style={{ animationDuration: ring.dur, transformOrigin: "200px 200px" }}
-          >
-            {Array.from({ length: ring.count }).map((_, i) => {
-              const a = (Math.PI * 2 * i) / ring.count;
-              const x = 200 + Math.cos(a) * ring.r;
-              const y = 200 + Math.sin(a) * ring.r;
-              return (
-                <g key={i}>
-                  <line
-                    x1="200"
-                    y1="200"
-                    x2={x}
-                    y2={y}
-                    stroke="var(--primary)"
-                    strokeOpacity="0.16"
-                    strokeWidth="0.75"
-                  />
-                  <circle
-                    cx={x}
-                    cy={y}
-                    r={ring.size}
-                    fill="var(--primary)"
-                    fillOpacity="0.75"
-                    className="swarm-node"
-                    style={{ animationDelay: `${(i % 6) * 0.4}s` }}
-                  />
-                </g>
-              );
-            })}
-          </g>
-        ))}
-        <circle
-          cx="200"
-          cy="200"
-          r="34"
-          fill="var(--surface-elevated)"
-          stroke="var(--primary)"
-          strokeOpacity="0.7"
-        />
-        <text
-          x="200"
-          y="197"
-          textAnchor="middle"
-          className="fill-primary font-mono text-[11px] font-bold"
-        >
-          SWARM
-        </text>
-        <text
-          x="200"
-          y="211"
-          textAnchor="middle"
-          className="fill-muted-foreground font-mono text-[9px]"
-        >
-          34 AGENTS
-        </text>
-      </svg>
-    </div>
-  );
-}
+
+
 
 function Hero() {
   return (
@@ -236,7 +144,7 @@ function Hero() {
         <div className="absolute -top-48 -right-48 h-96 w-96 rounded-full bg-primary/5 blur-[120px]" />
         <div className="absolute -bottom-48 -left-48 h-96 w-96 rounded-full bg-blue-500/5 blur-[120px]" />
       </div>
-      <SwarmViz />
+      
       <div className="mx-auto max-w-7xl px-6 pt-20 pb-24 lg:pt-28 lg:pb-32 relative">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 animate-float-up">
@@ -251,8 +159,9 @@ function Hero() {
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-              EconSwarm 整合 34 个专业 Agent 与 90+ 金融场景技能库,依托 LangGraph 状态机搭建自动化金融分析链路,融入数据校验、观点辩论与结构化决策环节 —— 面向股票、债券、外汇与大宗商品的多市场、多资产投研场景, 输出专业、可解释、可审计的金融研究报告。
+              EconSwarm 以 LangGraph 状态机调度 34 个专业 Agent 与 184 个金融技能,把投研 SOP 编排成 12 阶段自动化分析流水线:多源数据校验、多空辩论、三方风控评审与结构化最终决策 —— 面向股票、债券、外汇与大宗商品的多市场、多资产投研场景,输出专业、可解释、可审计的研究报告。
             </p>
+
             <div className="mt-6 flex flex-wrap gap-2">
               {["股票", "债券", "外汇", "大宗商品", "多市场 · 多资产"].map((t) => (
                 <span key={t} className="ds-tag">
@@ -281,10 +190,11 @@ function Hero() {
             <dl className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl">
               {[
                 { k: "专业 Agent", v: "34" },
-                { k: "金融技能库", v: "90+" },
+                { k: "金融技能库", v: "184" },
+                { k: "分析流水线", v: "12 阶段" },
                 { k: "直连数据源", v: "9+" },
-                { k: "LLM 供应商", v: "11+" },
               ].map((s) => (
+
                 <div key={s.k} className="hero-metric">
                   <dt>{s.k}</dt>
                   <dd>{s.v}</dd>
