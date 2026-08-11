@@ -1350,8 +1350,9 @@ function Technology() {
       icon: BrainCircuit,
       title: "群智能体架构",
       sub: "Swarm Architecture",
-      body: "LangGraph StateGraph 作为唯一编排内核:AgentState 单一图状态承载 7 个核心报告字段、10 个插件报告字段、质量摘要、两套辩论状态与最终决策。Analyst 按传入顺序串行执行,chain_mode 可切换简化链路,SQLite Checkpointer 提供每标的断点续跑。",
-      tags: ["StateGraph 编排", "AgentState 单一状态", "断点续跑"],
+      body: "LangGraph StateGraph 作为唯一编排内核:AgentState 单一图状态承载 7 个核心报告字段、插件报告字段、质量摘要、两套辩论状态与最终决策,统一沉淀为 12 阶段流水线(7 分析师 → 质量门控 → 多空辩论 → 交易决策 → 风控评估 → 最终决策)。chain_mode 可动态裁剪阶段,SQLite Checkpointer 提供每标的断点续跑。",
+      tags: ["StateGraph 编排", "12 阶段流水线", "断点续跑"],
+
     },
     {
       icon: Database,
@@ -1382,12 +1383,20 @@ function Technology() {
       tags: ["交易记忆日志", "基准反思", "环境变量可配置"],
     },
     {
+      icon: Star,
+      title: "可复用工作流编排",
+      sub: "Workflow Orchestration",
+      body: "工作流是可复用的流水线定义:从 19 个可选 Agent(7 核心 + 12 插件)与技能库中自由组合,指定 instrument / market / industry / topic 目标类型与输入契约,每次更新生成新版本可追溯。内置 4 个系统工作流,用户工作流支持保存、复用与团队共享。",
+      tags: ["19 个可选 Agent", "目标类型 + 输入契约", "版本化可追溯"],
+    },
+    {
       icon: Terminal,
       title: "三套接入方式",
       sub: "Python · CLI · Web",
-      body: "Python API 直接实例化 TradingGraph 嵌入既有系统;Typer + Rich 交互式 CLI 适合研究员单机跑批;React + FastAPI Web UI 提供任务中心、协作视图与报告导出,后台以 daemon thread 或 Postgres Worker 持久化执行。",
-      tags: ["Python API", "交互式 CLI", "Web UI + Worker"],
+      body: "Python API 直接实例化 TradingGraph 嵌入既有系统;Typer + Rich 交互式 CLI 适合研究员单机跑批;React + FastAPI Web 工作台提供任务中心、时间线、报告导出与暂停 / 恢复 / 取消,后台以 daemon thread 或 Postgres Worker(FOR UPDATE SKIP LOCKED)持久化执行。",
+      tags: ["Python API", "交互式 CLI", "Web 工作台 + Worker"],
     },
+
   ];
   return (
     <section id="technology" className="bg-section-rise py-24">
