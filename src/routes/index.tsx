@@ -1403,7 +1403,7 @@ function Technology() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           kicker="technology"
-          title="支撑群智能体金融引擎的六项核心技术"
+          title="支撑群智能体金融引擎的七项核心技术"
           desc="不是把一个大模型包一层界面 —— 而是把投研 SOP 编排成状态机:数据路由、角色分工、质量门控、类型化决策与记忆反思各自独立可替换。"
         />
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
