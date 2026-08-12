@@ -1507,7 +1507,14 @@ function Scenarios() {
             </div>
           ))}
         </div>
+        <div className="mt-8 text-sm text-muted-foreground">
+          想看券商研究所与资管团队的完整落地方式?
+          <Link to="/solutions/equity-research" className="ml-2 text-primary hover:underline">
+            查看股票投研解决方案 →
+          </Link>
+        </div>
       </div>
+
     </section>
   );
 }
