@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   ChevronRight,
@@ -1507,7 +1507,14 @@ function Scenarios() {
             </div>
           ))}
         </div>
+        <div className="mt-8 text-sm text-muted-foreground">
+          想看券商研究所与资管团队的完整落地方式?
+          <Link to="/solutions/equity-research" className="ml-2 text-primary hover:underline">
+            查看股票投研解决方案 →
+          </Link>
+        </div>
       </div>
+
     </section>
   );
 }
@@ -1744,6 +1751,7 @@ function Footer() {
     { label: "文档中心", href: "#" },
     { label: "API 参考", href: "#" },
     { label: "示例报告", href: "#" },
+    { label: "解决方案:股票投研", href: "/solutions/equity-research" },
     { label: "博客:群智能体 vs 单一 LLM", href: "/blog/swarm-vs-single-llm-comparison" },
     { label: "更新日志", href: "#" },
     { label: "社区讨论", href: "#" },
