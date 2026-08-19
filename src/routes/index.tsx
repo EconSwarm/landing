@@ -658,7 +658,7 @@ function Principle() {
         <SectionHeading
           kicker="technical principle"
           title="多智能体协同的技术原理"
-          desc="从数据直连到 5 级信号,一次运行由四层结构化流水线协同完成 — 每一步都可审计、可复现、可复盘。"
+          desc="从数据直连到 5 级信号, 一次运行由四层结构化流水线协同完成 — 每一步都可审计、可复现、可复盘。"
         />
         <div className="mt-14 rounded-xl border border-border bg-surface-gradient p-6 lg:p-8 shadow-elevated scanline">
           <div className="grid gap-4 lg:grid-cols-4 relative">
