@@ -159,7 +159,7 @@ function Hero() {
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-              34 个专业 Agent、184 个金融技能,由 LangGraph 状态机编排成七层分析流水线:多源取数、质量门控、多空辩论、三方风控,最终给出结构化决策。覆盖股票、债券、外汇与大宗商品。
+              34 个专业 Agent、184 个金融技能,由 LangGraph 状态机编排成七层分析流水线:多源取数、质量门控、多空辩论、三方风控, 最终给出结构化决策。覆盖股票、债券、外汇与大宗商品。
             </p>
 
 
