@@ -448,16 +448,17 @@ function Capabilities() {
     },
     {
       icon: LineChart,
-      title: "量化策略自动迭代",
-      sub: "Strategy Auto-Iteration",
-      desc: "每次运行写入交易记忆,对照基准做延迟反思并回灌下一轮提示词;每个标的独立断点,长任务可断可续。",
-      points: ["交易记忆 + 延迟反思", "断点续跑", "5 级信号 + Markdown / JSON / PDF"],
+      title: "记忆反思与持续进化",
+      sub: "Memory & Reflection",
+      desc: "每轮研究写入向量化记忆库,复盘后回灌到下一轮提示词;任务按标的独立断点,长流程可中断可续跑。",
+      points: ["向量记忆 + 延迟反思", "断点续跑 / 任务恢复", "结构化输出:Markdown / JSON / PDF"],
       demo: [
-        "memory · 近 20 次命中率 62%",
-        "reflect · 下调舆情置信度",
-        "signal · Overweight · 仓位 7%",
+        "memory · 召回同类标的历史结论",
+        "reflect · 修正舆情证据权重",
+        "output · 结构化投研报告已生成",
       ],
     },
+
   ];
   return (
     <section id="capabilities" className="bg-section-alt py-24">
