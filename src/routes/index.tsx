@@ -1479,7 +1479,7 @@ function Scenarios() {
       icon: Zap,
       title: "个人研究者",
       value: "一个人的投研团队",
-      body: "免费直连数据源 + 交互式 CLI,零付费数据库即可跑通全流程。",
+      body: "免费直连数据源 + 交互式 CLI, 零付费数据库即可跑通全流程。",
       metric: "零付费数据依赖",
     },
   ];
