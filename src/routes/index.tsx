@@ -1444,7 +1444,7 @@ function Scenarios() {
       icon: Landmark,
       title: "券商研究所",
       value: "深度报告提速",
-      body: "多路 Agent 并行取证并生成带汇总表格的初稿,分析师把时间投入观点而非拼数据。",
+      body: "多路 Agent 并行取证并生成带汇总表格的初稿, 分析师把时间投入观点而非拼数据。",
       metric: "初稿产出 · 小时级",
     },
     {
