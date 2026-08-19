@@ -1355,14 +1355,14 @@ function Technology() {
       icon: BrainCircuit,
       title: "群智能体架构",
       sub: "Swarm Architecture",
-      body: "LangGraph 状态机作为唯一编排内核,单一图状态承载各类报告、辩论过程与最终决策;阶段可裁剪,断点可续跑。",
+      body: "LangGraph 状态机作为唯一编排内核, 单一图状态承载各类报告、辩论过程与最终决策;阶段可裁剪,断点可续跑。",
       tags: ["状态机编排", "七层流水线", "断点续跑"],
     },
     {
       icon: Database,
       title: "多源数据融合",
       sub: "Multi-source Fusion",
-      body: "Agent 只调用抽象工具,由 Vendor 路由分发到具体数据源;类别与工具级可分别配置,支持优先顺序与自动 fallback。",
+      body: "Agent 只调用抽象工具, 由 Vendor 路由分发到具体数据源;类别与工具级可分别配置,支持优先顺序与自动 fallback。",
       tags: ["9 直连源 + 国际 Vendor", "分级路由", "自动 fallback"],
     },
     {
