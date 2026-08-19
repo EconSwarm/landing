@@ -1442,43 +1442,43 @@ function Scenarios() {
     {
       icon: Landmark,
       title: "券商研究所",
-      value: "首次覆盖与深度报告提速",
-      body: "行情、基本面、政策、资金流多路 Agent 并行取证,自动生成带汇总表格的初稿;质量门控与合规审查前置,分析师把时间投入观点而非拼数据。",
+      value: "深度报告提速",
+      body: "多路 Agent 并行取证并生成带汇总表格的初稿,分析师把时间投入观点而非拼数据。",
       metric: "初稿产出 · 小时级",
     },
     {
       icon: TrendingUp,
       title: "公募 / 私募投研",
       value: "多资产池持续跟踪",
-      body: "按标的池批量运行,输出 5 级信号与仓位建议;交易记忆与沪深 300 基准反思沉淀历史胜率,支撑季度复盘与组合再平衡。",
-      metric: "5 级信号 + 仓位建议",
+      body: "按标的池批量运行,输出 5 级评级与仓位建议,记忆与反思沉淀历史胜率。",
+      metric: "5 级评级 + 仓位建议",
     },
     {
       icon: ChartLine,
       title: "量化交易团队",
-      value: "因子与事件信号自动迭代",
-      body: "Python API 直接嵌入研究流水线,结构化 PortfolioDecision 可机读入库;延迟反思驱动策略参数持续修正,断点续跑支撑长周期回溯。",
+      value: "信号自动迭代",
+      body: "Python API 嵌入研究流水线,结构化决策可机读入库,断点续跑支撑长周期回溯。",
       metric: "JSON 可直连回测",
     },
     {
       icon: Shield,
-      title: "风险与合规部门",
-      value: "风险敞口前置暴露",
-      body: "三方风险辩论 + 解禁减持监控 + KYC / 运营合规 Agent,把供给冲击、监管与流动性风险在决策前显性化,全过程留痕可审计。",
-      metric: "全链路留痕可审计",
+      title: "风险与合规",
+      value: "敞口前置暴露",
+      body: "三方风险辩论叠加解禁监控与合规 Agent,把供给冲击与监管风险在决策前显性化。",
+      metric: "全链路留痕",
     },
     {
       icon: Wallet,
       title: "财富管理与投顾",
       value: "客户级报告批量生成",
-      body: "财富管理 Agent 结合资产配置技能输出客户报告,支持中文与多格式交付(Markdown / PDF),风险提示与免责声明模板化嵌入。",
+      body: "结合资产配置技能输出客户报告,风险提示与免责声明模板化嵌入。",
       metric: "Markdown / PDF 交付",
     },
     {
       icon: Zap,
       title: "个人研究者",
       value: "一个人的投研团队",
-      body: "免费直连数据源 + 交互式 CLI,零第三方付费数据库即可跑通全流程;从一只标的、一个日期开始,得到可追溯、可复盘的研究结论。",
+      body: "免费直连数据源 + 交互式 CLI,零付费数据库即可跑通全流程。",
       metric: "零付费数据依赖",
     },
   ];
@@ -1487,9 +1487,10 @@ function Scenarios() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           kicker="use cases"
-          title="在不同金融业务场景中的落地价值"
-          desc="灵活的数据源路由、可拓展的 Agent 角色体系与模块化技能编排,让同一套引擎适配券商研究、基金投研、量化交易、风控合规与财富管理。"
+          title="不同金融业务场景中的落地价值"
+          desc="同一套引擎,适配研究、投研、量化、风控与财富管理。"
         />
+
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {list.map((s) => (
             <div
