@@ -533,45 +533,44 @@ function Modules() {
   const modules = [
     {
       n: "01",
-      title: "34 个专业 Agent · 群体协同决策",
+      title: "34 个专业 Agent",
       sub: "Swarm Specialist Agents",
-      body: "7 核心 Analyst 覆盖行情、舆情、新闻、基本面、政策、资金流、解禁供给；11 个垂直插件 Agent 覆盖投行估值/LBO、私募 IC 备忘录、基金会计与 NAV 对账、KYC 合规、财富管理与跨资产数据伙伴。角色以工厂注册,可按任务自由裁剪阵容。",
-      tags: ["7 核心 + 11 垂直", "角色工厂可扩展", "并行取证"],
+      body: "7 个核心分析师 + 11 个垂直插件(投行估值、私募备忘录、基金会计、KYC 合规、财富管理等),角色以工厂注册,可按任务裁剪阵容。",
+      tags: ["7 核心 + 11 垂直", "可扩展角色工厂", "并行取证"],
     },
     {
       n: "02",
-      title: "184 个金融技能 · 模块化编排",
+      title: "184 个金融技能",
       sub: "Skill Orchestration",
-      body: "技能以 SKILL.md 形式沉淀(当前 184 个),启动时进入注册表,支持根级与 `domain:name` 领域级引用,由 build_skills_section() 注入 Agent 系统提示词 —— DCF、LBO、三表建模、尽调清单等方法论可按场景装配。",
-      tags: ["184 个 SKILL.md", "domain:name 领域引用", "提示词级注入"],
-
+      body: "技能以 SKILL.md 沉淀并进入注册表,按场景注入 Agent 提示词 —— DCF、LBO、三表建模、尽调清单等方法论即插即用。",
+      tags: ["184 个 SKILL.md", "领域级引用", "提示词级注入"],
     },
     {
       n: "03",
-      title: "多空 & 三方风险辩论 · 质量门控",
+      title: "辩论与质量门控",
       sub: "Debate & Risk Layer",
-      body: "Bull ↔ Bear 多空辩论收敛研究观点,Aggressive ↔ Conservative ↔ Neutral 三方风险辩论审议交易方案；两层质量门控(硬检查 A–F 分级 + LLM 复审)确保输入可信,交易记忆与延迟反思持续纠偏。",
-      tags: ["两层质量门控", "3 方风险辩论", "延迟反思复盘"],
+      body: "多空辩论收敛研究观点,三方风险辩论审议交易方案;两层质量门控确保输入可信,延迟反思持续纠偏。",
+      tags: ["两层质量门控", "3 方风险辩论", "延迟反思"],
     },
     {
       n: "04",
-      title: "结构化决策与多格式交付",
+      title: "结构化决策与交付",
       sub: "Structured Strategy Output",
-      body: "Research Manager → Trader → Portfolio Manager 全链路 Pydantic 结构化决策(ResearchPlan / TraderProposal / PortfolioDecision),输出 5 级信号、仓位建议与 Markdown / JSON / PDF 研究报告,全程可解释可审计。",
-      tags: ["5 级信号", "Pydantic 结构化", "Markdown / JSON / PDF"],
+      body: "研究经理 → 交易员 → 组合经理全链路类型化输出,给出 5 级评级、仓位建议与 Markdown / JSON / PDF 报告。",
+      tags: ["5 级评级", "类型安全输出", "多格式交付"],
     },
   ];
   const analysts = [
     { icon: LineChart, label: "市场分析师", key: "market", desc: "K 线 · 量价 · 技术指标" },
     { icon: MessageSquare, label: "舆情分析师", key: "social", desc: "社媒讨论 · 情绪热度" },
-    { icon: Newspaper, label: "新闻分析师", key: "news", desc: "个股/行业 · 全球事件 · 交易异动" },
+    { icon: Newspaper, label: "新闻分析师", key: "news", desc: "个股 · 行业 · 全球事件" },
     {
       icon: TrendingUp,
       label: "基本面分析师",
       key: "fundamentals",
       desc: "三表 · 估值 · 一致预期",
     },
-    { icon: Landmark, label: "政策分析师", key: "policy", desc: "监管 · 产业政策 · 宏观窗口" },
+    { icon: Landmark, label: "政策分析师", key: "policy", desc: "监管 · 产业政策 · 宏观" },
     { icon: Wallet, label: "游资追踪师", key: "hot_money", desc: "北向 · 资金流 · 龙虎榜" },
     { icon: Lock, label: "解禁监控师", key: "lockup", desc: "解禁 · 减持 · 供给冲击" },
   ];
@@ -581,8 +580,9 @@ function Modules() {
         <SectionHeading
           kicker="core modules"
           title="一群 AI 分析师,一份可解释报告"
-          desc="专职分工、辩论收敛、数据直连、结果可审计 — EconSwarm 把一支投研团队的工作方式,编排成可重复运行的多智能体流水线。"
+          desc="专职分工、辩论收敛、数据直连、结果留痕。"
         />
+
 
         <div className="mt-14 grid gap-5 lg:grid-cols-2">
           {modules.map((m) => (
