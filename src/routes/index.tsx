@@ -413,24 +413,24 @@ function Capabilities() {
       icon: Users,
       title: "多智能体协同决策",
       sub: "Collaborative Decisioning",
-      desc: "34 个专业 Agent 分工取证:7 核心 Analyst 覆盖行情、舆情、新闻、基本面、政策、资金流与解禁供给,11 个垂直插件覆盖投行估值、私募备忘录、基金会计、KYC 合规等专业域。经Research Manager 收敛后由 Trader 与 Portfolio Manager 输出结构化决策。",
-      points: ["7 核心 + 11 垂直插件", "Pydantic:ResearchPlan → TraderProposal → PortfolioDecision", "双 LLM:快思执行 + 深思综合"],
+      desc: "7 个核心分析师(行情、舆情、新闻、基本面、政策、资金流、解禁)加 11 个垂直插件并行取证,经研究经理收敛后由交易员与组合经理给出决策。",
+      points: ["7 核心 + 11 垂直插件", "研究计划 → 交易方案 → 组合决策", "双 LLM:快思执行 + 深思综合"],
       demo: [
-        "market · 技术面 → 均线多头,量能温和放大",
-        "fundamentals · 三表 → ROE 18.4%,现金流覆盖 1.7x",
-        "debate · Bull 3 : Bear 2 → 研究计划已收敛",
+        "market · 均线多头,量能温和放大",
+        "fundamentals · ROE 18.4%,现金流覆盖 1.7x",
+        "debate · Bull 3 : Bear 2 → 观点收敛",
       ],
     },
     {
       icon: Radar,
       title: "实时市场感知",
       sub: "Real-time Market Sensing",
-      desc: "Agent 不直连网络,统一通过 route_to_vendor() 路由到 9 个免费直连数据源(通达信 TCP、腾讯财经、东方财富 datacenter/push2、新浪、同花顺、财联社、百度股市通等),并可切换 yfinance / Alpha Vantage 接入国际市场。行情、财报、快讯、资金流、龙虎榜、限售解禁多路并行取数,单源失败自动 fallback;对话结果经 SSE 逐 token 流式返回,持久化任务通过 WebSocket 实时推送 12 阶段进度。",
-      points: ["9 直连数据源 + 2 国际 Vendor", "SSE 流式回复 + WebSocket 进度推送", "多市场:A 股 / 美股 / 港股 / FX / 商品"],
+      desc: "Agent 不直连网络,统一经 Vendor 路由取数,单源失败自动切换;结果以 SSE 逐 token 流式返回,长任务进度实时推送。",
+      points: ["9 直连数据源 + 国际 Vendor", "SSE 流式 + 实时进度", "股票 / 债券 / 外汇 / 商品"],
       demo: [
-        "vendor · a_stock → OHLCV / F10 / 财务快照",
-        "flow · 北向净流入 +12.4 亿,龙虎榜席位 3 家机构",
-        "stream · SSE token 推送中 · stage 3/12 news",
+        "vendor · a_stock → 行情 / 财务快照",
+        "flow · 北向净流入 +12.4 亿",
+        "stream · SSE 推送中 · stage 3/7",
       ],
     },
 
@@ -438,24 +438,24 @@ function Capabilities() {
       icon: Shield,
       title: "风险智能管控",
       sub: "Intelligent Risk Control",
-      desc: "两层质量门控先做把关:硬检查校验报告长度、失败标记、必采清单与汇总表格并给出 A–F 分级,失败项再交 LLM 逐条复审。随后 Aggressive ↔ Conservative ↔ Neutral 三方风险辩论审议交易方案,合规与解禁供给风险在决策前被显性暴露。",
-      points: ["Layer 1 硬检查 + Layer 2 LLM 复审", "三方风险辩论审议交易方案", "解禁 / 减持 / 合规风险持续扫描"],
+      desc: "两层质量门控先把关报告完整性并给出 A–F 分级,再由激进 / 保守 / 中性三方风险辩论审议交易方案。",
+      points: ["硬检查 + LLM 复审", "三方风险辩论", "解禁 / 减持 / 合规扫描"],
       demo: [
-        "gate · 7 份报告 → A 5 / B 2,无失败标记",
-        "risk · Conservative:6 个月内解禁 4.2% 流通盘",
-        "verdict · 仓位由 12% 下调至 7%",
+        "gate · 7 份报告 → A 5 / B 2",
+        "risk · 6 个月内解禁 4.2% 流通盘",
+        "verdict · 仓位 12% → 7%",
       ],
     },
     {
       icon: LineChart,
       title: "量化策略自动迭代",
       sub: "Strategy Auto-Iteration",
-      desc: "每次运行的决策以追加式 Markdown 写入交易记忆,配合沪深 300 基准做延迟反思:结果回灌下一轮提示词,持续修正策略偏差。每个标的独立 SQLite 断点,长任务可断可续,支持批量回溯与复盘。",
-      points: ["交易记忆 + 延迟反思(沪深 300 基准)", "每 ticker SQLite 断点恢复", "5 级信号 + 仓位建议 + Markdown/JSON/PDF"],
+      desc: "每次运行写入交易记忆,对照基准做延迟反思并回灌下一轮提示词;每个标的独立断点,长任务可断可续。",
+      points: ["交易记忆 + 延迟反思", "断点续跑", "5 级信号 + Markdown / JSON / PDF"],
       demo: [
-        "memory · 近 20 次决策命中率 62%,超额 +4.1%",
-        "reflect · 高估情绪权重 → 下调舆情置信度",
-        "signal · Overweight · 建议仓位 7% · 报告已导出",
+        "memory · 近 20 次命中率 62%",
+        "reflect · 下调舆情置信度",
+        "signal · Overweight · 仓位 7%",
       ],
     },
   ];
@@ -465,8 +465,9 @@ function Capabilities() {
         <SectionHeading
           kicker="core capabilities"
           title="群智能体金融引擎的四大核心能力"
-          desc="从多源感知到协同决策、风险管控与策略迭代 —— 一次运行就是一支投研团队完整的工作闭环,每一步都可解释、可审计、可复盘。"
+          desc="一次运行走完一支投研团队的完整闭环,每一步可解释、可审计、可复盘。"
         />
+
         <div className="mt-14 grid gap-5 lg:grid-cols-2">
           {cards.map((c, i) => (
             <div key={c.title} className="ds-card rounded-2xl p-8" style={{ animationDelay: `${i * 80}ms` }}>
