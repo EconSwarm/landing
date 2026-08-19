@@ -425,7 +425,7 @@ function Capabilities() {
       icon: Radar,
       title: "实时市场感知",
       sub: "Real-time Market Sensing",
-      desc: "Agent 不直连网络,统一经 Vendor 路由取数,单源失败自动切换;结果以 SSE 逐 token 流式返回,长任务进度实时推送。",
+      desc: "Agent 不直连网络,统一经 Vendor 路由取数,单源失败自动切换; 结果以 SSE 逐 token 流式返回, 长任务进度实时推送。",
       points: ["9 直连数据源 + 国际 Vendor", "SSE 流式 + 实时进度", "股票 / 债券 / 外汇 / 商品"],
       demo: [
         "vendor · a_stock → 行情 / 财务快照",
