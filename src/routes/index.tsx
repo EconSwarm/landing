@@ -1307,22 +1307,24 @@ function AgentGraph() {
 
 function Pipeline() {
   const steps = [
-    { label: "输入标的与日期", icon: FileText },
-    { label: "34 Agent 协同分析", icon: BrainCircuit },
-    { label: "两层质量门控", icon: Radar },
-    { label: "多空 & 风险辩论", icon: Scale },
-    { label: "交易与组合决策", icon: Activity },
-    { label: "5 级信号 + 报告", icon: ChartLine },
+    { label: "分析师层取证", icon: FileText },
+    { label: "质量门控", icon: Radar },
+    { label: "多空辩论", icon: MessagesSquare },
+    { label: "研究计划", icon: BrainCircuit },
+    { label: "交易方案", icon: Activity },
+    { label: "三方风控辩论", icon: Scale },
+    { label: "组合决策 + 报告", icon: ChartLine },
   ];
   return (
     <section id="pipeline" className="bg-section-alt py-24">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           kicker="pipeline"
-          title="分析主流程"
-          desc="从一只股票、一个日期开始,到 Buy / Hold / Sell 信号和一份中文投研报告,六步走完全流程。"
+          title="七层分析流水线"
+          desc="从一个标的、一个日期,到 5 级评级与一份中文投研报告。"
         />
-        <div className="mt-14 grid grid-cols-2 lg:grid-cols-6 gap-4">
+        <div className="mt-14 grid grid-cols-2 lg:grid-cols-7 gap-4">
+
           {steps.map((s, i) => {
             const Icon = s.icon;
             return (
