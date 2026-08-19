@@ -159,7 +159,7 @@ function Hero() {
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-              34 个专业 Agent、184 个金融技能,由 LangGraph 状态机编排成七层分析流水线:多源取数、质量门控、多空辩论、三方风控, 最终给出结构化决策。覆盖股票、债券、外汇与大宗商品。
+              34 个专业 Agent、184 个金融技能，由 LangGraph 状态机编排成七层分析流水线:多源取数、质量门控、多空辩论、三方风控, 最终给出结构化决策。覆盖股票、债券、外汇与大宗商品。
             </p>
 
 
@@ -402,7 +402,7 @@ function SectionHeading({ kicker, title, desc }: { kicker: string; title: string
       <h2 className="mt-4 text-3xl font-bold tracking-tight text-foreground text-balance lg:text-4xl">
         {title}
       </h2>
-      {desc && <p className="mt-4 text-base text-muted-foreground text-balance">{desc}</p>}
+      {desc && <p className="mt-4 text-base text-muted-foreground text-balance">一次运行走完一支投研团队的完整闭环，每一步可解释、可审计、可复盘。</p>}
     </div>
   );
 }
@@ -425,7 +425,7 @@ function Capabilities() {
       icon: Radar,
       title: "实时市场感知",
       sub: "Real-time Market Sensing",
-      desc: "Agent 不直连网络,统一经 Vendor 路由取数,单源失败自动切换; 结果以 SSE 逐 token 流式返回, 长任务进度实时推送。",
+      desc: "Agent 不直连网络, 统一经 Vendor 路由取数, 单源失败自动切换，结果以 SSE 逐 token 流式返回, 长任务进度实时推送。",
       points: ["9 直连数据源 + 国际 Vendor", "SSE 流式 + 实时进度", "股票 / 债券 / 外汇 / 商品"],
       demo: [
         "vendor · a_stock → 行情 / 财务快照",
@@ -1355,7 +1355,7 @@ function Technology() {
       icon: BrainCircuit,
       title: "群智能体架构",
       sub: "Swarm Architecture",
-      body: "LangGraph 状态机作为唯一编排内核, 单一图状态承载各类报告、辩论过程与最终决策;阶段可裁剪,断点可续跑。",
+      body: "不是给大模型套一层界面, 而是把投研 SOP 编排成状态机 —— 每一层都可独立替换。",
       tags: ["状态机编排", "七层流水线", "断点续跑"],
     },
     {
