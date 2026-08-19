@@ -159,8 +159,9 @@ function Hero() {
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-              EconSwarm 以 LangGraph 状态机调度 34 个专业 Agent 与 184 个金融技能,把投研 SOP 编排成 12 阶段自动化分析流水线:多源数据校验、多空辩论、三方风控评审与结构化最终决策 —— 面向股票、债券、外汇与大宗商品的多市场、多资产投研场景,输出专业、可解释、可审计的研究报告。
+              34 个专业 Agent、184 个金融技能,由 LangGraph 状态机编排成七层分析流水线:多源取数、质量门控、多空辩论、三方风控,最终给出结构化决策。覆盖股票、债券、外汇与大宗商品。
             </p>
+
 
             <div className="mt-6 flex flex-wrap gap-2">
               {["股票", "债券", "外汇", "大宗商品", "多市场 · 多资产"].map((t) => (
