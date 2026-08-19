@@ -1653,7 +1653,7 @@ function Pricing() {
         <SectionHeading
           kicker="pricing"
           title="按需选择你的投研团队"
-          desc="从个人研究到机构级私有部署,EconSwarm 提供覆盖不同场景的定价方案。"
+          desc="从个人研究到机构级私有部署, EconSwarm 提供覆盖不同场景的定价方案。"
         />
         <div className="mt-14 grid gap-5 lg:grid-cols-4">
           {plans.map((p) => (
