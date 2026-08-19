@@ -159,7 +159,7 @@ function Hero() {
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-              34 个专业 Agent、184 个金融技能,由 LangGraph 状态机编排成七层分析流水线:多源取数、质量门控、多空辩论、三方风控,最终给出结构化决策。覆盖股票、债券、外汇与大宗商品。
+              34 个专业 Agent、184 个金融技能,由 LangGraph 状态机编排成七层分析流水线:多源取数、质量门控、多空辩论、三方风控, 最终给出结构化决策。覆盖股票、债券、外汇与大宗商品。
             </p>
 
 
@@ -425,7 +425,7 @@ function Capabilities() {
       icon: Radar,
       title: "实时市场感知",
       sub: "Real-time Market Sensing",
-      desc: "Agent 不直连网络,统一经 Vendor 路由取数,单源失败自动切换;结果以 SSE 逐 token 流式返回,长任务进度实时推送。",
+      desc: "Agent 不直连网络,统一经 Vendor 路由取数,单源失败自动切换; 结果以 SSE 逐 token 流式返回, 长任务进度实时推送。",
       points: ["9 直连数据源 + 国际 Vendor", "SSE 流式 + 实时进度", "股票 / 债券 / 外汇 / 商品"],
       demo: [
         "vendor · a_stock → 行情 / 财务快照",
@@ -450,7 +450,7 @@ function Capabilities() {
       icon: LineChart,
       title: "记忆反思与持续进化",
       sub: "Memory & Reflection",
-      desc: "每轮研究写入向量化记忆库,复盘后回灌到下一轮提示词;任务按标的独立断点,长流程可中断可续跑。",
+      desc: "每轮研究写入向量化记忆库, 复盘后回灌到下一轮提示词;任务按标的独立断点, 长流程可中断可续跑。",
       points: ["向量记忆 + 延迟反思", "断点续跑 / 任务恢复", "结构化输出:Markdown / JSON / PDF"],
       demo: [
         "memory · 召回同类标的历史结论",
@@ -536,21 +536,21 @@ function Modules() {
       n: "01",
       title: "34 个专业 Agent",
       sub: "Swarm Specialist Agents",
-      body: "7 个核心分析师 + 11 个垂直插件(投行估值、私募备忘录、基金会计、KYC 合规、财富管理等),角色以工厂注册,可按任务裁剪阵容。",
+      body: "7 个核心分析师 + 11 个垂直插件(投行估值、私募备忘录、基金会计、KYC 合规、财富管理等), 角色以工厂注册,可按任务裁剪阵容。",
       tags: ["7 核心 + 11 垂直", "可扩展角色工厂", "并行取证"],
     },
     {
       n: "02",
       title: "184 个金融技能",
       sub: "Skill Orchestration",
-      body: "技能以 SKILL.md 沉淀并进入注册表,按场景注入 Agent 提示词 —— DCF、LBO、三表建模、尽调清单等方法论即插即用。",
+      body: "技能以 SKILL.md 沉淀并进入注册表, 按场景注入 Agent 提示词 —— DCF、LBO、三表建模、尽调清单等方法论即插即用。",
       tags: ["184 个 SKILL.md", "领域级引用", "提示词级注入"],
     },
     {
       n: "03",
       title: "辩论与质量门控",
       sub: "Debate & Risk Layer",
-      body: "多空辩论收敛研究观点,三方风险辩论审议交易方案;两层质量门控确保输入可信,延迟反思持续纠偏。",
+      body: "多空辩论收敛研究观点, 三方风险辩论审议交易方案;两层质量门控确保输入可信,延迟反思持续纠偏。",
       tags: ["两层质量门控", "3 方风险辩论", "延迟反思"],
     },
     {
@@ -658,7 +658,7 @@ function Principle() {
         <SectionHeading
           kicker="technical principle"
           title="多智能体协同的技术原理"
-          desc="从数据直连到 5 级信号,一次运行由四层结构化流水线协同完成 — 每一步都可审计、可复现、可复盘。"
+          desc="从数据直连到 5 级信号, 一次运行由四层结构化流水线协同完成 — 每一步都可审计、可复现、可复盘。"
         />
         <div className="mt-14 rounded-xl border border-border bg-surface-gradient p-6 lg:p-8 shadow-elevated scanline">
           <div className="grid gap-4 lg:grid-cols-4 relative">
@@ -1197,7 +1197,7 @@ function Workbench() {
         <SectionHeading
           kicker="workbench"
           title="工作台"
-          desc="左侧任务与 Agent 阵容,中间协作视图与分析产物,右侧模型、辩论轮次与运行控制 — 一屏跑完一次完整的群智能体投研。"
+          desc="左侧任务与 Agent 阵容, 中间协作视图与分析产物,右侧模型、辩论轮次与运行控制 — 一屏跑完一次完整的群智能体投研。"
         />
         <div className="mt-14 grid gap-8 lg:grid-cols-5">
           <div className="space-y-4 lg:col-span-2">
@@ -1322,7 +1322,7 @@ function Pipeline() {
         <SectionHeading
           kicker="pipeline"
           title="七层分析流水线"
-          desc="从一个标的、一个日期,到 5 级评级与一份中文投研报告。"
+          desc="从一个标的、一个日期, 到 5 级评级与一份中文投研报告。"
         />
         <div className="mt-14 grid grid-cols-2 lg:grid-cols-7 gap-4">
 
@@ -1355,14 +1355,14 @@ function Technology() {
       icon: BrainCircuit,
       title: "群智能体架构",
       sub: "Swarm Architecture",
-      body: "LangGraph 状态机作为唯一编排内核,单一图状态承载各类报告、辩论过程与最终决策;阶段可裁剪,断点可续跑。",
+      body: "LangGraph 状态机作为唯一编排内核, 单一图状态承载各类报告、辩论过程与最终决策;阶段可裁剪,断点可续跑。",
       tags: ["状态机编排", "七层流水线", "断点续跑"],
     },
     {
       icon: Database,
       title: "多源数据融合",
       sub: "Multi-source Fusion",
-      body: "Agent 只调用抽象工具,由 Vendor 路由分发到具体数据源;类别与工具级可分别配置,支持优先顺序与自动 fallback。",
+      body: "Agent 只调用抽象工具, 由 Vendor 路由分发到具体数据源;类别与工具级可分别配置,支持优先顺序与自动 fallback。",
       tags: ["9 直连源 + 国际 Vendor", "分级路由", "自动 fallback"],
     },
     {
@@ -1444,42 +1444,42 @@ function Scenarios() {
       icon: Landmark,
       title: "券商研究所",
       value: "深度报告提速",
-      body: "多路 Agent 并行取证并生成带汇总表格的初稿,分析师把时间投入观点而非拼数据。",
+      body: "多路 Agent 并行取证并生成带汇总表格的初稿, 分析师把时间投入观点而非拼数据。",
       metric: "初稿产出 · 小时级",
     },
     {
       icon: TrendingUp,
       title: "公募 / 私募投研",
       value: "多资产池持续跟踪",
-      body: "按标的池批量运行,输出 5 级评级与仓位建议,记忆与反思沉淀历史胜率。",
+      body: "按标的池批量运行, 输出 5 级评级与仓位建议,记忆与反思沉淀历史胜率。",
       metric: "5 级评级 + 仓位建议",
     },
     {
       icon: ChartLine,
       title: "量化交易团队",
       value: "信号自动迭代",
-      body: "Python API 嵌入研究流水线,结构化决策可机读入库,断点续跑支撑长周期回溯。",
+      body: "Python API 嵌入研究流水线, 结构化决策可机读入库,断点续跑支撑长周期回溯。",
       metric: "JSON 可直连回测",
     },
     {
       icon: Shield,
       title: "风险与合规",
       value: "敞口前置暴露",
-      body: "三方风险辩论叠加解禁监控与合规 Agent,把供给冲击与监管风险在决策前显性化。",
+      body: "三方风险辩论叠加解禁监控与合规 Agent, 把供给冲击与监管风险在决策前显性化。",
       metric: "全链路留痕",
     },
     {
       icon: Wallet,
       title: "财富管理与投顾",
       value: "客户级报告批量生成",
-      body: "结合资产配置技能输出客户报告,风险提示与免责声明模板化嵌入。",
+      body: "结合资产配置技能输出客户报告, 风险提示与免责声明模板化嵌入。",
       metric: "Markdown / PDF 交付",
     },
     {
       icon: Zap,
       title: "个人研究者",
       value: "一个人的投研团队",
-      body: "免费直连数据源 + 交互式 CLI,零付费数据库即可跑通全流程。",
+      body: "免费直连数据源 + 交互式 CLI, 零付费数据库即可跑通全流程。",
       metric: "零付费数据依赖",
     },
   ];
@@ -1653,7 +1653,7 @@ function Pricing() {
         <SectionHeading
           kicker="pricing"
           title="按需选择你的投研团队"
-          desc="从个人研究到机构级私有部署,EconSwarm 提供覆盖不同场景的定价方案。"
+          desc="从个人研究到机构级私有部署, EconSwarm 提供覆盖不同场景的定价方案。"
         />
         <div className="mt-14 grid gap-5 lg:grid-cols-4">
           {plans.map((p) => (
