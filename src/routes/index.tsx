@@ -1197,7 +1197,7 @@ function Workbench() {
         <SectionHeading
           kicker="workbench"
           title="工作台"
-          desc="左侧任务与 Agent 阵容,中间协作视图与分析产物,右侧模型、辩论轮次与运行控制 — 一屏跑完一次完整的群智能体投研。"
+          desc="左侧任务与 Agent 阵容, 中间协作视图与分析产物,右侧模型、辩论轮次与运行控制 — 一屏跑完一次完整的群智能体投研。"
         />
         <div className="mt-14 grid gap-8 lg:grid-cols-5">
           <div className="space-y-4 lg:col-span-2">
