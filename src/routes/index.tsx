@@ -1354,62 +1354,61 @@ function Technology() {
       icon: BrainCircuit,
       title: "群智能体架构",
       sub: "Swarm Architecture",
-      body: "LangGraph StateGraph 作为唯一编排内核:AgentState 单一图状态承载 7 个核心报告字段、插件报告字段、质量摘要、两套辩论状态与最终决策,统一沉淀为 12 阶段流水线(7 分析师 → 质量门控 → 多空辩论 → 交易决策 → 风控评估 → 最终决策)。chain_mode 可动态裁剪阶段,SQLite Checkpointer 提供每标的断点续跑。",
-      tags: ["StateGraph 编排", "12 阶段流水线", "断点续跑"],
-
+      body: "LangGraph 状态机作为唯一编排内核,单一图状态承载各类报告、辩论过程与最终决策;阶段可裁剪,断点可续跑。",
+      tags: ["状态机编排", "七层流水线", "断点续跑"],
     },
     {
       icon: Database,
-      title: "多源数据融合引擎",
+      title: "多源数据融合",
       sub: "Multi-source Fusion",
-      body: "Agent 只调用抽象 @tool,由 route_to_vendor() 依据 VENDOR_METHODS 注册表分发到具体实现:5 大工具类别可独立配置 Vendor,工具级配置覆盖类别级,逗号串定义优先顺序与 fallback(如 a_stock,yfinance)。核心引擎零第三方付费数据库依赖。",
-      tags: ["9 直连源 + 2 国际 Vendor", "类别 / 工具级路由", "自动 fallback"],
+      body: "Agent 只调用抽象工具,由 Vendor 路由分发到具体数据源;类别与工具级可分别配置,支持优先顺序与自动 fallback。",
+      tags: ["9 直连源 + 国际 Vendor", "分级路由", "自动 fallback"],
     },
     {
       icon: Gauge,
       title: "双 LLM 分层推理",
       sub: "Dual-LLM Reasoning",
-      body: "quick_think_llm 承担高频工具调用与分析师撰写,deep_think_llm 负责 Research Manager 与 Portfolio Manager 的全局综合判断。11+ 供应商开箱即用(DeepSeek / OpenAI / Anthropic / Google / Qwen / GLM / MiniMax / xAI / OpenRouter / Ollama / Moonshot,另支持 Azure)。",
-      tags: ["快思 + 深思分层", "11+ 供应商", "自定义兼容端点"],
+      body: "快思模型负责高频工具调用与分析师撰写,深思模型负责全局综合与最终决策,兼顾质量与成本。11+ 供应商开箱即用。",
+      tags: ["快思 + 深思", "11+ 供应商", "兼容自定义端点"],
     },
     {
       icon: Scale,
-      title: "质量门控与结构化决策",
+      title: "质量门控与类型化输出",
       sub: "Quality Gate & Typed Output",
-      body: "Layer 1 硬检查校验报告长度、失败标记、必采清单与汇总表格并给出 A–F 分级;Layer 2 在失败项 ≤3 时由 LLM 逐条复审以节省 token。决策链全程 with_structured_output + Pydantic 类型约束,产出可机读、可对接。",
-      tags: ["A–F 报告分级", "LLM 复审", "Pydantic 类型安全"],
+      body: "硬检查校验报告完整性并给出 A–F 分级,失败项交 LLM 复审;决策链全程类型约束,结果可机读、可对接。",
+      tags: ["A–F 分级", "LLM 复审", "类型安全"],
     },
     {
       icon: Activity,
       title: "记忆与延迟反思",
       sub: "Memory & Reflection",
-      body: "追加式 Markdown 决策日志记录每次运行结论,配合沪深 300 基准做延迟反思并回灌下一轮提示词;memory_log_max_entries 控制已解决条目上限,结果目录、缓存与记忆路径均可用环境变量覆盖。",
-      tags: ["交易记忆日志", "基准反思", "环境变量可配置"],
+      body: "决策日志记录每次运行结论,对照基准做延迟反思并回灌下一轮提示词,持续修正策略偏差。",
+      tags: ["交易记忆", "基准反思", "可配置"],
     },
     {
       icon: Star,
-      title: "可复用工作流编排",
+      title: "可复用工作流",
       sub: "Workflow Orchestration",
-      body: "工作流是可复用的流水线定义:从 19 个可选 Agent(7 核心 + 12 插件)与技能库中自由组合,指定 instrument / market / industry / topic 目标类型与输入契约,每次更新生成新版本可追溯。内置 4 个系统工作流,用户工作流支持保存、复用与团队共享。",
-      tags: ["19 个可选 Agent", "目标类型 + 输入契约", "版本化可追溯"],
+      body: "从 Agent 与技能库自由组合流水线,指定目标类型与输入契约,每次更新生成新版本,可复用与团队共享。",
+      tags: ["自由组合", "输入契约", "版本可追溯"],
     },
     {
       icon: Terminal,
       title: "三套接入方式",
       sub: "Python · CLI · Web",
-      body: "Python API 直接实例化 TradingGraph 嵌入既有系统;Typer + Rich 交互式 CLI 适合研究员单机跑批;React + FastAPI Web 工作台提供任务中心、时间线、报告导出与暂停 / 恢复 / 取消,后台以 daemon thread 或 Postgres Worker(FOR UPDATE SKIP LOCKED)持久化执行。",
-      tags: ["Python API", "交互式 CLI", "Web 工作台 + Worker"],
+      body: "Python API 嵌入既有系统,交互式 CLI 适合单机跑批,Web 工作台提供任务中心、时间线与报告导出。",
+      tags: ["Python API", "CLI", "Web 工作台"],
     },
-
   ];
   return (
     <section id="technology" className="bg-section-rise py-24">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           kicker="technology"
-          title="支撑群智能体金融引擎的七项核心技术"
-          desc="不是把一个大模型包一层界面 —— 而是把投研 SOP 编排成状态机:数据路由、角色分工、质量门控、类型化决策与记忆反思各自独立可替换。"
+          title="支撑引擎的七项核心技术"
+          desc="不是给大模型套一层界面,而是把投研 SOP 编排成状态机 —— 每一层都可独立替换。"
         />
+
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {items.map((t) => (
             <div key={t.title} className="ds-card rounded-2xl p-7">
