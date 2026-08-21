@@ -117,7 +117,7 @@ function Nav() {
             target="_blank"
             rel="noopener noreferrer"
             className="ds-btn ds-btn--brand ds-btn--lg"
-            href="https://app.econswarm.com"
+            href="https://stock-agent-rust.vercel.app"
           >
             查看示例 <ArrowRight className="h-3.5 w-3.5" />
           </a>
@@ -180,7 +180,7 @@ function Hero() {
                 启动分析 <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="https://app.econswarm.com"
+                href="https://stock-agent-rust.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ds-btn ds-btn--secondary ds-btn--xl px-8 h-[38px]! w-[100px]"
