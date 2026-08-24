@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as SolutionsEquityResearchRouteImport } from './routes/solutions.equity-research'
 import { Route as BlogSwarmVsSingleLlmComparisonRouteImport } from './routes/blog.swarm-vs-single-llm-comparison'
 import { Route as BlogLanggraphFinancialAgentsImplementationRouteImport } from './routes/blog.langgraph-financial-agents-implementation'
@@ -32,6 +33,11 @@ const McpRoute = McpRouteImport.update({
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SolutionsEquityResearchRoute = SolutionsEquityResearchRouteImport.update({
@@ -79,6 +85,7 @@ export interface FileRoutesByFullPath {
   '/blog/langgraph-financial-agents-implementation': typeof BlogLanggraphFinancialAgentsImplementationRoute
   '/blog/swarm-vs-single-llm-comparison': typeof BlogSwarmVsSingleLlmComparisonRoute
   '/solutions/equity-research': typeof SolutionsEquityResearchRoute
+  '/blog/': typeof BlogIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRoutesByTo {
@@ -90,6 +97,7 @@ export interface FileRoutesByTo {
   '/blog/langgraph-financial-agents-implementation': typeof BlogLanggraphFinancialAgentsImplementationRoute
   '/blog/swarm-vs-single-llm-comparison': typeof BlogSwarmVsSingleLlmComparisonRoute
   '/solutions/equity-research': typeof SolutionsEquityResearchRoute
+  '/blog': typeof BlogIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRoutesById {
@@ -102,6 +110,7 @@ export interface FileRoutesById {
   '/blog/langgraph-financial-agents-implementation': typeof BlogLanggraphFinancialAgentsImplementationRoute
   '/blog/swarm-vs-single-llm-comparison': typeof BlogSwarmVsSingleLlmComparisonRoute
   '/solutions/equity-research': typeof SolutionsEquityResearchRoute
+  '/blog/': typeof BlogIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRouteTypes {
@@ -115,6 +124,7 @@ export interface FileRouteTypes {
     | '/blog/langgraph-financial-agents-implementation'
     | '/blog/swarm-vs-single-llm-comparison'
     | '/solutions/equity-research'
+    | '/blog/'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -126,6 +136,7 @@ export interface FileRouteTypes {
     | '/blog/langgraph-financial-agents-implementation'
     | '/blog/swarm-vs-single-llm-comparison'
     | '/solutions/equity-research'
+    | '/blog'
     | '/.mcp/invoke-tool/$tool'
   id:
     | '__root__'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '/blog/langgraph-financial-agents-implementation'
     | '/blog/swarm-vs-single-llm-comparison'
     | '/solutions/equity-research'
+    | '/blog/'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesById: FileRoutesById
 }
@@ -149,6 +161,7 @@ export interface RootRouteChildren {
   BlogLanggraphFinancialAgentsImplementationRoute: typeof BlogLanggraphFinancialAgentsImplementationRoute
   BlogSwarmVsSingleLlmComparisonRoute: typeof BlogSwarmVsSingleLlmComparisonRoute
   SolutionsEquityResearchRoute: typeof SolutionsEquityResearchRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 
@@ -173,6 +186,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/solutions/equity-research': {
@@ -231,6 +251,7 @@ const rootRouteChildren: RootRouteChildren = {
     BlogLanggraphFinancialAgentsImplementationRoute,
   BlogSwarmVsSingleLlmComparisonRoute: BlogSwarmVsSingleLlmComparisonRoute,
   SolutionsEquityResearchRoute: SolutionsEquityResearchRoute,
+  BlogIndexRoute: BlogIndexRoute,
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
 }
 export const routeTree = rootRouteImport
