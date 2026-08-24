@@ -1757,6 +1757,7 @@ function Footer() {
     { label: "API 参考", href: "#" },
     { label: "示例报告", href: "#" },
     { label: "解决方案:股票投研", href: "/solutions/equity-research" },
+    { label: "博客首页", href: "/blog" },
     { label: "博客:群智能体 vs 单一 LLM", href: "/blog/swarm-vs-single-llm-comparison" },
     {
       label: "博客:LangGraph 金融多智能体",
