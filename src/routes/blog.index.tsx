@@ -117,7 +117,7 @@ function BlogIndex() {
               </div>
 
               <h2 className="mt-4 text-xl font-semibold leading-snug group-hover:text-primary">
-                <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+                <Link to={post.route}>{post.title}</Link>
               </h2>
 
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">
@@ -125,7 +125,7 @@ function BlogIndex() {
               </p>
 
               <Link
-                to={`/blog/${post.slug}`}
+                to={post.route}
                 className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
               >
                 阅读全文 <ArrowRight className="h-3.5 w-3.5" />
