@@ -1465,7 +1465,7 @@ function Scenarios() {
       icon: Shield,
       title: "风险与合规",
       value: "敞口前置暴露",
-      body: "三方风险辩论叠加解禁监控与合规 Agent, 把供给冲击与监管风险在决策前显性化。",
+      body: "三方风险辩论叠加解禁监控，把供给冲击与监管风险在决策前显性化。",
       metric: "全链路留痕",
     },
     {
