@@ -155,11 +155,11 @@ function Hero() {
             <h1 className="mt-6 text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight leading-[1.05]">
               群智能体<span className="text-gradient">金融引擎</span>
               <span className="block mt-2 text-3xl lg:text-4xl xl:text-5xl text-muted-foreground font-medium">
-                多智能体 · 多技能协同工作流, 赋能金融研究与决策
+                多智能体 · 多技能协同的金融研究运行时
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-              34 个专业 Agent、184 个金融技能，由 LangGraph 状态机编排成七层分析流水线:多源取数、质量门控、多空辩论、三方风控, 最终给出结构化决策。覆盖股票、债券、外汇与大宗商品。
+              34 个专业 Agent、184 个金融技能，由 LangGraph 状态机编排：取数、门控、辩论、风控，输出结构化决策。覆盖股票、债券、外汇与大宗商品。
             </p>
 
 
@@ -413,8 +413,8 @@ function Capabilities() {
       icon: Users,
       title: "多智能体协同决策",
       sub: "Collaborative Decisioning",
-      desc: "7 个核心分析师(行情、舆情、新闻、基本面、政策、资金流、解禁)加 11 个垂直插件并行取证,经研究经理收敛后由交易员与组合经理给出决策。",
-      points: ["7 核心 + 11 垂直插件", "研究计划 → 交易方案 → 组合决策", "双 LLM:快思执行 + 深思综合"],
+      desc: "7 位核心分析师与 11 个垂直插件并行取证，研究经理收敛观点，交易员与组合经理给出决策。",
+      points: ["7 核心 + 11 垂直插件", "研究计划 → 交易方案 → 组合决策", "双 LLM：快思执行 + 深思综合"],
       demo: [
         "market · 均线多头,量能温和放大",
         "fundamentals · ROE 18.4%,现金流覆盖 1.7x",
@@ -425,7 +425,7 @@ function Capabilities() {
       icon: Radar,
       title: "实时市场感知",
       sub: "Real-time Market Sensing",
-      desc: "Agent 不直连网络, 统一经 Vendor 路由取数, 单源失败自动切换，结果以 SSE 逐 token 流式返回, 长任务进度实时推送。",
+      desc: "Agent 不直连网络，统一经 Vendor 路由取数，单源失败自动切换，结果以 SSE 流式返回。",
       points: ["9 直连数据源 + 国际 Vendor", "SSE 流式 + 实时进度", "股票 / 债券 / 外汇 / 商品"],
       demo: [
         "vendor · a_stock → 行情 / 财务快照",
@@ -438,7 +438,7 @@ function Capabilities() {
       icon: Shield,
       title: "风险智能管控",
       sub: "Intelligent Risk Control",
-      desc: "两层质量门控先把关报告完整性并给出 A–F 分级,再由激进 / 保守 / 中性三方风险辩论审议交易方案。",
+      desc: "两层质量门控给报告打 A–F 分级，再由激进 / 保守 / 中性三方风险辩论审议交易方案。",
       points: ["硬检查 + LLM 复审", "三方风险辩论", "解禁 / 减持 / 合规扫描"],
       demo: [
         "gate · 7 份报告 → A 5 / B 2",
@@ -450,8 +450,8 @@ function Capabilities() {
       icon: LineChart,
       title: "记忆反思与持续进化",
       sub: "Memory & Reflection",
-      desc: "每轮研究写入向量化记忆库, 复盘后回灌到下一轮提示词;任务按标的独立断点, 长流程可中断可续跑。",
-      points: ["向量记忆 + 延迟反思", "断点续跑 / 任务恢复", "结构化输出:Markdown / JSON / PDF"],
+      desc: "每次运行写入决策日志，延迟反思对照基准纠偏；任务按标的独立断点，长流程可续跑。",
+      points: ["决策记忆 + 延迟反思", "断点续跑 / 任务恢复", "输出：Markdown / JSON / PDF"],
       demo: [
         "memory · 召回同类标的历史结论",
         "reflect · 修正舆情证据权重",
@@ -466,7 +466,7 @@ function Capabilities() {
         <SectionHeading
           kicker="core capabilities"
           title="群智能体金融引擎的四大核心能力"
-          desc="一次运行走完一支投研团队的完整闭环,每一步可解释、可审计、可复盘。"
+          desc="一次运行走完投研闭环，每一步可解释、可审计。"
         />
 
         <div className="mt-14 grid gap-5 lg:grid-cols-2">
@@ -536,28 +536,28 @@ function Modules() {
       n: "01",
       title: "34 个专业 Agent",
       sub: "Swarm Specialist Agents",
-      body: "7 个核心分析师 + 11 个垂直插件(投行估值、私募备忘录、基金会计、KYC 合规、财富管理等), 角色以工厂注册,可按任务裁剪阵容。",
+      body: "7 位核心分析师 + 11 个垂直插件（投行估值、私募备忘录、基金会计、KYC 合规、财富管理），阵容可按任务裁剪。",
       tags: ["7 核心 + 11 垂直", "可扩展角色工厂", "并行取证"],
     },
     {
       n: "02",
       title: "184 个金融技能",
       sub: "Skill Orchestration",
-      body: "技能以 SKILL.md 沉淀并进入注册表, 按场景注入 Agent 提示词 —— DCF、LBO、三表建模、尽调清单等方法论即插即用。",
+      body: "技能以 SKILL.md 沉淀进注册表，按场景注入提示词 —— DCF、LBO、三表建模、尽调清单即插即用。",
       tags: ["184 个 SKILL.md", "领域级引用", "提示词级注入"],
     },
     {
       n: "03",
       title: "辩论与质量门控",
       sub: "Debate & Risk Layer",
-      body: "多空辩论收敛研究观点, 三方风险辩论审议交易方案;两层质量门控确保输入可信,延迟反思持续纠偏。",
+      body: "多空辩论收敛观点，三方风险辩论审议方案；两层门控确保输入可信，反思持续纠偏。",
       tags: ["两层质量门控", "3 方风险辩论", "延迟反思"],
     },
     {
       n: "04",
       title: "结构化决策与交付",
       sub: "Structured Strategy Output",
-      body: "研究经理 → 交易员 → 组合经理全链路类型化输出,给出 5 级评级、仓位建议与 Markdown / JSON / PDF 报告。",
+      body: "研究经理 → 交易员 → 组合经理全链路 Pydantic 类型化，输出 5 级评级、仓位建议与多格式报告。",
       tags: ["5 级评级", "类型安全输出", "多格式交付"],
     },
   ];
@@ -581,7 +581,7 @@ function Modules() {
         <SectionHeading
           kicker="core modules"
           title="一群 AI 分析师,一份可解释报告"
-          desc="专职分工、辩论收敛、数据直连、结果留痕。"
+          desc="分工、辩论、取数、留痕，四步成稿。"
         />
 
 
@@ -1322,7 +1322,7 @@ function Pipeline() {
         <SectionHeading
           kicker="pipeline"
           title="七层分析流水线"
-          desc="从一个标的、一个日期, 到 5 级评级与一份中文投研报告。"
+          desc="输入标的与日期，输出 5 级评级与投研报告。"
         />
         <div className="mt-14 grid grid-cols-2 lg:grid-cols-7 gap-4">
 
@@ -1355,49 +1355,49 @@ function Technology() {
       icon: BrainCircuit,
       title: "群智能体架构",
       sub: "Swarm Architecture",
-      body: "不是给大模型套一层界面, 而是把投研 SOP 编排成状态机 —— 每一层都可独立替换。",
+      body: "把投研 SOP 编排成 LangGraph 状态机，每一层都可独立替换。",
       tags: ["状态机编排", "七层流水线", "断点续跑"],
     },
     {
       icon: Database,
       title: "多源数据融合",
       sub: "Multi-source Fusion",
-      body: "Agent 只调用抽象工具, 由 Vendor 路由分发到具体数据源;类别与工具级可分别配置,支持优先顺序与自动 fallback。",
+      body: "Agent 只调抽象工具，Vendor 路由分发到具体数据源；5 类工具可分别配置优先顺序与 fallback。",
       tags: ["9 直连源 + 国际 Vendor", "分级路由", "自动 fallback"],
     },
     {
       icon: Gauge,
       title: "双 LLM 分层推理",
       sub: "Dual-LLM Reasoning",
-      body: "快思模型负责高频工具调用与分析师撰写,深思模型负责全局综合与最终决策,兼顾质量与成本。11+ 供应商开箱即用。",
+      body: "快思模型跑高频工具调用，深思模型做综合与最终决策，兼顾质量与成本。11+ 供应商开箱即用。",
       tags: ["快思 + 深思", "11+ 供应商", "兼容自定义端点"],
     },
     {
       icon: Scale,
       title: "质量门控与类型化输出",
       sub: "Quality Gate & Typed Output",
-      body: "硬检查校验报告完整性并给出 A–F 分级,失败项交 LLM 复审;决策链全程类型约束,结果可机读、可对接。",
+      body: "硬检查给报告 A–F 分级，失败项交 LLM 复审；决策链全程类型约束，结果可机读。",
       tags: ["A–F 分级", "LLM 复审", "类型安全"],
     },
     {
       icon: Activity,
       title: "记忆与延迟反思",
       sub: "Memory & Reflection",
-      body: "决策日志记录每次运行结论,对照基准做延迟反思并回灌下一轮提示词,持续修正策略偏差。",
+      body: "决策日志留存每轮结论，对照沪深 300 做延迟反思，回灌下一轮提示词。",
       tags: ["交易记忆", "基准反思", "可配置"],
     },
     {
       icon: Star,
       title: "可复用工作流",
       sub: "Workflow Orchestration",
-      body: "从 Agent 与技能库自由组合流水线,指定目标类型与输入契约,每次更新生成新版本,可复用与团队共享。",
+      body: "自由组合 Agent 与技能，指定目标与输入契约，每次更新生成新版本，可复用共享。",
       tags: ["自由组合", "输入契约", "版本可追溯"],
     },
     {
       icon: Terminal,
       title: "三套接入方式",
       sub: "Python · CLI · Web",
-      body: "Python API 嵌入既有系统,交互式 CLI 适合单机跑批,Web 工作台提供任务中心、时间线与报告导出。",
+      body: "Python API 可嵌入系统，CLI 适合单机跑批，Web 工作台提供任务中心与报告导出。",
       tags: ["Python API", "CLI", "Web 工作台"],
     },
   ];
@@ -1407,7 +1407,7 @@ function Technology() {
         <SectionHeading
           kicker="technology"
           title="支撑引擎的七项核心技术"
-          desc="不是给大模型套一层界面,而是把投研 SOP 编排成状态机 —— 每一层都可独立替换。"
+          desc="不是给大模型套界面，而是把投研 SOP 编排成状态机。"
         />
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -1444,42 +1444,42 @@ function Scenarios() {
       icon: Landmark,
       title: "券商研究所",
       value: "深度报告提速",
-      body: "多路 Agent 并行取证并生成带汇总表格的初稿, 分析师把时间投入观点而非拼数据。",
+      body: "多路 Agent 并行取证生成带汇总表格的初稿，分析师专注观点。",
       metric: "初稿产出 · 小时级",
     },
     {
       icon: TrendingUp,
       title: "公募 / 私募投研",
       value: "多资产池持续跟踪",
-      body: "按标的池批量运行, 输出 5 级评级与仓位建议,记忆与反思沉淀历史胜率。",
+      body: "按标的池批量运行，输出评级与仓位建议，记忆反思沉淀历史胜率。",
       metric: "5 级评级 + 仓位建议",
     },
     {
       icon: ChartLine,
       title: "量化交易团队",
       value: "信号自动迭代",
-      body: "Python API 嵌入研究流水线, 结构化决策可机读入库,断点续跑支撑长周期回溯。",
+      body: "Python API 嵌入研究流水线，结构化决策可机读入库，断点续跑支撑长周期回溯。",
       metric: "JSON 可直连回测",
     },
     {
       icon: Shield,
       title: "风险与合规",
       value: "敞口前置暴露",
-      body: "三方风险辩论叠加解禁监控与合规 Agent, 把供给冲击与监管风险在决策前显性化。",
+      body: "三方风险辩论叠加解禁监控，把供给冲击与监管风险在决策前显性化。",
       metric: "全链路留痕",
     },
     {
       icon: Wallet,
       title: "财富管理与投顾",
       value: "客户级报告批量生成",
-      body: "结合资产配置技能输出客户报告, 风险提示与免责声明模板化嵌入。",
+      body: "结合资产配置技能输出客户报告，风险提示与免责声明模板化嵌入。",
       metric: "Markdown / PDF 交付",
     },
     {
       icon: Zap,
       title: "个人研究者",
       value: "一个人的投研团队",
-      body: "免费直连数据源 + 交互式 CLI, 零付费数据库即可跑通全流程。",
+      body: "9 个免费直连数据源 + 交互式 CLI，pip install 即可跑通全流程。",
       metric: "零付费数据依赖",
     },
   ];
@@ -1489,7 +1489,7 @@ function Scenarios() {
         <SectionHeading
           kicker="use cases"
           title="不同金融业务场景中的落地价值"
-          desc="同一套引擎,适配研究、投研、量化、风控与财富管理。"
+          desc="一套引擎，覆盖研究、投研、量化、风控与财富管理。"
         />
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
