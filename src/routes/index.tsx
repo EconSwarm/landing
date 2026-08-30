@@ -1383,7 +1383,7 @@ function Technology() {
       icon: Activity,
       title: "记忆与延迟反思",
       sub: "Memory & Reflection",
-      body: "决策日志记录每次运行结论,对照基准做延迟反思并回灌下一轮提示词,持续修正策略偏差。",
+      body: "决策日志留存每轮结论，对照沪深 300 做延迟反思，回灌下一轮提示词。",
       tags: ["交易记忆", "基准反思", "可配置"],
     },
     {
