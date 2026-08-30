@@ -450,8 +450,8 @@ function Capabilities() {
       icon: LineChart,
       title: "记忆反思与持续进化",
       sub: "Memory & Reflection",
-      desc: "每轮研究写入向量化记忆库, 复盘后回灌到下一轮提示词;任务按标的独立断点, 长流程可中断可续跑。",
-      points: ["向量记忆 + 延迟反思", "断点续跑 / 任务恢复", "结构化输出:Markdown / JSON / PDF"],
+      desc: "每次运行写入决策日志，延迟反思对照基准纠偏；任务按标的独立断点，长流程可续跑。",
+      points: ["决策记忆 + 延迟反思", "断点续跑 / 任务恢复", "输出：Markdown / JSON / PDF"],
       demo: [
         "memory · 召回同类标的历史结论",
         "reflect · 修正舆情证据权重",
