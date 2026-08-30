@@ -1397,7 +1397,7 @@ function Technology() {
       icon: Terminal,
       title: "三套接入方式",
       sub: "Python · CLI · Web",
-      body: "Python API 嵌入既有系统,交互式 CLI 适合单机跑批,Web 工作台提供任务中心、时间线与报告导出。",
+      body: "Python API 可嵌入系统，CLI 适合单机跑批，Web 工作台提供任务中心与报告导出。",
       tags: ["Python API", "CLI", "Web 工作台"],
     },
   ];
