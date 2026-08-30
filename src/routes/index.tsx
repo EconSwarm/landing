@@ -1355,7 +1355,7 @@ function Technology() {
       icon: BrainCircuit,
       title: "群智能体架构",
       sub: "Swarm Architecture",
-      body: "不是给大模型套一层界面, 而是把投研 SOP 编排成状态机 —— 每一层都可独立替换。",
+      body: "把投研 SOP 编排成 LangGraph 状态机，每一层都可独立替换。",
       tags: ["状态机编排", "七层流水线", "断点续跑"],
     },
     {
