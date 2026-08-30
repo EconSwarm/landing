@@ -1472,7 +1472,7 @@ function Scenarios() {
       icon: Wallet,
       title: "财富管理与投顾",
       value: "客户级报告批量生成",
-      body: "结合资产配置技能输出客户报告, 风险提示与免责声明模板化嵌入。",
+      body: "结合资产配置技能输出客户报告，风险提示与免责声明模板化嵌入。",
       metric: "Markdown / PDF 交付",
     },
     {
