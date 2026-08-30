@@ -543,7 +543,7 @@ function Modules() {
       n: "02",
       title: "184 个金融技能",
       sub: "Skill Orchestration",
-      body: "技能以 SKILL.md 沉淀并进入注册表, 按场景注入 Agent 提示词 —— DCF、LBO、三表建模、尽调清单等方法论即插即用。",
+      body: "技能以 SKILL.md 沉淀进注册表，按场景注入提示词 —— DCF、LBO、三表建模、尽调清单即插即用。",
       tags: ["184 个 SKILL.md", "领域级引用", "提示词级注入"],
     },
     {
