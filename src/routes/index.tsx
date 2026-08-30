@@ -155,7 +155,7 @@ function Hero() {
             <h1 className="mt-6 text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight leading-[1.05]">
               群智能体<span className="text-gradient">金融引擎</span>
               <span className="block mt-2 text-3xl lg:text-4xl xl:text-5xl text-muted-foreground font-medium">
-                多智能体 · 多技能协同工作流, 赋能金融研究与决策
+                多智能体 · 多技能协同的金融研究运行时
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
