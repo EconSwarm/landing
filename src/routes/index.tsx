@@ -581,7 +581,7 @@ function Modules() {
         <SectionHeading
           kicker="core modules"
           title="一群 AI 分析师,一份可解释报告"
-          desc="专职分工、辩论收敛、数据直连、结果留痕。"
+          desc="分工、辩论、取数、留痕，四步成稿。"
         />
 
 
