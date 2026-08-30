@@ -1407,7 +1407,7 @@ function Technology() {
         <SectionHeading
           kicker="technology"
           title="支撑引擎的七项核心技术"
-          desc="不是给大模型套一层界面,而是把投研 SOP 编排成状态机 —— 每一层都可独立替换。"
+          desc="不是给大模型套界面，而是把投研 SOP 编排成状态机。"
         />
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
