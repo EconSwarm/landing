@@ -1390,7 +1390,7 @@ function Technology() {
       icon: Star,
       title: "可复用工作流",
       sub: "Workflow Orchestration",
-      body: "从 Agent 与技能库自由组合流水线,指定目标类型与输入契约,每次更新生成新版本,可复用与团队共享。",
+      body: "自由组合 Agent 与技能，指定目标与输入契约，每次更新生成新版本，可复用共享。",
       tags: ["自由组合", "输入契约", "版本可追溯"],
     },
     {
