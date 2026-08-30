@@ -466,7 +466,7 @@ function Capabilities() {
         <SectionHeading
           kicker="core capabilities"
           title="群智能体金融引擎的四大核心能力"
-          desc="一次运行走完一支投研团队的完整闭环,每一步可解释、可审计、可复盘。"
+          desc="一次运行走完投研闭环，每一步可解释、可审计。"
         />
 
         <div className="mt-14 grid gap-5 lg:grid-cols-2">
