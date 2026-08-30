@@ -557,7 +557,7 @@ function Modules() {
       n: "04",
       title: "结构化决策与交付",
       sub: "Structured Strategy Output",
-      body: "研究经理 → 交易员 → 组合经理全链路类型化输出,给出 5 级评级、仓位建议与 Markdown / JSON / PDF 报告。",
+      body: "研究经理 → 交易员 → 组合经理全链路 Pydantic 类型化，输出 5 级评级、仓位建议与多格式报告。",
       tags: ["5 级评级", "类型安全输出", "多格式交付"],
     },
   ];
