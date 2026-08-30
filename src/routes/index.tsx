@@ -1322,7 +1322,7 @@ function Pipeline() {
         <SectionHeading
           kicker="pipeline"
           title="七层分析流水线"
-          desc="从一个标的、一个日期, 到 5 级评级与一份中文投研报告。"
+          desc="输入标的与日期，输出 5 级评级与投研报告。"
         />
         <div className="mt-14 grid grid-cols-2 lg:grid-cols-7 gap-4">
 
