@@ -1489,7 +1489,7 @@ function Scenarios() {
         <SectionHeading
           kicker="use cases"
           title="不同金融业务场景中的落地价值"
-          desc="同一套引擎,适配研究、投研、量化、风控与财富管理。"
+          desc="一套引擎，覆盖研究、投研、量化、风控与财富管理。"
         />
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
