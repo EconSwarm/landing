@@ -1362,7 +1362,7 @@ function Technology() {
       icon: Database,
       title: "多源数据融合",
       sub: "Multi-source Fusion",
-      body: "Agent 只调用抽象工具, 由 Vendor 路由分发到具体数据源;类别与工具级可分别配置,支持优先顺序与自动 fallback。",
+      body: "Agent 只调抽象工具，Vendor 路由分发到具体数据源；5 类工具可分别配置优先顺序与 fallback。",
       tags: ["9 直连源 + 国际 Vendor", "分级路由", "自动 fallback"],
     },
     {
