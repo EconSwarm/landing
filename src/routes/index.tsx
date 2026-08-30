@@ -438,7 +438,7 @@ function Capabilities() {
       icon: Shield,
       title: "风险智能管控",
       sub: "Intelligent Risk Control",
-      desc: "两层质量门控先把关报告完整性并给出 A–F 分级,再由激进 / 保守 / 中性三方风险辩论审议交易方案。",
+      desc: "两层质量门控给报告打 A–F 分级，再由激进 / 保守 / 中性三方风险辩论审议交易方案。",
       points: ["硬检查 + LLM 复审", "三方风险辩论", "解禁 / 减持 / 合规扫描"],
       demo: [
         "gate · 7 份报告 → A 5 / B 2",
