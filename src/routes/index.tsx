@@ -1458,7 +1458,7 @@ function Scenarios() {
       icon: ChartLine,
       title: "量化交易团队",
       value: "信号自动迭代",
-      body: "Python API 嵌入研究流水线, 结构化决策可机读入库,断点续跑支撑长周期回溯。",
+      body: "Python API 嵌入研究流水线，结构化决策可机读入库，断点续跑支撑长周期回溯。",
       metric: "JSON 可直连回测",
     },
     {
