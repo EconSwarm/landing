@@ -1376,7 +1376,7 @@ function Technology() {
       icon: Scale,
       title: "质量门控与类型化输出",
       sub: "Quality Gate & Typed Output",
-      body: "硬检查校验报告完整性并给出 A–F 分级,失败项交 LLM 复审;决策链全程类型约束,结果可机读、可对接。",
+      body: "硬检查给报告 A–F 分级，失败项交 LLM 复审；决策链全程类型约束，结果可机读。",
       tags: ["A–F 分级", "LLM 复审", "类型安全"],
     },
     {
