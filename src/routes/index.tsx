@@ -17,9 +17,7 @@ import {
   Lock,
   Radio,
   Github,
-  Twitter,
   Mail,
-  Linkedin,
   Menu,
   BrainCircuit,
   Workflow,
@@ -1718,20 +1716,23 @@ function CTA() {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ds-btn ds-btn--brand ds-btn--xl px-8 h-[38px]! w-[100px]"
+                className="ds-btn ds-btn--brand ds-btn--xl px-8 h-[38px]!"
                 href="https://app.econswarm.com"
               >
-                查看博客 <ArrowRight className="h-4 w-4" />
+                进入研究工作台 <ArrowRight className="h-4 w-4" />
               </a>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ds-btn ds-btn--secondary ds-btn--xl px-8 h-[38px]! w-[100px]"
-                href="https://app.econswarm.com"
+                className="ds-btn ds-btn--secondary ds-btn--xl px-8 h-[38px]!"
+                href="https://github.com/EconSwarm/econswarm"
               >
-                阅读文档
+                查看开源项目
               </a>
             </div>
+            <p className="mt-4 max-w-xl text-xs leading-relaxed text-muted-foreground">
+              风险提示：本产品仅供学习研究与信息分析参考，不构成任何投资建议。
+            </p>
           </div>
         </div>
       </div>
@@ -1748,9 +1749,9 @@ function Footer() {
     { label: "定价方案", href: "#pricing" },
   ];
   const resources = [
-    { label: "文档中心", href: "#" },
-    { label: "API 参考", href: "#" },
-    { label: "示例报告", href: "#" },
+    { label: "开源项目", href: "https://github.com/EconSwarm/econswarm" },
+    { label: "使用文档", href: "https://github.com/EconSwarm/econswarm#readme" },
+    { label: "更新日志", href: "https://github.com/EconSwarm/econswarm/blob/main/CHANGELOG.md" },
     { label: "解决方案:股票投研", href: "/solutions/equity-research" },
     { label: "博客首页", href: "/blog" },
     { label: "博客:群智能体 vs 单一 LLM", href: "/blog/swarm-vs-single-llm-comparison" },
@@ -1758,26 +1759,10 @@ function Footer() {
       label: "博客:LangGraph 金融多智能体",
       href: "/blog/langgraph-financial-agents-implementation",
     },
-    { label: "更新日志", href: "#" },
-    { label: "社区讨论", href: "#" },
-  ];
-  const company = [
-    { label: "关于我们", href: "#" },
-    { label: "加入团队", href: "#" },
-    { label: "联系我们", href: "#" },
-    { label: "媒体报道", href: "#" },
-  ];
-  const legal = [
-    { label: "隐私政策", href: "#" },
-    { label: "服务条款", href: "#" },
-    { label: "风险提示", href: "#" },
-    { label: "Cookie 设置", href: "#" },
   ];
   const socials = [
-    { icon: Github, label: "GitHub", href: "#" },
-    { icon: Twitter, label: "Twitter", href: "#" },
-    { icon: Linkedin, label: "LinkedIn", href: "#" },
-    { icon: Mail, label: "Email", href: "#" },
+    { icon: Github, label: "GitHub", href: "https://github.com/EconSwarm/econswarm" },
+    { icon: Mail, label: "Email", href: "mailto:contact@econswarm.com" },
   ];
 
   return (
@@ -1785,7 +1770,7 @@ function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <a href="#" className="flex items-center gap-2.5">
+            <a href="#top" className="flex items-center gap-2.5">
               <img src="/logo.png" alt="EconSwarm 群智能体金融引擎 Logo" className="h-9 w-auto object-contain" />
             </a>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
@@ -1798,6 +1783,7 @@ function Footer() {
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
+                  {...(s.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
                   className="grid h-9 w-9 place-items-center rounded-lg border border-subtle bg-surface text-muted-foreground transition-all duration-200 hover:border-primary/40 hover:text-primary hover:bg-surface-elevated"
                 >
                   <s.icon className="h-4 w-4" />
@@ -1815,6 +1801,7 @@ function Footer() {
                 <li key={l.label}>
                   <a
                     href={l.href}
+                    {...(l.href.startsWith("http") ? { target: "_blank", rel: "noreferrer" } : {})}
                     className="text-sm text-muted-foreground transition hover:text-primary"
                   >
                     {l.label}
@@ -1847,29 +1834,21 @@ function Footer() {
               公司
             </div>
             <ul className="mt-4 space-y-2.5">
-              {company.map((l) => (
-                <li key={l.label}>
-                  <a
-                    href={l.href}
-                    className="text-sm text-muted-foreground transition hover:text-primary"
-                  >
-                    {l.label}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a
+                  href="mailto:contact@econswarm.com"
+                  className="text-sm text-muted-foreground transition hover:text-primary"
+                >
+                  联系我们
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-subtle pt-8 text-xs text-muted-foreground sm:flex-row">
           <div className="font-mono">© 2026 EconSwarm. All rights reserved.</div>
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            {legal.map((l) => (
-              <a key={l.label} href={l.href} className="transition hover:text-foreground">
-                {l.label}
-              </a>
-            ))}
-          </div>
+          <div>仅供学习研究与信息分析参考，不构成任何投资建议。</div>
         </div>
       </div>
     </footer>
@@ -1878,7 +1857,7 @@ function Footer() {
 
 function Landing() {
   return (
-    <main>
+    <main id="top">
       <Nav />
       <Ticker />
       <Hero />
