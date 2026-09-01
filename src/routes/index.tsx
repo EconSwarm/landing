@@ -117,7 +117,7 @@ function Nav() {
             target="_blank"
             rel="noopener noreferrer"
             className="ds-btn ds-btn--brand ds-btn--lg"
-            href="https://stock-agent-rust.vercel.app"
+            href="https://app.econswarm.com/"
           >
             查看示例 <ArrowRight className="h-3.5 w-3.5" />
           </a>
@@ -150,21 +150,21 @@ function Hero() {
           <div className="lg:col-span-7 animate-float-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-mono text-primary">
               <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-dot" />
-              群智能体 · SWARM AGENTS
+              AI 投研团队
             </div>
             <h1 className="mt-6 text-5xl lg:text-6xl xl:text-7xl font-semibold tracking-tight leading-[1.05]">
-              群智能体<span className="text-gradient">金融引擎</span>
+              AI 团队，<span className="text-gradient">帮你看懂市场</span>
               <span className="block mt-2 text-3xl lg:text-4xl xl:text-5xl text-muted-foreground font-medium">
-                多智能体 · 多技能协同的金融研究运行时
+                从找资料到判断风险，一次完成
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-              34 个专业 Agent、184 个金融技能，由 LangGraph 状态机编排：取数、门控、辩论、风控，输出结构化决策。覆盖股票、债券、外汇与大宗商品。
+              输入股票、债券、外汇或商品，EconSwarm 会自动整理最新信息、分析数据、比较不同观点，最后给你一份有依据的研究报告。
             </p>
 
 
             <div className="mt-6 flex flex-wrap gap-2">
-              {["股票", "债券", "外汇", "大宗商品", "多市场 · 多资产"].map((t) => (
+              {["股票", "债券", "外汇", "大宗商品", "多个市场"].map((t) => (
                 <span key={t} className="ds-tag">
                   {t}
                 </span>
@@ -177,10 +177,10 @@ function Hero() {
                 rel="noopener noreferrer"
                 className="ds-btn ds-btn--brand ds-btn--xl px-8 h-[38px]! w-[100px]"
               >
-                启动分析 <ArrowRight className="h-4 w-4" />
+                开始分析 <ArrowRight className="h-4 w-4" />
               </a>
               <a
-                href="https://stock-agent-rust.vercel.app"
+                href="https://app.econswarm.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ds-btn ds-btn--secondary ds-btn--xl px-8 h-[38px]! w-[100px]"
@@ -190,10 +190,10 @@ function Hero() {
             </div>
             <dl className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl">
               {[
-                { k: "专业 Agent", v: "34" },
-                { k: "金融技能库", v: "184" },
-                { k: "分析流水线", v: "12 阶段" },
-                { k: "直连数据源", v: "9+" },
+                { k: "AI 助手", v: "34" },
+                { k: "分析能力", v: "184" },
+                { k: "分析步骤", v: "12 步" },
+                { k: "数据来源", v: "9+" },
               ].map((s) => (
 
                 <div key={s.k} className="hero-metric">
@@ -223,11 +223,11 @@ function TaskPanel() {
             <div className="h-2.5 w-2.5 rounded-full bg-muted-foreground/40" />
           </div>
           <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
-            Task · 300750 · 2026-05-12
+            分析任务 · 300750 · 2026-05-12
           </span>
           <span className="text-[10px] font-mono text-primary flex items-center gap-1">
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-dot" />
-            RUNNING
+            分析中
           </span>
         </div>
 
@@ -235,32 +235,32 @@ function TaskPanel() {
           <div className="grid grid-cols-2 gap-3">
             <MiniMetric
               icon={<BrainCircuit className="h-3.5 w-3.5 text-primary/70" />}
-              label="ACTIVE AGENTS"
+              label="AI 助手数量"
               value="34"
             />
             <MiniMetric
               icon={<Scale className="h-3.5 w-3.5 text-primary/70" />}
-              label="DEBATE ROUND"
-              value="2 / 3"
+              label="讨论轮次"
+              value="第 2 / 3 轮"
             />
             <MiniMetric
               icon={<Cpu className="h-3.5 w-3.5 text-primary/70" />}
-              label="TOOLS CALLED"
-              value="34"
+              label="已查阅资料"
+              value="34 项"
             />
             <MiniMetric
               icon={<Earth className="h-3.5 w-3.5 text-primary/70" />}
-              label="TARGET"
-              value="A · 300750"
+              label="分析对象"
+              value="A 股 · 300750"
             />
           </div>
 
           <div className="rounded-md border border-border/70 bg-background/60 p-3.5">
             <div className="flex items-center justify-between mb-2.5">
               <span className="text-xs font-mono text-muted-foreground">
-                PRICE PATH · 300750 · 20D
+                300750 · 近 20 日价格走势
               </span>
-              <span className="text-[10px] font-mono text-primary">4 views</span>
+              <span className="text-[10px] font-mono text-primary">4 种观点</span>
             </div>
             <svg viewBox="0 0 240 100" className="w-full h-24">
               <defs>
@@ -304,39 +304,39 @@ function TaskPanel() {
               />
             </svg>
             <div className="mt-2 grid grid-cols-4 gap-2 text-[10px] font-mono">
-              <LegendDot color="oklch(0.78 0.22 150)" label="Bull" />
-              <LegendDot color="oklch(0.65 0.22 25)" label="Bear" />
-              <LegendDot color="oklch(0.70 0.18 175)" label="Neutral" />
-              <LegendDot color="oklch(0.85 0.20 130)" label="Signal" />
+              <LegendDot color="oklch(0.78 0.22 150)" label="看多" />
+              <LegendDot color="oklch(0.65 0.22 25)" label="看空" />
+              <LegendDot color="oklch(0.70 0.18 175)" label="中性" />
+              <LegendDot color="oklch(0.85 0.20 130)" label="综合信号" />
             </div>
           </div>
 
           <div className="rounded-md border border-border/70 bg-background/60 p-3.5">
-            <div className="text-xs font-mono text-muted-foreground mb-2">AGENT EVENT STREAM</div>
+            <div className="text-xs font-mono text-muted-foreground mb-2">分析进展</div>
             <div className="space-y-1.5 font-mono text-[11px]">
               <EventRow
                 t="12:04:21"
-                tag="Policy"
+                tag="政策"
                 tagColor="text-primary"
                 msg="产业补贴延续 · 利好评级 +1"
               />
               <EventRow
                 t="12:04:24"
-                tag="HotMoney"
+                tag="资金"
                 tagColor="text-primary"
-                msg="北向资金净流入 3.2 亿"
+                msg="境外资金净流入 3.2 亿"
               />
               <EventRow
                 t="12:04:27"
-                tag="Fundamentals"
+                tag="基本面"
                 tagColor="text-primary"
-                msg="ROE 18.4% · 高于同业中位"
+                msg="净资产收益率 18.4% · 高于同行"
               />
               <EventRow
                 t="12:04:31"
-                tag="Bull↔Bear"
+                tag="多空讨论"
                 tagColor="text-primary"
-                msg="收敛观点：偏多，仓位 60%"
+                msg="综合判断：偏多，建议持仓 60%"
               />
             </div>
           </div>
@@ -609,7 +609,7 @@ function Modules() {
 
         <div className="mt-16">
           <div className="text-center font-mono text-[11px] tracking-widest text-primary">
-            7 核心 ANALYSTS · + 11 垂直 AGENT PLUGINS · = 34 ROLE SWARM
+            34 个角色：7 位核心分析师 + 11 个垂直插件 + 辩论、交易与组合决策角色
           </div>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
             {analysts.map((a, i) => (
@@ -1455,13 +1455,6 @@ function Scenarios() {
       metric: "5 级评级 + 仓位建议",
     },
     {
-      icon: ChartLine,
-      title: "量化交易团队",
-      value: "信号自动迭代",
-      body: "Python API 嵌入研究流水线，结构化决策可机读入库，断点续跑支撑长周期回溯。",
-      metric: "JSON 可直连回测",
-    },
-    {
       icon: Shield,
       title: "风险与合规",
       value: "敞口前置暴露",
@@ -1489,7 +1482,7 @@ function Scenarios() {
         <SectionHeading
           kicker="use cases"
           title="不同金融业务场景中的落地价值"
-          desc="一套引擎，覆盖研究、投研、量化、风控与财富管理。"
+          desc="一套引擎，覆盖研究、投研、风控与财富管理。"
         />
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -1582,66 +1575,68 @@ function Pricing() {
   const plans = [
     {
       name: "免费版",
-      en: "Free",
-      price: "$0",
-      per: "/ 月",
-      desc: "零门槛体验群智能体投研流程,适合初次尝试的用户。",
+      en: "",
+      price: "0",
+      per: "/月",
+      desc: "适合个人尝鲜体验",
       feats: [
-        "每日 2 次完整分析任务",
-        "7 位专职 Agent 并行分析",
-        "基础多空 & 风险辩论",
-        "A 股行情与基本面数据",
-        "在线查看中文投研报告",
+        "工作流分析任务：累计 100 次，每日限 20 次",
+        "研究工作台对话：累计 100 次，每日限 20 次",
+        "基础分析报告",
+        "社区支持",
       ],
-      cta: "免费开始",
+      cta: "当前套餐",
       href: "https://app.econswarm.com",
-    },
-    {
-      name: "入门版",
-      en: "Starter",
-      price: "$29",
-      per: "/ 月",
-      desc: "面向个人研究员与量化爱好者,日常研究场景够用。",
-      feats: [
-        "每日 20 次完整分析任务",
-        "标准多空 & 风险辩论",
-        "中文投研报告导出 (PDF / Markdown)",
-        "历史任务记忆保留 30 天",
-        "标准队列响应速度",
-      ],
-      cta: "选择入门版",
-      href: "https://app.econswarm.com",
+      current: true,
     },
     {
       name: "专业版",
-      en: "Pro",
-      price: "$299",
-      per: "/ 月",
-      desc: "面向深度研究者与专业投资者,解锁全部数据与更深推理。",
+      en: "",
+      price: "499",
+      per: "/月",
+      desc: "适合高频投研用户",
       feats: [
-        "不限次分析任务",
-        "深思模型 (Pro) 无限调用",
-        "多空辩论 3 轮 · 风险辩论 2 轮",
-        "资金流 / 龙虎榜 / 解禁数据",
-        "任务记忆与断点续跑",
-        "优先队列与更快响应",
+        "每月 500 次工作流分析任务",
+        "每月 2000 次研究工作台对话",
+        "34 个专业智能体全量使用",
+        "90+ 金融技能库",
+        "深度研究报告",
+        "优先技术支持",
       ],
-      cta: "升级到专业版",
+      cta: "升级套餐",
+      href: "https://app.econswarm.com",
+    },
+    {
+      name: "旗舰版",
+      en: "",
+      price: "999",
+      per: "/月",
+      desc: "适合专业投研团队",
+      feats: [
+        "每月 2000 次工作流分析任务",
+        "每月 10000 次研究工作台对话",
+        "34 个专业智能体全量使用",
+        "90+ 金融技能库",
+        "深度研究报告",
+        "API 访问与自定义集成",
+        "专属技术支持",
+      ],
+      cta: "升级套餐",
       href: "https://app.econswarm.com",
       featured: true,
     },
     {
-      name: "机构版",
-      en: "Enterprise",
-      price: "定制",
+      name: "企业版",
+      en: "",
+      price: "联系我们",
       per: "",
-      desc: "面向券商、公募、私募与银行研究团队的私有化部署方案。",
+      desc: "适合团队与企业",
       feats: [
-        "私有化 / VPC 部署",
-        "自定义 Agent 与工具链",
-        "多市场数据接入 (港股 / 美股 / 债券)",
-        "SSO 与团队权限管理",
-        "专属技术支持与 SLA",
+        "不限用量",
+        "专属客户成功经理",
+        "私有化部署支持",
+        "定制技能开发",
+        "SLA 服务保障",
       ],
       cta: "联系我们",
       href: "mailto:contact@econswarm.com?subject=EconSwarm 机构版咨询",
@@ -1665,9 +1660,9 @@ function Pricing() {
                   : "border-subtle bg-surface"
               }`}
             >
-              {p.featured && <span className="pricing-badge">推荐</span>}
+              {p.current && <span className="pricing-badge">当前套餐</span>}
               <div className="text-sm font-medium text-muted-foreground">{p.name}</div>
-              <div className="font-mono text-xs text-primary">{p.en}</div>
+              {p.en && <div className="font-mono text-xs text-primary">{p.en}</div>}
               <div className="mt-4 flex items-baseline gap-1">
                 <span className="text-3xl font-bold text-foreground">{p.price}</span>
                 <span className="text-sm text-muted-foreground">{p.per}</span>

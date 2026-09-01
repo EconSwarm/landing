@@ -2,9 +2,9 @@ import { defineTool } from "@lovable.dev/mcp-js";
 
 const OVERVIEW = {
   name: "EconSwarm",
-  tagline: "群智能体金融引擎 · Swarm Intelligence for Finance",
+  tagline: "群智能体金融引擎 · 多智能体多技能工作流",
   description:
-    "EconSwarm 是面向金融研究、投研分析与风险管理的多智能体(Swarm)引擎。通过宏观、行业、量化、风险、合规等专业 Agent 并行协作、辩论与裁判,输出可解释、可审计的研究结果。",
+    "EconSwarm 是面向金融研究与决策的群智能体金融引擎，整合 34 个专业 Agent、184 个金融技能、数据源路由和双 LLM 推理链，覆盖股票、债券、外汇与大宗商品等多市场、多资产研究任务。",
   site: "https://www.econswarm.com",
   sections: {
     capabilities: "https://www.econswarm.com/#capabilities",
