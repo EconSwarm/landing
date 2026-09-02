@@ -65,13 +65,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "EconSwarm 是一套通用群智能体金融引擎，整合 34 个专业 Agent 与 184 项金融技能，覆盖股票、债券、外汇与大宗商品的多市场投研与决策辅助场景。",
+          "EconSwarm 是面向 A 股研究的群智能体金融分析工具，整合 34 个专业 Agent 与 184 项研究方法，帮助用户整理资料、比较观点并生成可追溯的研究报告。",
       },
       { property: "og:title", content: "EconSwarm · 群智能体金融引擎" },
       {
         property: "og:description",
         content:
-          "EconSwarm 是一套通用群智能体金融引擎，整合 34 个专业 Agent 与 184 项金融技能，覆盖股票、债券、外汇与大宗商品的多市场投研与决策辅助场景。",
+          "EconSwarm 是面向 A 股研究的群智能体金融分析工具，整合 34 个专业 Agent 与 184 项研究方法，帮助用户整理资料、比较观点并生成可追溯的研究报告。",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "twitter:description",
         content:
-          "EconSwarm 是一套通用群智能体金融引擎，整合 34 个专业 Agent 与 184 项金融技能，覆盖股票、债券、外汇与大宗商品的多市场投研与决策辅助场景。",
+          "EconSwarm 是面向 A 股研究的群智能体金融分析工具，整合 34 个专业 Agent 与 184 项研究方法，帮助用户整理资料、比较观点并生成可追溯的研究报告。",
       },
       {
         property: "og:image",

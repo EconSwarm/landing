@@ -2,17 +2,17 @@ import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
 
 const CAPABILITIES = [
-  { name: "多智能体协同", detail: "34 个专业 Agent 覆盖技术面、基本面、新闻、政策、资金流、供给监控、辩论、交易与组合决策。" },
-  { name: "多技能编排", detail: "184 个金融技能可按研究目标组合，并支持用户创建自定义分析工作流。" },
-  { name: "结构化决策", detail: "ResearchPlan → TraderProposal → PortfolioDecision 全链路结构化输出，结果可追踪、可复用。" },
-  { name: "多数据源路由", detail: "按工具类别选择数据 Vendor，并支持数据源失败时自动切换。" },
+  { name: "多智能体协作", detail: "34 个专业 Agent 分别整理技术面、基本面、新闻、政策、资金流和供给等研究信息，并比较不同观点。" },
+  { name: "多方法组合", detail: "184 项研究方法可按目标组合，并支持用户创建自定义分析工作流。" },
+  { name: "可追溯报告", detail: "资料、观点和风险要点会汇总为结构化研究报告，方便复核与复用。" },
+  { name: "多数据来源", detail: "按任务从不同数据来源整理信息，并支持在来源不可用时切换备用来源。" },
 ];
 
 const MODULES = [
   { name: "市场与行情分析", detail: "分析价格走势、成交量、市场情绪和新闻事件。" },
   { name: "基本面与政策研究", detail: "研究财报、估值、行业变化和宏观产业政策。" },
   { name: "资金与供给监控", detail: "跟踪资金流向、龙虎榜、限售解禁和大股东减持。" },
-  { name: "辩论、风险与组合决策", detail: "通过多空辩论、风险审议和组合决策输出评级、仓位建议与研究报告。" },
+  { name: "观点比较与风险提示", detail: "通过不同观点对照和风险审议，输出研究结论、风险要点与研究报告，供用户自行判断。" },
 ];
 
 export default defineTool({

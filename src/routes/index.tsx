@@ -157,12 +157,12 @@ function Hero() {
               </span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-              输入股票、债券、外汇或商品，EconSwarm 会自动整理最新信息、分析数据、比较不同观点，最后给你一份有依据的研究报告。
+              输入 A 股代码与分析日期，EconSwarm 会自动整理市场、财务与新闻信息，比较不同观点，最后给你一份有依据的研究报告。
             </p>
 
 
             <div className="mt-6 flex flex-wrap gap-2">
-              {["股票", "债券", "外汇", "大宗商品", "多个市场"].map((t) => (
+              {["A 股研究", "市场信息", "财务数据", "风险提示", "研究报告"].map((t) => (
                 <span key={t} className="ds-tag">
                   {t}
                 </span>
@@ -221,7 +221,7 @@ function TaskPanel() {
             <div className="h-2.5 w-2.5 rounded-full bg-muted-foreground/40" />
           </div>
           <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest">
-            分析任务 · 300750 · 2026-05-12
+            界面示例 · 300750 · 2026-05-12
           </span>
           <span className="text-[10px] font-mono text-primary flex items-center gap-1">
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-dot" />
@@ -409,26 +409,26 @@ function Capabilities() {
   const cards = [
     {
       icon: Users,
-      title: "多智能体协同决策",
-      sub: "Collaborative Decisioning",
-      desc: "7 位核心分析师与 11 个垂直插件并行取证，研究经理收敛观点，交易员与组合经理给出决策。",
-      points: ["7 核心 + 11 垂直插件", "研究计划 → 交易方案 → 组合决策", "双 LLM：快思执行 + 深思综合"],
+      title: "多智能体协作研究",
+      sub: "Collaborative Research",
+      desc: "多位 AI 分别梳理市场、财务与新闻资料，再汇总不同观点和风险提示。",
+      points: ["多角色分工分析", "资料整理 → 观点比较 → 风险提示", "快速检索 + 综合分析"],
       demo: [
-        "market · 均线多头,量能温和放大",
-        "fundamentals · ROE 18.4%,现金流覆盖 1.7x",
-        "debate · Bull 3 : Bear 2 → 观点收敛",
+        "市场 · 价格与成交变化已整理",
+        "基本面 · 财务与经营数据待核验",
+        "观点 · 分歧与依据已列出",
       ],
     },
     {
       icon: Radar,
-      title: "实时市场感知",
-      sub: "Real-time Market Sensing",
-      desc: "Agent 不直连网络，统一经 Vendor 路由取数，单源失败自动切换，结果以 SSE 流式返回。",
-      points: ["9 直连数据源 + 国际 Vendor", "SSE 流式 + 实时进度", "股票 / 债券 / 外汇 / 商品"],
+      title: "多源信息整理",
+      sub: "Information Gathering",
+      desc: "系统按任务从多个来源整理行情、财务、新闻与政策信息，并显示分析进度。",
+      points: ["9+ 数据来源", "任务进度可见", "行情 / 财务 / 新闻 / 政策"],
       demo: [
-        "vendor · a_stock → 行情 / 财务快照",
-        "flow · 北向净流入 +12.4 亿",
-        "stream · SSE 推送中 · stage 3/7",
+        "资料 · 行情与财务信息已归集",
+        "新闻 · 相关事件已整理",
+        "进度 · 正在完成第 3 步",
       ],
     },
 
@@ -436,24 +436,24 @@ function Capabilities() {
       icon: Shield,
       title: "风险智能管控",
       sub: "Intelligent Risk Control",
-      desc: "两层质量门控给报告打 A–F 分级，再由激进 / 保守 / 中性三方风险辩论审议交易方案。",
-      points: ["硬检查 + LLM 复审", "三方风险辩论", "解禁 / 减持 / 合规扫描"],
+      desc: "资料会先检查完整性与时效性，再从多个角度梳理风险，供人工判断时参考。",
+      points: ["资料检查 + 复核", "多角度风险讨论", "解禁 / 减持 / 合规提示"],
       demo: [
-        "gate · 7 份报告 → A 5 / B 2",
-        "risk · 6 个月内解禁 4.2% 流通盘",
-        "verdict · 仓位 12% → 7%",
+        "检查 · 资料完整性已核验",
+        "风险 · 近期事项已标记",
+        "结论 · 建议人工复核",
       ],
     },
     {
       icon: LineChart,
       title: "记忆反思与持续进化",
       sub: "Memory & Reflection",
-      desc: "每次运行写入决策日志，延迟反思对照基准纠偏；任务按标的独立断点，长流程可续跑。",
-      points: ["决策记忆 + 延迟反思", "断点续跑 / 任务恢复", "输出：Markdown / JSON / PDF"],
+      desc: "每次分析都会保留过程记录；任务中断后可以继续，方便复盘和修改。",
+      points: ["过程记录", "任务恢复", "报告导出"],
       demo: [
-        "memory · 召回同类标的历史结论",
-        "reflect · 修正舆情证据权重",
-        "output · 结构化投研报告已生成",
+        "记录 · 可查看历史任务",
+        "复盘 · 可补充新的资料与观点",
+        "输出 · 研究报告已生成",
       ],
     },
 
@@ -491,7 +491,7 @@ function Capabilities() {
               <div className="mt-5 rounded-lg border border-border/70 bg-background/50 p-4">
                 <div className="mb-2 flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-primary/80">
                   <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse-dot" />
-                  场景演示 · live trace
+                  界面示例 · 非实时行情
                 </div>
                 <div className="space-y-1.5 font-mono text-[11px] leading-relaxed text-muted-foreground">
                   {c.demo.map((d) => (
@@ -506,9 +506,9 @@ function Capabilities() {
         </div>
         <div className="mt-10 grid gap-4 rounded-xl border border-border/70 bg-background/40 p-6 sm:grid-cols-3">
           {[
-            { icon: Star, k: "编排内核", v: "LangGraph StateGraph · 断点续跑" },
-            { icon: Cpu, k: "LLM 供应商", v: "11+ 家兼容 · 双 LLM 架构" },
-            { icon: Sparkles, k: "金融技能库", v: "184 SKILL.md · DCF / LBO / 三表" },
+            { icon: Star, k: "分析流程", v: "12 个步骤 · 中断后可继续" },
+            { icon: Cpu, k: "数据来源", v: "9+ 来源 · 按任务整理" },
+            { icon: Sparkles, k: "研究方法", v: "184 项 · 财务分析与尽调" },
           ].map((x) => (
             <div key={x.k} className="flex items-center gap-3">
               <div className="rounded-md border border-primary/30 bg-primary/10 p-2 text-primary">
@@ -541,8 +541,8 @@ function Modules() {
       n: "02",
       title: "184 个金融技能",
       sub: "Skill Orchestration",
-      body: "技能以 SKILL.md 沉淀进注册表，按场景注入提示词 —— DCF、LBO、三表建模、尽调清单即插即用。",
-      tags: ["184 个 SKILL.md", "领域级引用", "提示词级注入"],
+      body: "184 项分析方法按研究场景组合，覆盖财务分析、估值、三表建模与尽调清单等工作。",
+      tags: ["184 项研究方法", "按场景组合", "可复用"],
     },
     {
       n: "03",
@@ -553,10 +553,10 @@ function Modules() {
     },
     {
       n: "04",
-      title: "结构化决策与交付",
-      sub: "Structured Strategy Output",
-      body: "研究经理 → 交易员 → 组合经理全链路 Pydantic 类型化，输出 5 级评级、仓位建议与多格式报告。",
-      tags: ["5 级评级", "类型安全输出", "多格式交付"],
+      title: "研究交付与复核",
+      sub: "Structured Research Output",
+      body: "将资料、不同观点和风险要点汇总为可读报告，保留依据，方便团队复核与补充。",
+      tags: ["研究结论", "依据可追溯", "多格式报告"],
     },
   ];
   const analysts = [
@@ -607,7 +607,7 @@ function Modules() {
 
         <div className="mt-16">
           <div className="text-center font-mono text-[11px] tracking-widest text-primary">
-            34 个角色：7 位核心分析师 + 11 个垂直插件 + 辩论、交易与组合决策角色
+            34 个角色：7 位核心分析师 + 11 个垂直插件 + 辩论、风险与报告角色
           </div>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
             {analysts.map((a, i) => (
@@ -633,22 +633,22 @@ function Modules() {
 
 function Principle() {
   const nodes = [
-    { title: "数据层", sub: "Vendor Routing", icon: Database, n: "01" },
+    { title: "数据层", sub: "Data Sources", icon: Database, n: "01" },
     { title: "智能体层", sub: "34 Agent Swarm", icon: BrainCircuit, n: "02" },
     { title: "辩论与门控", sub: "Debate & Gate", icon: Scale, n: "03" },
-    { title: "决策与产物", sub: "Structured Output", icon: Target, n: "04" },
+    { title: "研究与产物", sub: "Structured Output", icon: Target, n: "04" },
   ];
   const layers = [
-    { items: ["9 个直连数据源", "a_stock / yfinance / alpha_vantage", "5 大工具类别路由"] },
-    { items: ["7 核心 Analyst 并行", "11 垂直插件 + 附加角色", "双 LLM · 快思 + 深思"] },
+    { items: ["9+ 数据来源", "行情 / 财务 / 新闻 / 政策", "按任务整理资料"] },
+    { items: ["7 位核心分析师并行", "11 个垂直插件 + 附加角色", "快速查询 + 深度分析"] },
     {
       items: [
-        "两层质量门控 (硬检查 + LLM 复审)",
-        "Bull ↔ Bear 多空辩论",
-        "Aggressive / Neutral / Conservative 风险辩论",
+        "资料完整性与时效性检查",
+        "不同观点对照",
+        "多角度风险复核",
       ],
     },
-    { items: ["Pydantic 结构化决策", "5 级信号 + 仓位建议", "中文投研报告 + 交易记忆反思"] },
+    { items: ["研究结论与风险要点", "依据可追溯", "中文研究报告与任务记录"] },
   ];
   return (
     <section id="principle" className="bg-section-deep py-24">
@@ -1187,7 +1187,7 @@ function Workbench() {
     { title: "任务中心", desc: "选股票、选日期、选 Agent 阵容" },
     { title: "数据直连", desc: "行情 · 财务 · 资金 · 新闻 · 政策" },
     { title: "协作视图", desc: "分析师网络 · 辩论轨迹 · 工具调用" },
-    { title: "决策产物", desc: "中文报告 · 交易信号 · 仓位建议" },
+    { title: "研究产物", desc: "中文报告 · 关键依据 · 风险要点" },
   ];
   return (
     <section id="workbench" className="bg-section-rise py-24">
@@ -1310,9 +1310,9 @@ function Pipeline() {
     { label: "质量门控", icon: Radar },
     { label: "多空辩论", icon: MessagesSquare },
     { label: "研究计划", icon: BrainCircuit },
-    { label: "交易方案", icon: Activity },
+    { label: "研究结论", icon: Activity },
     { label: "三方风控辩论", icon: Scale },
-    { label: "组合决策 + 报告", icon: ChartLine },
+    { label: "风险复核 + 报告", icon: ChartLine },
   ];
   return (
     <section id="pipeline" className="bg-section-alt py-24">
@@ -1320,7 +1320,7 @@ function Pipeline() {
         <SectionHeading
           kicker="pipeline"
           title="七层分析流水线"
-          desc="输入标的与日期，输出 5 级评级与投研报告。"
+          desc="输入标的与日期，输出带依据与风险要点的研究报告。"
         />
         <div className="mt-14 grid grid-cols-2 lg:grid-cols-7 gap-4">
 
@@ -1353,36 +1353,36 @@ function Technology() {
       icon: BrainCircuit,
       title: "群智能体架构",
       sub: "Swarm Architecture",
-      body: "把投研 SOP 编排成 LangGraph 状态机，每一层都可独立替换。",
-      tags: ["状态机编排", "七层流水线", "断点续跑"],
+      body: "把一套研究流程拆成清晰步骤，方便团队查看进度、复用流程与继续未完成任务。",
+      tags: ["清晰流程", "七层流水线", "任务恢复"],
     },
     {
       icon: Database,
       title: "多源数据融合",
       sub: "Multi-source Fusion",
-      body: "Agent 只调抽象工具，Vendor 路由分发到具体数据源；5 类工具可分别配置优先顺序与 fallback。",
-      tags: ["9 直连源 + 国际 Vendor", "分级路由", "自动 fallback"],
+      body: "按任务从多个数据来源整理信息；当某个来源不可用时，可切换到备用来源。",
+      tags: ["9+ 数据来源", "按任务选择", "备用来源"],
     },
     {
       icon: Gauge,
-      title: "双 LLM 分层推理",
-      sub: "Dual-LLM Reasoning",
-      body: "快思模型跑高频工具调用，深思模型做综合与最终决策，兼顾质量与成本。11+ 供应商开箱即用。",
-      tags: ["快思 + 深思", "11+ 供应商", "兼容自定义端点"],
+      title: "分层 AI 分析",
+      sub: "Layered AI Analysis",
+      body: "不同分析环节采用适合的模型：快速完成资料整理，再综合生成研究结论。",
+      tags: ["资料整理", "综合分析", "可配置模型"],
     },
     {
       icon: Scale,
-      title: "质量门控与类型化输出",
-      sub: "Quality Gate & Typed Output",
-      body: "硬检查给报告 A–F 分级，失败项交 LLM 复审；决策链全程类型约束，结果可机读。",
-      tags: ["A–F 分级", "LLM 复审", "类型安全"],
+      title: "资料核验与报告输出",
+      sub: "Quality Check & Report",
+      body: "先检查资料是否缺失、过期或互相矛盾，再将分析过程整理为可复核的报告。",
+      tags: ["资料检查", "风险提示", "可复核"],
     },
     {
       icon: Activity,
       title: "记忆与延迟反思",
       sub: "Memory & Reflection",
-      body: "决策日志留存每轮结论，对照沪深 300 做延迟反思，回灌下一轮提示词。",
-      tags: ["交易记忆", "基准反思", "可配置"],
+      body: "任务记录保留每轮的资料、观点与结论，方便团队回看、补充和调整。",
+      tags: ["任务记录", "复盘", "可配置"],
     },
     {
       icon: Star,
@@ -1405,7 +1405,7 @@ function Technology() {
         <SectionHeading
           kicker="technology"
           title="支撑引擎的七项核心技术"
-          desc="不是给大模型套界面，而是把投研 SOP 编排成状态机。"
+      desc="把研究工作拆成清晰步骤，让资料、观点和风险提示都可追溯。"
         />
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -1449,8 +1449,8 @@ function Scenarios() {
       icon: TrendingUp,
       title: "公募 / 私募投研",
       value: "多资产池持续跟踪",
-      body: "按标的池批量运行，输出评级与仓位建议，记忆反思沉淀历史胜率。",
-      metric: "5 级评级 + 仓位建议",
+      body: "按标的池批量运行，汇总研究结论与风险要点，便于团队持续跟踪和季度复盘。",
+      metric: "研究记录 + 风险要点",
     },
     {
       icon: Shield,
@@ -1470,8 +1470,8 @@ function Scenarios() {
       icon: Zap,
       title: "个人研究者",
       value: "一个人的投研团队",
-      body: "9 个免费直连数据源 + 交互式 CLI，pip install 即可跑通全流程。",
-      metric: "零付费数据依赖",
+      body: "通过工作台完成资料整理、观点比较与报告生成，适合个人研究者快速开始。",
+      metric: "研究报告 + 任务记录",
     },
   ];
   return (
@@ -1519,7 +1519,7 @@ function Roadmap() {
   const items = [
     {
       title: "更多金融类别",
-      desc: "在 A 股基础上扩展宏观、港股、美股、债券、商品与 FX，通过 Vendor 路由无缝接入新市场数据。",
+      desc: "当前以 A 股研究为核心，后续将逐步扩展宏观、港股、美股、债券、商品与外汇等研究场景。",
       icon: Earth,
     },
     {
@@ -1709,7 +1709,7 @@ function CTA() {
             </h2>
             <p className="mt-4 max-w-xl text-muted-foreground">
               输入股票代码与分析日期，EconSwarm 会调度一支专职 AI
-              团队完成分析、辩论与风险审议，返回一份可解释的中文投研报告与交易信号。
+              团队完成分析、观点比较与风险审议，返回一份可解释的中文研究报告与风险要点。
             </p>
             <Gauge className="hidden" />
             <div className="mt-8 flex flex-wrap gap-3">
@@ -1775,7 +1775,7 @@ function Footer() {
             </a>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               通用群智能体金融分析框架。让一支可配置、可扩展、可审计的 AI
-              分析师团队，替你完成从数据抓取到交易信号的全流程投研工作。
+              分析师团队，替你完成从资料整理到研究报告的投研工作。
             </p>
             <div className="mt-6 flex items-center gap-3">
               {socials.map((s) => (

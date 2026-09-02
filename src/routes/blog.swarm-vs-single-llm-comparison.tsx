@@ -4,9 +4,9 @@ const CANONICAL = "https://www.econswarm.com/blog/swarm-vs-single-llm-comparison
 const TITLE = "群智能体 vs 单一 LLM：谁在金融分析中更胜一筹？| EconSwarm";
 const SOCIAL_TITLE = "群智能体 vs 单一 LLM：谁在金融分析中更胜一筹？";
 const DESCRIPTION =
-  "一个 LLM 会幻觉,一群 Agent 会辩论。从准确率、可解释性、成本到合规,5 个维度拆解多智能体 Swarm 与单一大模型在投研与风控中的真实差距,附选型对照表。";
+  "从资料整理、可追溯性、成本到风险复核，比较多智能体与单一大模型在金融研究工作流中的适用场景，附选型对照表。";
 const SOCIAL_DESCRIPTION =
-  "🧠 一个 LLM vs 一群专家 Agent —— 在投研、风控、合规场景下到底差多少?5 个维度 + 对照表,3 分钟读懂 Swarm 架构为什么能把关键事实召回率提升 20%+。";
+  "在金融研究与风险复核场景中，多智能体和单一大模型各适合什么任务？本文从五个维度给出选型参考。";
 const OG_IMAGE = "https://www.econswarm.com/og/swarm-vs-single-llm.jpg";
 
 export const Route = createFileRoute("/blog/swarm-vs-single-llm-comparison")({
@@ -152,7 +152,7 @@ function BlogPost() {
           </p>
           <p className="mt-3">
             这也是 EconSwarm 采用<strong>群智能体(Swarm)</strong>
-            的原因:把宏观、行业、量化、风险、合规拆成 独立的 Agent,由编排层调度、辩论、投票,再由汇总
+            的原因:把宏观、行业、基本面、风险、合规拆成独立的 Agent,由编排层调度、比较不同观点,再由汇总
             Agent 生成可交付结果。
           </p>
 
@@ -178,9 +178,7 @@ function BlogPost() {
           <p className="mt-3">
             在需要多源交叉验证的任务里——例如"给出某上市公司近一季度的核心风险"——单一 LLM 常见问题是
             <em>遗漏事实</em>和<em>过度自信</em>。群智能体通过让"看多方"与"看空方"分别举证,再由裁判
-            Agent 结合数据检索
-            打分,能显著降低幻觉。内部基准显示,在结构化投研问答上,群体投票相较单模型可以把关键事实召回率
-            提升 20% 以上,同时错误陈述被抓出的概率明显更高。
+            Agent 结合数据检索打分。这样的流程能帮助团队发现资料缺漏和观点分歧；实际效果仍取决于数据质量、模型配置和人工复核。
           </p>
 
           <h2 id="explainability" className="mt-12 text-xl font-semibold">
@@ -200,8 +198,8 @@ function BlogPost() {
             群智能体不是免费的:并行调用多个模型意味着 token 消耗更高,编排也更复杂。但在实际系统里,
             我们通过<strong>分层模型策略</strong>缓解:低阶 Agent 用轻量模型跑候选,汇总/裁判 Agent
             才用高阶模型。
-            对复杂投研任务,单一大模型往往需要更长上下文和多轮重试,综合成本反而更高;而对"写一句话摘要"
-            这种轻任务,单一 LLM 仍是最经济的选择。
+            对复杂研究任务，是否值得使用多智能体，需要结合资料规模、时效要求和预算评估；而对"写一句话摘要"
+            这类轻任务，单一 LLM 往往更直接。
           </p>
 
           <h2 id="compliance" className="mt-12 text-xl font-semibold">
@@ -228,12 +226,12 @@ function BlogPost() {
               <tbody className="divide-y divide-subtle">
                 {[
                   ["架构", "单点推理", "多 Agent 编排"],
-                  ["准确率", "中等,易幻觉", "高,交叉验证"],
-                  ["可解释性", "弱,黑盒长文本", "强,分角色留痕"],
+                  ["资料核验", "需自行补充校验", "可安排多角色交叉核验"],
+                  ["可追溯性", "通常集中在单次输出", "可按角色保留过程记录"],
                   ["延迟", "低", "中(可并行优化)"],
-                  ["成本", "轻任务更低", "复杂任务更优"],
-                  ["合规", "难以稳定拦截", "独立合规 Agent"],
-                  ["适用场景", "摘要 / 问答 / 写作", "投研 / 风控 / 决策"],
+                  ["成本", "轻任务通常更低", "需按任务规模评估"],
+                  ["风险复核", "依赖提示词与人工检查", "可设置独立的复核环节"],
+                  ["适用场景", "摘要 / 问答 / 写作", "多源研究 / 风险复核 / 报告初稿"],
                 ].map(([k, a, b]) => (
                   <tr key={k}>
                     <td className="px-4 py-3 font-medium">{k}</td>
@@ -251,11 +249,14 @@ function BlogPost() {
           <p className="mt-3">
             如果你的任务是<strong>轻量、单轮、对可解释性要求低</strong>——继续用单一 LLM,
             简单直接、成本最低。如果任务涉及<strong>多源信息、跨角色判断、可审计输出</strong>——
-            例如投研报告、风险预警、合规审阅——群智能体几乎是唯一稳定可扩展的方案。
+            例如投研报告、风险预警、合规审阅——多智能体工作流值得作为一种可复用的实现方式评估。
           </p>
           <p className="mt-3">
-            EconSwarm 提供开箱即用的金融群智能体引擎:内置宏观 / 行业 / 量化 / 风险 / 合规 Agent,
-            可对接你的数据源与工具,以工作流形式沉淀你的投研 SOP。
+            EconSwarm 提供面向 A 股研究的群智能体工作流:通过宏观、行业、基本面、风险与合规等角色整理资料、比较观点，
+            以工作流形式沉淀团队的研究方法。
+          </p>
+          <p className="mt-5 rounded-lg border border-subtle bg-section-deep/40 px-4 py-3 text-sm text-muted-foreground">
+            风险提示：本文仅供学习研究与信息分析参考，不构成任何投资建议。
           </p>
 
           <div className="mt-10 rounded-xl border border-subtle bg-section-deep/60 p-6">
@@ -291,7 +292,7 @@ function BlogPost() {
               </li>
               <li>
                 <Link to="/" hash="modules" className="hover:text-primary">
-                  四大核心模块:宏观 / 行业 / 量化 / 风险
+                  四大核心模块:市场 / 基本面 / 政策 / 风险
                 </Link>
               </li>
               <li>

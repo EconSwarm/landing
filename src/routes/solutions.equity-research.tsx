@@ -28,7 +28,7 @@ export const Route = createFileRoute("/solutions/equity-research")({
             {
               "@type": "Service",
               name: "EconSwarm 股票投研解决方案",
-              serviceType: "AI 股票投研 / 自动化投资分析",
+              serviceType: "AI 股票研究 / 自动化研究辅助",
               description: DESCRIPTION,
               provider: { "@type": "Organization", name: "EconSwarm", url: "https://www.econswarm.com" },
               areaServed: "CN",
@@ -77,8 +77,8 @@ const WORKFLOW = [
   },
   {
     stage: "06 — 决策与交付",
-    title: "结构化决策 + 可读报告",
-    body: "Trader 与 Portfolio Manager 输出 5 级信号与仓位建议，同时生成 Markdown / PDF 初稿，全过程留痕可审计。",
+    title: "结构化研究 + 可读报告",
+    body: "系统汇总研究结论、依据与风险要点，并生成 Markdown / PDF 初稿；全过程留痕，方便团队复核。",
   },
 ];
 
@@ -90,13 +90,13 @@ const TEAMS = [
   },
   {
     who: "公募 / 私募资管",
-    intent: "多资产池持续跟踪与季度复盘",
-    body: "按标的池批量运行同一工作流，输出信号与仓位建议；交易记忆与基准反思沉淀历史胜率，支撑组合再平衡讨论。",
+    intent: "标的池持续跟踪与季度复盘",
+    body: "按标的池批量运行同一工作流，汇总研究结论与风险要点；任务记录方便团队进行复盘和后续讨论。",
   },
   {
-    who: "量化与数据团队",
+    who: "数据与研究团队",
     intent: "把研究结论变成机读输入",
-    body: "Python API 直接嵌入现有研究流水线，结构化决策对象可入库；断点续跑支撑长周期回溯与批量重算。",
+    body: "Python API 可嵌入现有研究流水线，结构化研究结果可入库；任务恢复支持长周期回溯与批量重算。",
   },
 ];
 
@@ -107,7 +107,7 @@ const FAQ = [
   },
   {
     q: "需要采购第三方付费数据库吗？",
-    a: "不必须。引擎默认使用 9+ 直连数据源即可跑通全流程；如已有内部数据仓或行情终端，可通过数据源路由接入替换默认 Vendor。",
+    a: "不必须。引擎默认使用 9+ 数据来源即可完成研究流程；如已有内部数据仓或行情终端，也可接入作为补充来源。",
   },
   {
     q: "输出结果如何审计？",
@@ -150,6 +150,9 @@ function EquityResearchPage() {
           EconSwarm 把一支投研团队的分工映射成 34 个专业 Agent 与 184 项金融技能，
           依托 12 阶段自动化流水线完成取证、校验、收敛与风险审议 ——
           让券商研究所与资管投研团队用小时级的时间拿到可解释、可审计的研究初稿。
+        </p>
+        <p className="mt-4 max-w-3xl text-xs leading-relaxed text-muted-foreground">
+          风险提示：本方案仅供学习研究与信息分析参考，不构成任何投资建议。
         </p>
 
         <dl className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
