@@ -1716,7 +1716,7 @@ function CTA() {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ds-btn ds-btn--brand ds-btn--xl px-8 min-w-[180px] h-[38px]!"
+                className="ds-btn ds-btn--brand ds-btn--xl px-8 min-w-[140px] h-[38px]!"
                 href="https://app.econswarm.com"
               >
                 进入研究工作台 <ArrowRight className="h-4 w-4" />
@@ -1724,7 +1724,7 @@ function CTA() {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                className="ds-btn ds-btn--secondary ds-btn--xl px-8 min-w-[180px] h-[38px]!"
+                className="ds-btn ds-btn--secondary ds-btn--xl px-8 min-w-[140px] h-[38px]!"
                 href="https://github.com/EconSwarm/econswarm"
               >
                 查看开源项目
