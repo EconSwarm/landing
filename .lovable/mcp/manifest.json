@@ -31,7 +31,7 @@
       {
         "name": "get_capabilities",
         "title": "获取核心能力与模块",
-        "description": "返回 EconSwarm 的四项核心能力和四大 Agent 模块,用于介绍产品。",
+        "description": "返回 EconSwarm 的四项核心能力和四类分析模块，用于介绍产品。",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
@@ -57,7 +57,7 @@
       {
         "name": "get_pricing",
         "title": "获取 EconSwarm 定价方案",
-        "description": "返回 EconSwarm 的四档订阅方案(Explorer / Analyst / Team / Enterprise)、价格与适用人群。",
+        "description": "返回 EconSwarm 的四档订阅方案（免费版 / 专业版 / 旗舰版 / 企业版）、价格与适用人群。",
         "annotations": {
           "readOnlyHint": true,
           "idempotentHint": true,
